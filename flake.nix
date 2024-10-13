@@ -11,6 +11,9 @@
 		url = "github:nix-community/home-manager";
 		inputs.nixpkgs.follows = "nixpkgs";
 	};
+
+	# TODO: add zen-browser to system packages
+	zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
