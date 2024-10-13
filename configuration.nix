@@ -68,6 +68,7 @@
   environment.systemPackages = with pkgs; [
 	git
 	wget
+	tmux
 	gtk3
 	neovim	
 	curl
