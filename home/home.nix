@@ -24,6 +24,7 @@
 		userName = "Anthony";
 		userEmail = "42196548+Sheeplet1@users.noreply.github.com";
 		extraConfig = {
+			pull.rebase = true;
 			init.defaultBranch = "main";
 		};
 	};
@@ -32,23 +33,23 @@
 		enable = true;
 		settings = {
 			env.TERM = "xterm-256color";
+			# Hack for VM
+			env.LIBGL_ALWAYS_SOFTWARE = "1";
 			font = {
-				size = 18;
+				# size = 12;
 				# draw_bold_text_with_bright_colors = true;
 			};
 			selection.save_to_clipboard = true;
 		};
 	};
 
-	programs.foot = {
-		enable = true;
-	};
+	# In case Alacritty does not launch, swap to foot
+	# programs.foot = {
+	# 	enable = true;
+	# };
 
 	programs.zsh = {
 		enable = true;
-		sessionVariables = {
-			LIBGL_ALWAYS_SOFTWARE = 1;
-		};
 	};
 
 	wayland.windowManager.hyprland = {
@@ -56,7 +57,7 @@
 		settings = {
 			"$mod" = "SUPER";
 			bind = [
-				"$mod, F, exec, foot"
+				"$mod, RETURN, exec, alacritty"
 				"$mod, Q, killactive"
 				"$mod, M, exit"
 				"$mod, left, movefocus, l"
