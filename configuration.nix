@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "anthonyd"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -41,6 +41,8 @@
     LC_TELEPHONE = "en_AU.UTF-8";
     LC_TIME = "en_AU.UTF-8";
   };
+
+  users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.anthony = {
@@ -72,7 +74,6 @@
 	ripgrep
 	alacritty
 	foot
-	# kitty
 	waybar
 	eww
 	mako # notification daemon
@@ -96,8 +97,7 @@
 	XDG_SESSION_TYPE = "wayland";
 	XDG_CURRENT_DESKTOP = "Hyprland";
 	XDG_SESSION_DESKTOP = "Hyprland";
-	KITTY_DISABLE_WAYLAND=1;
-	LIBGL_ALWAYS_SOFTWARE="1";
+	XDG_CONFIG_HOME = "$HOME/.config";
   };
 
 
@@ -127,14 +127,12 @@
   };
 
   programs = {
-	#  	sway = {
-	# 	enable = true;
-	# 	wrapperFeatures.gtk = true;
-	# };
 	ssh.startAgent= true;
+
 	zsh = {
 		enable = true;
 	};
+
 	hyprland = {
 		enable = true;
 		xwayland = {
