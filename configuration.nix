@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware/macos-vm/hardware-configuration.nix
-      ./modules/vmware-guest.nix
+      ./hardware/vmware-guest.nix
       inputs.home-manager.nixosModules.default
     ];
 
