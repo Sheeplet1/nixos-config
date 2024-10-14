@@ -73,6 +73,7 @@
   	tree
 	git
 	gcc
+	go
 	clang
 	wget
 	tmux
