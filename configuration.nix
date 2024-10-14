@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "anthonyd"; # Define your hostname.
+  networking.hostName = "anthony_nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -62,10 +62,15 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.nixPath = [ 
+	"nixos-config=${config.users.users.anthony.home}/nix/configuration.nix"
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  nix.settings.experimental-features = ["nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
+  	tree
 	git
 	wget
 	tmux

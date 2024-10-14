@@ -19,6 +19,8 @@
 		tree
 	];
 
+	programs.tmux = (import ./tmux.nix { inherit pkgs; });
+
 	programs.git = {
 		enable = true;
 		userName = "Anthony";
