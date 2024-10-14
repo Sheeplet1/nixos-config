@@ -21,29 +21,14 @@
 
 	programs.tmux = (import ./tmux.nix { inherit pkgs; });
     programs.git = (import ./git.nix { inherit pkgs; });
-
-	programs.alacritty = {
-		enable = true;
-		settings = {
-			env.TERM = "xterm-256color";
-			# Hack for VM
-			env.LIBGL_ALWAYS_SOFTWARE = "1";
-			font = {
-				# size = 12;
-				# draw_bold_text_with_bright_colors = true;
-			};
-			selection.save_to_clipboard = true;
-		};
-	};
+    programs.alacritty = (import ./alacritty.nix { inherit pkgs; });
+	programs.zsh = (import ./zsh.nix { inherit pkgs; });
 
 	# In case Alacritty does not launch, swap to foot
 	# programs.foot = {
 	# 	enable = true;
 	# };
 
-	programs.zsh = {
-		enable = true;
-	};
 
 	wayland.windowManager.hyprland = {
 		enable = true;
