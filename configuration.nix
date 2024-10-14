@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware/macos-vm/hardware-configuration.nix
+      ./modules/vmware-guest.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -182,7 +183,21 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
+  disabledModules = [ "virtualisation/vmware-guest.nix" ];
   virtualisation.vmware.guest.enable = true;
+
+  fileSystems."/host" = {
+	fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
+	device = ".host:/";
+	options = [
+		"umask=22"
+		"uid=1000"
+		"gid=1000"
+		"allow_other"
+		"auto_unmount"
+		"defaults"
+	];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
