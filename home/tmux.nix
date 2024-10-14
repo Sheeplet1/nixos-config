@@ -22,7 +22,7 @@ in
 			extraConfig = ''
 				set -g @minimal-tmux-justify "left"
 				set -g @minimal-tmux-indicator false
-			''
+			'';
 		}
 	];
 

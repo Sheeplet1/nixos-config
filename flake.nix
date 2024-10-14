@@ -15,7 +15,6 @@
 	# TODO: add zen-browser to system packages
 	zen-browser.url = "github:MarceColl/zen-browser-flake";
 
-	# TODO: Add to config
 	minimal-tmux = {
 		url = "github:niksingh710/minimal-tmux-status";
 		inputs.nixpkgs.follows = "nixpkgs";

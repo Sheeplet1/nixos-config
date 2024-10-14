@@ -56,7 +56,7 @@
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-    	stow
+	open-vm-tools
     ];
   };
 
@@ -93,6 +93,7 @@
 	ripgrep
 	rofi-wayland
 	slurp
+	stow
 	swww
 	tmux
   	tree
@@ -102,6 +103,7 @@
 	xdg-desktop-portal
 	xdg-desktop-portal-gtk
 	xdg-utils
+	# inputs.zen-browser.packages."${pkgs.system}".default
   ];
 
   environment.sessionVariables = {
@@ -179,6 +181,8 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
+
+  virtualisation.vmware.guest.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
