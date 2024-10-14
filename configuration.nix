@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware/macos-vm/hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -59,6 +60,10 @@
     ];
   };
 
+  home-manager = {
+	extraSpecialArgs = { inherit inputs; };
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -70,33 +75,33 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  	tree
-	git
-	gcc
-	go
-	clang
-	wget
-	tmux
-	gtk3
-	neovim	
-	curl
-	ripgrep
-	alacritty
 	# foot
-	waybar
+	alacritty
+	clang
+	curl
 	eww
-	mako # notification daemon
-	libnotify
-	swww
-	rofi-wayland
-	xdg-utils
-	xdg-desktop-portal-gtk
-	xdg-desktop-portal
-	wl-clipboard
+	gcc
+	git
+	go
 	grim
-	slurp
+	gtk3
+	libnotify
+	mako # notification daemon
+	neovim	
 	qt5.qtwayland
 	qt6.qtwayland
+	ripgrep
+	rofi-wayland
+	slurp
+	swww
+	tmux
+  	tree
+	waybar
+	wget
+	wl-clipboard
+	xdg-desktop-portal
+	xdg-desktop-portal-gtk
+	xdg-utils
   ];
 
   environment.sessionVariables = {

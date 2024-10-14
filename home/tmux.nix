@@ -1,15 +1,15 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
-	
-
 in
 {
 	enable = true;
 	baseIndex = 1;
 	disableConfirmationPrompt = true;
 	keyMode = "vi";
-	newSession = true;
 	terminal = "screen-256color";
+	escapeTime = 10;
+	newSession = true;
+	prefix = "C-a";
 
 	plugins = with pkgs.tmuxPlugins; [
 		vim-tmux-navigator
@@ -17,10 +17,16 @@ in
 		resurrect
 		copycat
 		continuum
+		{ 
+			plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
+			extraConfig = ''
+				set -g @minimal-tmux-justify "left"
+				set -g @minimal-tmux-indicator false
+			''
+		}
 	];
 
 	extraConfig = ''
-	set -g escape-time 10
 	set -g mouse on
 	set -g status-interval 5
 
@@ -41,11 +47,6 @@ in
 	set -g renumber-windows on
 
 	################################# key rebinds ##################################
-
-	# Prefix rebind
-	unbind C-b
-	set -g prefix C-a
-
 	# Pane selections
 	bind h select-pane -L
 	bind j select-pane -D

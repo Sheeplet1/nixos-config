@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
 	programs.home-manager.enable = true;
@@ -19,10 +19,11 @@
 		tree
 	];
 
-	programs.tmux = (import ./tmux.nix { inherit pkgs; });
+	programs.tmux = (import ./tmux.nix { inherit inputs pkgs; });
     programs.git = (import ./git.nix { inherit pkgs; });
     programs.alacritty = (import ./alacritty.nix { inherit pkgs; });
 	programs.zsh = (import ./zsh.nix { inherit pkgs; });
+    programs.zoxide = (import ./zoxide.nix { inherit pkgs; });
 
 	# In case Alacritty does not launch, swap to foot
 	# programs.foot = {

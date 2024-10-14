@@ -9,7 +9,11 @@
         gaa = "git add --all";
         gc = "git commit -m";
         gd = "git diff";
+        c = "clear";
+        ls = "ls --color";
+        vim = "nvim";
     };
+    # TODO: Add completion styling with fzf
     initExtra = ''
         [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
     '';

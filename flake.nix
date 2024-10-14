@@ -25,8 +25,11 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
 	nixosConfigurations.anthony = nixpkgs.lib.nixosSystem{
 		system = "aarch64-linux";
+		specialArgs = { inherit inputs; };
 		modules = [
 			./configuration.nix
+
+			inputs.home-manager.nixosModules.default
 
 			home-manager.nixosModules.home-manager {
 				home-manager.useGlobalPkgs = true;
