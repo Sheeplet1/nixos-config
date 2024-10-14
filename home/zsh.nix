@@ -9,6 +9,7 @@
         gaa = "git add --all";
         gc = "git commit -m";
         gd = "git diff";
+        gp = "git push";
         c = "clear";
         ls = "ls --color";
         vim = "nvim";
