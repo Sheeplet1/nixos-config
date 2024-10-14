@@ -2,13 +2,36 @@
 {
 	enable = true;
 	settings = {
-		env.TERM = "xterm-256color";
-		# Hack for VM
-		env.LIBGL_ALWAYS_SOFTWARE = "1";
-		font = {
-			# size = 12;
-			# draw_bold_text_with_bright_colors = true;
-		};
+        env = {
+            TERM = "xterm-256color";
+            # Hack for VM
+            LIBGL_ALWAYS_SOFTWARE = "1";
+        };
+
+        window = {
+            padding = { x = 4; y = 8; };
+            decorations = "full";
+            dynamic_title = true;
+            title = "Alacritty";
+        };
+
+        cursor = {
+            style = "Block";
+        };
+        
+
+        font = let iosevka = style: {
+            family = "Iosevka Nerd Font";
+            inherit style;
+        }; in {
+            normal = iosevka "Regular";
+            bold = iosevka "Bold";
+            italic = iosevka "Italic";
+            bold_italic = iosevka "Bold Italic";
+        };
+
 		selection.save_to_clipboard = true;
+
+        live_config_reload = true;
 	};
 }
