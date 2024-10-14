@@ -10,6 +10,7 @@ in
 	escapeTime = 10;
 	newSession = true;
 	prefix = "C-a";
+    shell = "${pkgs.zsh}/bin/zsh";
 
 	plugins = with pkgs.tmuxPlugins; [
 		vim-tmux-navigator

@@ -19,6 +19,10 @@
         cursor = {
             style = "Block";
         };
+
+        shell = {
+            program = "${pkgs.zsh}/bin/zsh";
+        };
         
 
         font = let iosevka = style: {
