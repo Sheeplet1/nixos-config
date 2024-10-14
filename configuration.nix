@@ -16,7 +16,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "anthony_nixos"; # Define your hostname.
+  # Enable aarm64 to use x86_64 packages since they most will still work.
+  boot.binfmt.emulatedSystems = ["x86_64-linux"];
+
+  # VMWare only supports this as "0", otherwise you will see "error switching
+  # console mode" on boot
+  boot.loader.systemd-boot.consoleMode = "0";
+
+  networking.hostName = "dev"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -67,11 +74,20 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupportedSystem = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-  nix.nixPath = [ 
-	"nixos-config=${config.users.users.anthony.home}/nix/configuration.nix"
-  ];
+  nix = {
+    settings = {
+        auto-optimise-store = true;
+        experimental-features = ["nix-command" "flakes"];
+    };
+    gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 7d";
+    };
+    nixPath = ["nixos-config=${config.users.users.anthony.home}/nix/configuration.nix"];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -131,9 +147,11 @@
   # };
 
   hardware = {
-	graphics = {
-		enable = true;
-	};
+	graphics.enable = true;
+    logitech.wireless = {
+        enable = true;
+        enableGraphical = true;
+    };
   };
 
   xdg = {
@@ -156,10 +174,18 @@
 
 	hyprland = {
 		enable = true;
-		xwayland = {
-			enable = true;
-		};
+		xwayland.enable = true;
 	};
+
+    waybar.enable = true;
+    thunar.enable = true;
+    thunar.plugins = with pkgs.xfce; [
+        exo
+        mousepad
+        thunar-archive-plugin
+        thunar-volman
+        tumbler
+    ];
   };
 
   # List services that you want to enable:
@@ -168,7 +194,22 @@
   services = {
 	openssh.enable = true;
 
-	displayManager.sddm.enable = true;
+    greetd = {
+        enable = true;
+        vt = 3;
+        settings = {
+            default_session = {
+                user = "anthony";
+                # Starting "Hyprland" with TUI login manager
+                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+            };
+        };
+    };
+
+    # displayManager.sddm = {
+    #     enable = true;
+    #     wayland.enable = true;
+    # };
 
 	xserver = {
 		enable = true;
@@ -183,6 +224,8 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
+  # TODO: Trying to sync clipboard between host and guest - to move this into 
+  # separate config file
   disabledModules = [ "virtualisation/vmware-guest.nix" ];
   virtualisation.vmware.guest.enable = true;
 
