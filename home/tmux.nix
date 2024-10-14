@@ -14,6 +14,9 @@ in
 	plugins = with pkgs.tmuxPlugins; [
 		vim-tmux-navigator
 		yank
+		resurrect
+		copycat
+		continuum
 	];
 
 	extraConfig = ''
@@ -24,7 +27,6 @@ in
 	set-option -sa terminal-overrides ",xterm-256color:RGB"
 
 	set -g status-style 'bg=#333333 fg=#5eacd3'
-
 
 	# Start windows and panes at 1, not 0
 	set -g base-index 1
@@ -60,7 +62,7 @@ in
 
 	# Refresh tmux source configuration 
 	unbind r
-	bind r source-file ~/.tmux.conf
+	bind r source-file ~/.config/tmux/tmux.conf
 
 	# Bind vim keys to resize panels
 	bind -r j resize-pane -D 5

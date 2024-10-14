@@ -72,6 +72,8 @@
   environment.systemPackages = with pkgs; [
   	tree
 	git
+	gcc
+	clang
 	wget
 	tmux
 	gtk3
@@ -79,7 +81,7 @@
 	curl
 	ripgrep
 	alacritty
-	foot
+	# foot
 	waybar
 	eww
 	mako # notification daemon
