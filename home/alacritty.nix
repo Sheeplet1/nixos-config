@@ -9,6 +9,7 @@
         };
 
         window = {
+            dimensions = { columns = 160; lines = 80; };
             padding = { x = 4; y = 8; };
             decorations = "full";
             dynamic_title = true;
