@@ -37,6 +37,7 @@
             };
         };
 
+
         # animations = {
         #     enabled = "yes";
         #
@@ -47,8 +48,8 @@
         bind = [
             "$mod, RETURN, exec, alacritty"
             "$mod, Q, killactive"
-            # "$mod, D, exec, pkill wofi || wofi --show drun"
-            "$mod, D, exec, pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"
+            "$mod, D, exec, pkill wofi || wofi --show drun"
+            # "$mod, D, exec, pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"
             "$mod, T, exec, thunar"
             "$mod, M, exit"
             "$mod, left, movefocus, l"
@@ -67,4 +68,7 @@
             10)
         );
     };
+    extraConfig = ''
+        windowrulev2 = workspace 2, class:^([Ff]irefox)$;
+    '';
 }
