@@ -43,7 +43,6 @@
   };
 
   users.defaultUserShell = pkgs.zsh;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.anthony = {
     isNormalUser = true;
@@ -113,7 +112,7 @@
 	xdg-utils
     # TODO: Concatenante zen-browser is not aarch64
 	# inputs.zen-browser.packages."${pkgs.system}".default
-  ];
+  ]; 
 
   environment.sessionVariables = {
   	WLR_NO_HARDWARE_CURSORS = "1";
