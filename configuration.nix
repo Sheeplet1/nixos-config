@@ -11,7 +11,8 @@
 
   # Other devices using grub for bootloader
   boot.loader.systemd-boot.enable = (if pkgs.system != "x86_64-linux" then true else false);
-  boot.loader.efi.canTouchEfiVariables = true;
+  	# boot.loader.systemd-boot.enable = true;
+	boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "dev"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -110,7 +111,8 @@
 	xdg-desktop-portal
 	xdg-desktop-portal-gtk
 	xdg-utils
-  ] ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
+  ];
+# ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
 
   environment.sessionVariables = {
   	WLR_NO_HARDWARE_CURSORS = "1";
@@ -122,10 +124,11 @@
 	XDG_CONFIG_HOME = "$HOME/.config";
   };
 
-  fonts.packages = with pkgs; [
-    atkinson-hyperlegible
-	(nerdfonts.override { fonts = ["JetBrainsMono" "Iosevka" ]; })
-  ];
+	 fonts.packages = with pkgs; [
+	   atkinson-hyperlegible
+	   # JetBrainsMono
+	(nerdfonts.override { fonts = ["Iosevka" ]; })
+	];
 
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -185,17 +188,17 @@
   services = {
 	openssh.enable = true;
 
-    greetd = {
-        enable = true;
-        vt = 3;
-        settings = {
-            default_session = {
-                user = "anthony";
-                # Starting "Hyprland" with TUI login manager
-                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-            };
-        };
-    };
+    # greetd = {
+    #     enable = true;
+    #     vt = 3;
+    #     settings = {
+    #         default_session = {
+    #             user = "anthony";
+    #             # Starting "Hyprland" with TUI login manager
+    #             command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+    #         };
+    #     };
+    # };
 
     # displayManager.sddm = {
     #     enable = true;
@@ -205,7 +208,9 @@
 	xserver = {
 		enable = true;
 		xkb.layout = "au";
-		desktopManager.plasma5.enable = true;
+		# desktopManager.plasma5.enable = true;
+		displayManager.gdm.enable = true;
+		desktopManager.gnome.enable = true;
 	};
   };
 

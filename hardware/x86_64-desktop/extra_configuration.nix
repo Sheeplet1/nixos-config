@@ -1,10 +1,10 @@
 { inputs, configs, pkgs, ... }:
 {
     boot.loader.grub = {
-        enable = true;
-        device = "nodev";
-        useOSProber = true;
-        efiSupport = true;
+       enable = true;
+       device = "nodev";
+       useOSProber = true;
+       efiSupport = true;
     };
 
     services.printing.enable = true;

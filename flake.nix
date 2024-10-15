@@ -13,12 +13,12 @@
 	};
 
 	# TODO: add zen-browser to system packages
-	zen-browser.url = "github:MarceColl/zen-browser-flake";
+#	zen-browser.url = "github:MarceColl/zen-browser-flake";
 
-	minimal-tmux = {
-		url = "github:niksingh710/minimal-tmux-status";
-		inputs.nixpkgs.follows = "nixpkgs";
-	};
+	#minimal-tmux = {
+	#	url = "github:niksingh710/minimal-tmux-status";
+	#	inputs.nixpkgs.follows = "nixpkgs";
+	#};
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -46,6 +46,7 @@
         modules = [
             ./configuration.nix
 	    ./hardware/x86_64-desktop/extra_configuration.nix
+   	    ./hardware/x86_64-desktop/hardware-configuration.nix
 
             inputs.home-manager.nixosModules.default
 
