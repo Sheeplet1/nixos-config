@@ -108,7 +108,6 @@
 	qt5.qtwayland
 	qt6.qtwayland
 	ripgrep
-	rofi-wayland
 	slurp
 	stow
 	swww
@@ -117,6 +116,7 @@
 	waybar
 	wget
 	wl-clipboard
+	wofi
 	xdg-desktop-portal
 	xdg-desktop-portal-gtk
 	xdg-utils
