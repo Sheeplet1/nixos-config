@@ -24,6 +24,8 @@
 	programs.alacritty = (import ./alacritty.nix { inherit pkgs; });
 	programs.zsh = (import ./zsh.nix { inherit pkgs; });
 	programs.zoxide = (import ./zoxide.nix { inherit pkgs; });
+	programs.rofi = (import ./rofi.nix { inherit pkgs; });
+    programs.waybar = (import ./waybar.nix { inherit pkgs; });
 
 	# In case Alacritty does not launch, swap to foot
 	# programs.foot = {
