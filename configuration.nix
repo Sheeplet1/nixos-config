@@ -3,15 +3,14 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { inputs, config, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
       inputs.home-manager.nixosModules.default
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # Other devices using grub for bootloader
+  boot.loader.systemd-boot.enable = (if pkgs.system != "x86_64-linux" then true else false);
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "dev"; # Define your hostname.
@@ -50,6 +49,7 @@
     	"networkmanager"
         "wheel" 
         "input"
+        "docker"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -110,9 +110,7 @@
 	xdg-desktop-portal
 	xdg-desktop-portal-gtk
 	xdg-utils
-    # TODO: Concatenante zen-browser is not aarch64
-	# inputs.zen-browser.packages."${pkgs.system}".default
-  ]; 
+  ] ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
 
   environment.sessionVariables = {
   	WLR_NO_HARDWARE_CURSORS = "1";

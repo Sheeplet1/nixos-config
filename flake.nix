@@ -45,13 +45,14 @@
         specialArgs = { inherit inputs; };
         modules = [
             ./configuration.nix
+	    ./hardware/x86_64-desktop/extra_configuration.nix
 
             inputs.home-manager.nixosModules.default
 
             home-manager.nixosModules.home-manager {
-				home-manager.useGlobalPkgs = true;
-				home-manager.useUserPackages = true;
-				home-manager.users.anthonyd = import ./home/home.nix;
+		home-manager.useGlobalPkgs = true;
+		home-manager.useUserPackages = true;
+		home-manager.users.anthonyd = import ./home/home.nix;
             }
         ];
     };
