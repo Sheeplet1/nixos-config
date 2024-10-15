@@ -22,11 +22,13 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-	nixosConfigurations.anthony = nixpkgs.lib.nixosSystem{
+	nixosConfigurations.aarch64 = nixpkgs.lib.nixosSystem{
 		system = "aarch64-linux";
 		specialArgs = { inherit inputs; };
 		modules = [
 			./configuration.nix
+			./hardware/aarch64/additional-configuration.nix
+			./hardware/aarch64/hardware-configuration.nix
 
 			inputs.home-manager.nixosModules.default
 
@@ -38,8 +40,20 @@
 
 		];
 	};
+    nixosConfigurations.linux = nixpkgs.lib.nixosSystem{
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+            ./configuration.nix
 
-	formatter.anthony = "nixfmt";
+            inputs.home-manager.nixosModules.default
+
+            home-manager.nixosModules.home-manager {
+				home-manager.useGlobalPkgs = true;
+				home-manager.useUserPackages = true;
+				home-manager.users.anthonyd = import ./home/home.nix;
+            }
+        ];
+    };
   };
-
 }

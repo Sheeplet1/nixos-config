@@ -7,21 +7,12 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware/macos-vm/hardware-configuration.nix
-      ./modules/vmware-guest.nix
       inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Enable aarm64 to use x86_64 packages since they most will still work.
-  boot.binfmt.emulatedSystems = ["x86_64-linux"];
-
-  # VMWare only supports this as "0", otherwise you will see "error switching
-  # console mode" on boot
-  boot.loader.systemd-boot.consoleMode = "0";
 
   networking.hostName = "dev"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -56,15 +47,14 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.anthony = {
     isNormalUser = true;
-    description = "Anthony";
     extraGroups = [ 
     	"networkmanager"
-	"wheel" 
-	"input"
+        "wheel" 
+        "input"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-	open-vm-tools
+        open-vm-tools
     ];
   };
 
@@ -121,6 +111,7 @@
 	xdg-desktop-portal
 	xdg-desktop-portal-gtk
 	xdg-utils
+    # TODO: Concatenante zen-browser is not aarch64
 	# inputs.zen-browser.packages."${pkgs.system}".default
   ];
 
@@ -135,6 +126,7 @@
   };
 
   fonts.packages = with pkgs; [
+    atkinson-hyperlegible
 	(nerdfonts.override { fonts = ["JetBrainsMono" "Iosevka" ]; })
   ];
 
@@ -179,6 +171,7 @@
 	};
 
     waybar.enable = true;
+
     thunar.enable = true;
     thunar.plugins = with pkgs.xfce; [
         exo
@@ -224,24 +217,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
-
-  # TODO: Trying to sync clipboard between host and guest - to move this into 
-  # separate config file
-  disabledModules = [ "virtualisation/vmware-guest.nix" ];
-  virtualisation.vmware.guest.enable = true;
-
-  fileSystems."/host" = {
-	fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
-	device = ".host:/";
-	options = [
-		"umask=22"
-		"uid=1000"
-		"gid=1000"
-		"allow_other"
-		"auto_unmount"
-		"defaults"
-	];
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
