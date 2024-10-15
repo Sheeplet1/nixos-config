@@ -2,8 +2,8 @@
 
 {
 	programs.home-manager.enable = true;
-	home.username = "anthony";
-	home.homeDirectory = "/home/anthony";
+	home.username = "anthonyd";
+	home.homeDirectory = "/home/anthonyd";
 
 	home.packages = with pkgs; [
 		# archives

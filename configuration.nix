@@ -43,7 +43,7 @@
 
   users.defaultUserShell = pkgs.zsh;
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.anthony = {
+  users.users.anthonyd = {
     isNormalUser = true;
     extraGroups = [ 
     	"networkmanager"
@@ -75,7 +75,7 @@
         dates = "weekly";
         options = "--delete-older-than 7d";
     };
-    nixPath = ["nixos-config=${config.users.users.anthony.home}/nix/configuration.nix"];
+    nixPath = ["nixos-config=${config.users.users.anthonyd.home}/nix/configuration.nix"];
   };
 
   # List packages installed in system profile. To search, run:
