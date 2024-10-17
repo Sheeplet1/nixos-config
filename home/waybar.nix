@@ -1,23 +1,23 @@
 { pkgs, ... }:
 {
-    enable = true;
-    settings = {
-        mainBar = {
-            layer = "top";
-            position = "top";
-            height = 30;
+  enable = true;
+  settings = {
+    mainBar = {
+      layer = "top";
+      position = "top";
+      height = 30;
 
-            modules-left = [ "hyprland/workspaces" ];
-            modules-center = [ "clock" ];
-            modules-right = [ "battery" ];
+      modules-left = [ "hyprland/workspaces" ];
+      modules-center = [ "clock" ];
+      modules-right = [ "battery" ];
 
-            clock = {
-                format = "{:%H:%M}";
-            };
+      clock = {
+        format = "{:%H:%M}";
+      };
 
-            battery = {
-                format = "{capacity} {icon}";
-            };
-        };
+      battery = {
+        format = "{capacity} {icon}";
+      };
     };
+  };
 }

@@ -2,12 +2,17 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      inputs.home-manager.nixosModules.default
-    ];
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Other devices using grub for bootloader
   boot.loader.systemd-boot.enable = (if pkgs.system != "x86_64-linux" then true else false);
@@ -46,20 +51,22 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.anthonyd = {
     isNormalUser = true;
-    extraGroups = [ 
-    	"networkmanager"
-        "wheel" 
-        "input"
-        "docker"
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "docker"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-        open-vm-tools
+      open-vm-tools
     ];
   };
 
   home-manager = {
-	extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit inputs;
+    };
   };
 
   # Allow unfree packages
@@ -68,73 +75,75 @@
 
   nix = {
     settings = {
-        auto-optimise-store = true;
-        experimental-features = ["nix-command" "flakes"];
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
     gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 7d";
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
-    nixPath = ["nixos-config=${config.users.users.anthonyd.home}/nix/configuration.nix"];
+    nixPath = [ "nixos-config=${config.users.users.anthonyd.home}/nix/configuration.nix" ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	alacritty
-	clang
-	curl
-	eww
-	firefox
-	fzf
-	gcc
-	git
-	go
-	grim
-	gtk3
-	jq
-	libnotify
-	mako # notification daemon
-	neovim	
-	qt5.qtwayland
-	qt6.qtwayland
-	ripgrep
-	slurp
-	stow
-	swww
-	tmux
-	unzip
-	waybar
-	wget
-	wl-clipboard
-	xdg-desktop-portal
-	xdg-desktop-portal-gtk
-	xdg-desktop-portal-hyprland # Testing 
-	xdg-utils
-	zip
-  	tree
-        wofi
-	nixfmt-rfc-style
+    alacritty
+    clang
+    curl
+    eww
+    firefox
+    fzf
+    gcc
+    git
+    go
+    grim
+    gtk3
+    jq
+    libnotify
+    mako # notification daemon
+    neovim
+    qt5.qtwayland
+    qt6.qtwayland
+    ripgrep
+    slurp
+    stow
+    swww
+    tmux
+    unzip
+    waybar
+    wget
+    wl-clipboard
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland # Testing
+    xdg-utils
+    zip
+    tree
+    wofi
+    nixfmt-rfc-style
   ];
-# ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
+  # ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
 
   environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
-      MOZ_ENABLE_WAYLAND = "1";
-      XDG_SESSION_TYPE = "wayland";
-      XDG_CURRENT_DESKTOP = "Hyprland";
-      XDG_SESSION_DESKTOP = "Hyprland";
-      XDG_CONFIG_HOME = "$HOME/.config";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+    MOZ_ENABLE_WAYLAND = "1";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_CONFIG_HOME = "$HOME/.config";
   };
 
-     fonts.packages = with pkgs; [
-        atkinson-hyperlegible
-        # JetBrainsMono
-        (nerdfonts.override { fonts = ["Iosevka" ]; })
-	];
-
+  fonts.packages = with pkgs; [
+    atkinson-hyperlegible
+    # JetBrainsMono
+    (nerdfonts.override { fonts = [ "Iosevka" ]; })
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -145,45 +154,45 @@
   # };
 
   hardware = {
-	graphics.enable = true;
+    graphics.enable = true;
     logitech.wireless = {
-        enable = true;
-        enableGraphical = true;
+      enable = true;
+      enableGraphical = true;
     };
   };
 
   xdg = {
-	autostart.enable = true;
-	portal = {
-		enable = true;
-		extraPortals = [
-			pkgs.xdg-desktop-portal
-			pkgs.xdg-desktop-portal-gtk
-		];
-	};
+    autostart.enable = true;
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
   };
 
   programs = {
-	ssh.startAgent= true;
+    ssh.startAgent = true;
 
-	zsh = {
-		enable = true;
-	};
+    zsh = {
+      enable = true;
+    };
 
-	hyprland = {
-		enable = true;
-		xwayland.enable = true;
-	};
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
 
     waybar.enable = true;
 
     thunar.enable = true;
     thunar.plugins = with pkgs.xfce; [
-        exo
-        mousepad
-        thunar-archive-plugin
-        thunar-volman
-        tumbler
+      exo
+      mousepad
+      thunar-archive-plugin
+      thunar-volman
+      tumbler
     ];
   };
 
@@ -191,7 +200,7 @@
 
   # Enable the OpenSSH daemon.
   services = {
-	openssh.enable = true;
+    openssh.enable = true;
 
     # greetd = {
     #     enable = true;
@@ -210,13 +219,13 @@
     #     wayland.enable = true;
     # };
 
-	xserver = {
-		enable = true;
-		xkb.layout = "au";
-		# desktopManager.plasma5.enable = true;
-		displayManager.gdm.enable = true;
-		desktopManager.gnome.enable = true;
-	};
+    xserver = {
+      enable = true;
+      xkb.layout = "au";
+      # desktopManager.plasma5.enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+    };
   };
 
   # Open ports in the firewall.
