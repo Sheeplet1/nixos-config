@@ -1,5 +1,6 @@
 {
   inputs,
+  # config,
   configs,
   pkgs,
   ...
@@ -26,9 +27,34 @@
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
+    # package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
+
+  hardware.graphics = {
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+      nvidia-vaapi-driver
+    ];
   };
 
   # Potentially needed to get hyprland working on nvidia? 
   # nixos.wiki/wiki/Hyprland
   # security.polkit.enable = true;
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    # If there is problems with Discord windows not displaying or screen sharing
+    # not working in Zoom, comment out the below line.
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    # If there is crashes in firefox, comment out the below line.
+    GBM_BACKEND = "nvidia-drm";
+    NVD_BACKEND = "direct";
+  
+    # TODO: Potentially need to set this variable
+    # github.com/hyprwm/Hyprland/issues/6708
+    # WLR_DRM_DEVICES -> maybe not bc this is wlroots and hyprland on aquamarine
+    # now
+  };
 }

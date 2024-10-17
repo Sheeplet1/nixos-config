@@ -114,6 +114,7 @@
     stow
     swww
     tmux
+    obsidian
     unzip
     waybar
     wget
