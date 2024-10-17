@@ -36,6 +36,8 @@
       vaapiVdpau
       libvdpau-va-gl
       nvidia-vaapi-driver
+      egl-wayland
+      nvidia-utils
     ];
   };
 
