@@ -16,4 +16,14 @@
         alsa.support32Bit = true;
         pulse.enable = true;
     };
+
+    services.xserver.videoDrivers = [ "nvidia" ];
+    hardware.nvidia = {
+        modesetting.enable = true;
+        open = true;
+    };
+
+    # Potentially needed to get hyprland working on nvidia? 
+    # nixos.wiki/wiki/Hyprland
+    # security.polkit.enable = true;
 }

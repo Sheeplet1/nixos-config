@@ -11,8 +11,8 @@
 
   # Other devices using grub for bootloader
   boot.loader.systemd-boot.enable = (if pkgs.system != "x86_64-linux" then true else false);
-  	# boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "dev"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -82,17 +82,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	# foot
 	alacritty
 	clang
 	curl
 	eww
+	firefox
+	fzf
 	gcc
 	git
 	go
 	grim
 	gtk3
-	firefox
+	jq
 	libnotify
 	mako # notification daemon
 	neovim	
@@ -103,31 +104,35 @@
 	stow
 	swww
 	tmux
-  	tree
+	unzip
 	waybar
 	wget
 	wl-clipboard
-    wofi
 	xdg-desktop-portal
 	xdg-desktop-portal-gtk
+	xdg-desktop-portal-hyprland # Testing 
 	xdg-utils
+	zip
+  	tree
+        wofi
+	nixfmt-rfc-style
   ];
 # ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
 
   environment.sessionVariables = {
-  	WLR_NO_HARDWARE_CURSORS = "1";
-	NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
-	MOZ_ENABLE_WAYLAND = "1";
-	XDG_SESSION_TYPE = "wayland";
-	XDG_CURRENT_DESKTOP = "Hyprland";
-	XDG_SESSION_DESKTOP = "Hyprland";
-	XDG_CONFIG_HOME = "$HOME/.config";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+      MOZ_ENABLE_WAYLAND = "1";
+      XDG_SESSION_TYPE = "wayland";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_DESKTOP = "Hyprland";
+      XDG_CONFIG_HOME = "$HOME/.config";
   };
 
-	 fonts.packages = with pkgs; [
-	   atkinson-hyperlegible
-	   # JetBrainsMono
-	(nerdfonts.override { fonts = ["Iosevka" ]; })
+     fonts.packages = with pkgs; [
+        atkinson-hyperlegible
+        # JetBrainsMono
+        (nerdfonts.override { fonts = ["Iosevka" ]; })
 	];
 
 

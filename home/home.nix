@@ -5,19 +5,11 @@
 	home.username = "anthonyd";
 	home.homeDirectory = "/home/anthonyd";
 
-	home.packages = with pkgs; [
-		# archives
-		zip
-		unzip
+	home.sessionVariables = {
+		NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+	};
 
-		# utils
-		ripgrep
-		fzf
-		jq
-
-		# misc
-		tree
-	];
+	home.packages = with pkgs; [];
 
 	programs.tmux = (import ./tmux.nix { inherit inputs pkgs; });
 	programs.git = (import ./git.nix { inherit pkgs; });
@@ -32,7 +24,6 @@
 	# };
 
 	wayland.windowManager.hyprland = (import ./hyprland.nix { inherit pkgs; });
-
 
 	home.stateVersion = "24.05";
 }
