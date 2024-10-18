@@ -13,12 +13,12 @@
     };
 
     # TODO: add zen-browser to system packages
-    # zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:omarcresp/zen-browser-flake";
 
-    # minimal-tmux = {
-    # 	url = "github:niksingh710/minimal-tmux-status";
-    # 	inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    minimal-tmux = {
+    	url = "github:niksingh710/minimal-tmux-status";
+    	inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland = {
       url = "github:hyprwm/Hyprland";

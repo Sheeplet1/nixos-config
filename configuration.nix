@@ -126,8 +126,7 @@
     tree
     wofi
     nixfmt-rfc-style
-  ];
-  # ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
+  ] ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -141,8 +140,7 @@
 
   fonts.packages = with pkgs; [
     atkinson-hyperlegible
-    # JetBrainsMono
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
