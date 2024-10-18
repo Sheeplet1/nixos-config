@@ -1,6 +1,6 @@
 {
   inputs,
-  # config,
+  config,
   configs,
   pkgs,
   ...
@@ -12,6 +12,8 @@
     useOSProber = true;
     efiSupport = true;
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.printing.enable = true;
 
@@ -36,7 +38,7 @@
     modesetting.enable = true;
     open = true;
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
-    # package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   hardware.graphics = {

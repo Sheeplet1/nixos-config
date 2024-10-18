@@ -20,8 +20,11 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      type = "git";
+      # url = "github:hyprwm/Hyprland";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+      # inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -29,9 +32,22 @@
     {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          # make unstable packages available via overlay
+          (final: prev: {
+            unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+          })
+        ];
+      };
+    in 
     {
       nixosConfigurations.aarch64 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
