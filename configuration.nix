@@ -103,31 +103,35 @@
     go
     grim # screenshot functionality
     gtk3
+    hyprlock
+    hyprcursor
+    hypridle
     jq
     libnotify
     mako # notification daemon
-    unstable.neovim
+    nixfmt-rfc-style
+    obsidian
     qt5.qtwayland
     qt6.qtwayland
     ripgrep
     slurp # screenshot functionality
+    spotify
     stow
     swww
     tmux
-    obsidian
+    tree
+    neovim
     unzip
+    vanilla-dmz
+    vesktop
     waybar
     wget
     wl-clipboard
+    wofi
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-utils
     zip
-    tree
-    wofi
-    nixfmt-rfc-style
-    vanilla-dmz
-    vesktop
   ] ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
 
   environment.sessionVariables = {

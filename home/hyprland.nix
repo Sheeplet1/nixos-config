@@ -71,6 +71,14 @@
       ));
   };
   extraConfig = ''
+    # Monitors
+    monitor=DP-1, 3440x1440@175, 0x0, 1
+    monitor=DP-2, disable
+    monitor=DP-3, disable
+    # Uncomment the below and comment out the above to re-enable other monitors
+    # monitor=DP-2, 1920x1080@60, 3440x0, 1
+    # monitor=DP-3, 1920x1080@60, -1920x0, 1
+
     # Defining workspaces
     workspace = 1, monitor:DP-1
     workspace = 2, monitor:DP-1
