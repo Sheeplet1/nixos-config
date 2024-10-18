@@ -16,7 +16,6 @@
 
   # Other devices using grub for bootloader
   boot.loader.systemd-boot.enable = (if pkgs.system != "x86_64-linux" then true else false);
-  # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "dev"; # Define your hostname.

@@ -15,6 +15,14 @@
 
   services.printing.enable = true;
 
+  # On desktop, the local DNS is flaky so we are prioritising Google
+  # and Cloudflare first.
+  networking = {
+	networkmanager.dns = "none";
+	nameservers = [ "8.8.8.8" "1.1.1.1" ];
+	networkmanager.insertNameservers = [ "8.8.8.8" "1.1.1.1" ];
+  };
+
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
@@ -37,7 +45,6 @@
       libvdpau-va-gl
       nvidia-vaapi-driver
       egl-wayland
-      nvidia-utils
     ];
   };
 
