@@ -13,7 +13,7 @@
     efiSupport = true;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.printing.enable = true;
 
@@ -37,16 +37,13 @@
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
-    # package = config.boot.kernelPackages.nvidiaPackages.stable;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   hardware.graphics = {
     extraPackages = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
       nvidia-vaapi-driver
-      egl-wayland
     ];
   };
 

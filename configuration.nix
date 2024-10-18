@@ -5,6 +5,7 @@
 {
   inputs,
   config,
+  unstable,
   pkgs,
   ...
 }:
@@ -55,6 +56,8 @@
       "wheel"
       "input"
       "docker"
+      "seat"
+      "video"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -100,16 +103,17 @@
     gcc
     git
     go
-    grim
+    grim # screenshot functionality
     gtk3
     jq
     libnotify
     mako # notification daemon
-    neovim
+    unstable.neovim
     qt5.qtwayland
     qt6.qtwayland
     ripgrep
-    slurp
+    seatd
+    slurp # screenshot functionality
     stow
     swww
     tmux
@@ -120,7 +124,6 @@
     wl-clipboard
     xdg-desktop-portal
     xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland # Testing
     xdg-utils
     zip
     tree
@@ -129,13 +132,17 @@
   ] ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
 
   environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
+    # WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     MOZ_ENABLE_WAYLAND = "1";
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_CONFIG_HOME = "$HOME/.config";
+    CLUTTER_BACKEND = "wayland";
+    WLR_DRM_NO_ATOMIC = "1";
+    # Not sure if this is needed
+    QT_QPA_PLATFORM = "wayland,x11";
   };
 
   fonts.packages = with pkgs; [
@@ -163,10 +170,10 @@
     autostart.enable = true;
     portal = {
       enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal
-        pkgs.xdg-desktop-portal-gtk
-      ];
+      # extraPortals = [
+      #   pkgs.xdg-desktop-portal
+      #   pkgs.xdg-desktop-portal-gtk
+      # ];
     };
   };
 
@@ -182,7 +189,12 @@
       xwayland.enable = true;
     };
 
-    waybar.enable = true;
+    # sway = {
+    #   enable = true;
+    #   wrapperFeatures.gtk = true;
+    # };
+
+    # waybar.enable = true;
 
     thunar.enable = true;
     thunar.plugins = with pkgs.xfce; [
@@ -199,6 +211,8 @@
   # Enable the OpenSSH daemon.
   services = {
     openssh.enable = true;
+
+    gnome.gnome-keyring.enable = true;
 
     # greetd = {
     #     enable = true;

@@ -3,9 +3,8 @@
 
   # Inputs
   # https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-flake.html#flake-inputs
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,16 +14,19 @@
     zen-browser.url = "github:omarcresp/zen-browser-flake";
 
     minimal-tmux = {
-    	url = "github:niksingh710/minimal-tmux-status";
-    	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:niksingh710/minimal-tmux-status";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # hyprland = {
+    #   type = "git";
+    #   url = "https://github.com/hyprwm/Hyprland";
+    #   # url = "github:hyprwm/Hyprland";
+    #   submodules = true;
+    # };
+
     hyprland = {
-      type = "git";
-      # url = "github:hyprwm/Hyprland";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-      # inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
   };
 
@@ -38,16 +40,8 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          # make unstable packages available via overlay
-          (final: prev: {
-            unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-          })
-        ];
-      };
-    in 
+      unstable = import nixpkgs-unstable { inherit system; };
+    in
     {
       nixosConfigurations.aarch64 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
@@ -73,7 +67,7 @@
       nixosConfigurations.linux = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit inputs;
+          inherit unstable inputs;
         };
         modules = [
           ./configuration.nix
