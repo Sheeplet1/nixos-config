@@ -18,13 +18,13 @@ in
     resurrect
     copycat
     continuum
-    #{ 
-    #	plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
-    #	extraConfig = ''
-    #		set -g @minimal-tmux-justify "left"
-    #		set -g @minimal-tmux-indicator false
-    #	'';
-    #}
+    { 
+    	plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
+    	extraConfig = ''
+    		set -g @minimal-tmux-justify "left"
+    		set -g @minimal-tmux-indicator false
+    	'';
+    }
   ];
 
   extraConfig = ''

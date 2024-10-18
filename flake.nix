@@ -12,7 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # TODO: add zen-browser to system packages
     zen-browser.url = "github:omarcresp/zen-browser-flake";
 
     minimal-tmux = {
@@ -22,7 +21,7 @@
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
