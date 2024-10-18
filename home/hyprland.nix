@@ -71,6 +71,43 @@
       ));
   };
   extraConfig = ''
-    windowrulev2 = workspace 2, class:^([Ff]irefox)$;
+    # Defining workspaces
+    workspace = 1, monitor:DP-1
+    workspace = 2, monitor:DP-1
+
+    workspace = 3, monitor:DP-2
+    workspace = 4, monitor:DP-2
+
+    workspace = 5, monitor:DP-3
+    workspace = 6, monitor:DP-3
+
+    # Workspace Rules
+    windowrulev2 = workspace 2, class:^([Vv]ivaldi-stable)$
+    windowrulev2 = workspace 2, class:^([Ff]irefox)$
+    windowrulev2 = workspace 2, initialTitle:^([Zz]en Browser)$
+
+    windowrulev2 = workspace 1, class:^([Aa]lacritty)$
+
+    windowrulev2 = workspace 4, class:^([Oo]bsidian)$
+
+    windowrulev2 = workspace 3, class:^([Ss]potify)$
+
+    windowrulev2 = workspace 5, class:^([Tt]odoist)$
+
+    windowrulev2 = workspace 6, class:^([Dd]iscord)$
+    windowrulev2 = workspace 6, class:^([Ww]ebCord)$
+    windowrulev2 = workspace 6, class:^([Vv]esktop)$
+
+    # Defining floats 
+    windowrulev2 = float, class:^(org.kde.polkit-kde-authentication-agent-1)$ 
+    windowrulev2 = float, class:([Zz]oom|onedriver|onedriver-launcher)$
+    windowrulev2 = float, class:([Tt]hunar), title:(File Operation Progress)
+    windowrulev2 = float, class:([Tt]hunar), title:(Confirm to replace files)
+    windowrulev2 = float, class:(xdg-desktop-portal-gtk)
+    windowrulev2 = float, class:(org.gnome.Calculator), title:(Calculator)
+
+    # Defining positions
+    windowrulev2 = center, class:([Tt]hunar), title:(File Operation Progress)
+    windowrulev2 = center, class:([Tt]hunar), title:(Confirm to replace files)
   '';
 }

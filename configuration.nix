@@ -127,29 +127,39 @@
     wofi
     nixfmt-rfc-style
     vanilla-dmz
+    vesktop
   ] ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
 
   environment.sessionVariables = {
-    # WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
-    MOZ_ENABLE_WAYLAND = "1";
-    # XDG_SESSION_TYPE = "wayland";
-    # XDG_CURRENT_DESKTOP = "Hyprland";
-    # XDG_SESSION_DESKTOP = "Hyprland";
-    # XDG_CONFIG_HOME = "$HOME/.config";
-    # CLUTTER_BACKEND = "wayland";
-    # WLR_DRM_NO_ATOMIC = "1";
-    # # Not sure if this is needed
-    # QT_QPA_PLATFORM = "wayland,x11";
 
-    GBM_BACKEND= "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME= "nvidia";
-    LIBVA_DRIVER_NAME= "nvidia"; # hardware acceleration
-    __GL_VRR_ALLOWED="1";
+    # Firefox
+    MOZ_ENABLE_WAYLAND = "1";
+
+    XDG_CONFIG_HOME = "$HOME/.config";
+
+    # Hyprland + Nvidia stuff
+    # WLR_DRM_NO_ATOMIC = "1";
+    GDK_BACKEND = "wayland,x11";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia"; # hardware acceleration
     WLR_NO_HARDWARE_CURSORS = "1";
-    WLR_RENDERER_ALLOW_SOFTWARE = "1";
+
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    # QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_SCALE_FACTOR = "1";
+    QT_WAYLAND_DISABLE_WINDOWDECORATIONS = "1";
+
+    # __GL_VRR_ALLOWED = "1";
+
+    # for VM and possibly Nvidia
+    # WLR_RENDERER_ALLOW_SOFTWARE = "1"; 
+
     CLUTTER_BACKEND = "wayland";
-    WLR_RENDERER = "vulkan";
+    GBM_BACKEND = "nvidia-drm";
+    # NVD_BACKEND = "direct"
 
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
@@ -197,14 +207,13 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland; #hyprland-git
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland; # xdphls
+      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland; #hyprland-git
+      # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland; # xdphls
     };
 
-    sway = {
-      enable = true;
-      wrapperFeatures.gtk = true;
-      xwayland.enable = true;
+    regreet = {
+        enable = true;
+        cageArgs = [ "last" ]; # Prevents greeter from spanning multiple monitors
     };
 
     waybar.enable = true;
@@ -225,26 +234,23 @@
   services = {
     openssh.enable = true;
 
-    gnome.gnome-keyring.enable = true;
+    # gnome.gnome-keyring.enable = true;
 
-    # greetd = {
-    #     enable = true;
-    #     vt = 3;
-    #     settings = {
-    #         default_session = {
-    #             user = "anthony";
-    #             # Starting "Hyprland" with TUI login manager
-    #             command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-    #         };
-    #     };
-    # };
+    greetd = {
+        enable = true;
+        vt = 3; # use tty3 
+        settings = {
+            default_session = {
+                user = "anthonyd";
+                # Starting "Hyprland" with TUI login manager
+                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+            };
+        };
+    };
 
     xserver = {
       enable = true;
       xkb.layout = "au";
-      # desktopManager.plasma5.enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
     };
   };
 
