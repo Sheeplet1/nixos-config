@@ -56,8 +56,6 @@
       "wheel"
       "input"
       "docker"
-      "seat"
-      "video"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -112,7 +110,6 @@
     qt5.qtwayland
     qt6.qtwayland
     ripgrep
-    seatd
     slurp # screenshot functionality
     stow
     swww
@@ -129,6 +126,7 @@
     tree
     wofi
     nixfmt-rfc-style
+    vanilla-dmz
   ] ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
 
   environment.sessionVariables = {
@@ -170,10 +168,9 @@
     autostart.enable = true;
     portal = {
       enable = true;
-      # extraPortals = [
-      #   pkgs.xdg-desktop-portal
-      #   pkgs.xdg-desktop-portal-gtk
-      # ];
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+      ];
     };
   };
 
@@ -187,6 +184,8 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland; #hyprland-git
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland; # xdphls
     };
 
     # sway = {
