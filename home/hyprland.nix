@@ -37,11 +37,13 @@
       };
     };
 
-    # animations = {
-    #     enabled = "yes";
-    #
-    #     animation = "windows, 1, 6, wind, slide";
-    # };
+    cursor = {
+      no_hardware_cursors = true;
+    };
+
+    animations = {
+        enabled = "yes";
+    };
 
     # TODO: Add in zen-browser or firefox depending on machine
     bind =

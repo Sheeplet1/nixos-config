@@ -147,7 +147,6 @@
     GDK_BACKEND = "wayland,x11";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     LIBVA_DRIVER_NAME = "nvidia"; # hardware acceleration
-    WLR_NO_HARDWARE_CURSORS = "1";
 
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_QPA_PLATFORM = "wayland;xcb";
