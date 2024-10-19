@@ -136,26 +136,21 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+    XDG_CONFIG_HOME = "$HOME/.config";
 
     # Firefox
     MOZ_ENABLE_WAYLAND = "1";
 
-    XDG_CONFIG_HOME = "$HOME/.config";
-
     # Hyprland + Nvidia stuff
-    # WLR_DRM_NO_ATOMIC = "1";
     GDK_BACKEND = "wayland,x11";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     LIBVA_DRIVER_NAME = "nvidia"; # hardware acceleration
 
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_QPA_PLATFORM = "wayland;xcb";
-    # QT_QPA_PLATFORMTHEME = "qt5ct";
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATIONS = "1";
-
-    # __GL_VRR_ALLOWED = "1";
 
     # for VM and possibly Nvidia
     # WLR_RENDERER_ALLOW_SOFTWARE = "1"; 
@@ -210,14 +205,12 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
-      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland; #hyprland-git
-      # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland; # xdphls
     };
 
-    regreet = {
-        enable = true;
-        cageArgs = [ "last" ]; # Prevents greeter from spanning multiple monitors
-    };
+    # regreet = {
+    #     enable = true;
+    #     cageArgs = [ "last" ]; # Prevents greeter from spanning multiple monitors
+    # };
 
     waybar.enable = true;
 
@@ -237,8 +230,7 @@
   services = {
     openssh.enable = true;
 
-    # gnome.gnome-keyring.enable = true;
-
+    # TODO: Need to figure out how to maximise resolution
     greetd = {
         enable = true;
         vt = 3; # use tty3 
@@ -247,6 +239,16 @@
                 user = "anthonyd";
                 # Starting "Hyprland" with TUI login manager
                 command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+            };
+            theme = {
+                border = "magenta"; 
+                text = "cyan"; 
+                prompt = "green"; 
+                time = "red"; 
+                action = "blue"; 
+                button = "yellow"; 
+                container = "black"; 
+                input = "red";
             };
         };
     };

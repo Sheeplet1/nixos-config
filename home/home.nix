@@ -28,7 +28,7 @@
   # 	enable = true;
   # };
 
-  wayland.windowManager.hyprland = (import ./hyprland.nix { inherit pkgs; });
+  wayland.windowManager.hyprland = (import ./hyprland/hyprland.nix { inherit pkgs; });
 
   home.stateVersion = "24.05";
 }

@@ -54,10 +54,31 @@
         # "$mod, D, exec, pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"
         "$mod, T, exec, thunar"
         "$mod, M, exit"
+
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+
+        "$mod SHIFT, left, resizeactive, -10 0"
+        "$mod SHIFT, right, resizeactive, 10 0"
+        "$mod SHIFT, up, resizeactive, 0 -10"
+        "$mod SHIFT, down, resizeactive, 0 10"
+
+        "$mod CTRL, left, movewindow, l"
+        "$mod CTRL, right, movewindow, r"
+        "$mod CTRL, up, movewindow, u"
+        "$mod CTRL, down, movewindow, d"
+
+        "$mod SHIFT, f, togglefloating"
+        "$mod SHIFT, Tab, workspace, m-1"
+        "$mod, Tab, workspace, m+1"
+
+        # TODO: Need to make scripts the NixOS way 
+        # https://www.youtube.com/watch?v=diIh0P12arA
+        "CTRL ALT, P, exec, ./scripts/wlogout.sh"
+        "CTRL ALT, L, exec, ./scripts/lock_screen.sh"
+        "$mod, C, exec, ./scripts/change_audio_device.sh"
       ]
       ++ (builtins.concatLists (
         builtins.genList (
@@ -68,6 +89,7 @@
           [
             "$mod, code:1${toString i}, workspace, ${toString ws}"
             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            "$mod CTRL, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
           ]
         ) 10
       ));
