@@ -4,6 +4,10 @@
   settings = {
     "$mod" = "SUPER";
 
+    exec-once = [
+      "hyprpanel &"
+    ];
+
     general = {
       gaps_in = 12;
       gaps_out = 28;

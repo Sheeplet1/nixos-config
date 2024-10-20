@@ -21,6 +21,8 @@
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
+
+    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs =

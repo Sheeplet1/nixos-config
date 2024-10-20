@@ -47,7 +47,7 @@
           text = "cmd[update:1000] echo \"$(date +\"%A, %B %d\")\"";
           color = "rgba(242, 243, 244, 0.75)";
           font_size = 22;
-          font_family = "Iosevka Mono";
+          font_family = "Iosevka Nerd Font";
           position = "0, 300";
           halign = "center";
           valign = "center";
@@ -69,7 +69,7 @@
         text = "cmd[update:1000] echo Hi there, $USER";
         color = "rgba(242, 243, 244, 0.75)";
         font_size = 14;
-        font_family = "Iosevka Mono";
+        font_family = "Iosevka Nerd Font";
         position = "0, 0";
         halign = "center";
         valign = "center";

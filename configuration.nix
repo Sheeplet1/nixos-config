@@ -122,14 +122,15 @@
     zip
   ] ++ (if pkgs.system == "x86_64-linux" then  [ 
     # vanilla-dmz
-    ags
+    # ags
     eww
     grim # screenshot functionality
     hyprcursor
     hypridle
     hyprlock
+    # inputs.hyprpanel.packages."${pkgs.system}".default
     inputs.zen-browser.packages."${pkgs.system}".default 
-    swaynotificationcenter # notification daemon
+    # swaynotificationcenter # notification daemon
     obsidian
     slurp # screenshot functionality
     spotify
