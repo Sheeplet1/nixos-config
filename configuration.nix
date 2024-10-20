@@ -121,16 +121,16 @@
     xdg-utils
     zip
   ] ++ (if pkgs.system == "x86_64-linux" then  [ 
-    # vanilla-dmz
-    # ags
+    # swaynotificationcenter # notification daemon
+    ags
     eww
     grim # screenshot functionality
     hyprcursor
     hypridle
     hyprlock
-    # inputs.hyprpanel.packages."${pkgs.system}".default
+    hyprpicker
+    inputs.hyprpanel.packages."${pkgs.system}".default
     inputs.zen-browser.packages."${pkgs.system}".default 
-    # swaynotificationcenter # notification daemon
     obsidian
     slurp # screenshot functionality
     spotify
@@ -215,7 +215,7 @@
 
     hyprlock.enable = true;
 
-    waybar.enable = true;
+    # waybar.enable = true;
 
     thunar.enable = true;
     thunar.plugins = with pkgs.xfce; [

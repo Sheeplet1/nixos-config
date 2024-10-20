@@ -76,7 +76,6 @@
       ];
     };
 
-    # TODO: Add in zen-browser or firefox depending on machine
     bind =
       [
         "$mod, RETURN, exec, alacritty"
@@ -154,7 +153,7 @@
 
     windowrulev2 = workspace 4, class:^([Oo]bsidian)$
 
-    windowrulev2 = workspace 3, class:^([Ss]potify)$
+    windowrulev2 = workspace 3, initialTitle:^([Ss]potify)$
 
     windowrulev2 = workspace 5, class:^([Tt]odoist)$
 

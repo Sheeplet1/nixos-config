@@ -4,15 +4,24 @@
   pkgs,
   ...
 }:
-
+let
+  nvimConfigLocation = "${config.home.homeDirectory}/nix/home/nvim/nvim";
+in 
 {
+  imports = [
+    ./ags/ags.nix
+  ];
+
   programs.home-manager.enable = true;
   home.username = "anthonyd";
   home.homeDirectory = "/home/anthonyd";
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+    EDITOR = "nvim";
   };
+
+  home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
 
   home.packages = with pkgs; [ ];
 

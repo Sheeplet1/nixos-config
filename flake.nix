@@ -22,7 +22,8 @@
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
 
-    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    ags.url = "github:Aylur/ags";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs =
