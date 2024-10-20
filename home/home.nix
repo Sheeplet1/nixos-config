@@ -16,17 +16,15 @@
 
   home.packages = with pkgs; [ ];
 
-  programs.tmux = (import ./tmux.nix { inherit inputs pkgs; });
-  programs.git = (import ./git.nix { inherit pkgs; });
   programs.alacritty = (import ./alacritty.nix { inherit pkgs; });
-  programs.zsh = (import ./zsh.nix { inherit pkgs; });
-  programs.zoxide = (import ./zoxide.nix { inherit pkgs; });
+  programs.git = (import ./git.nix { inherit pkgs; });
+  programs.hyprlock = (import ./hyprland/hyprlock.nix { inherit pkgs; });
+  programs.tmux = (import ./tmux.nix { inherit inputs pkgs; });
   programs.waybar = (import ./waybar.nix { inherit pkgs; });
+  programs.zoxide = (import ./zoxide.nix { inherit pkgs; });
+  programs.zsh = (import ./zsh.nix { inherit pkgs; });
 
-  # In case Alacritty does not launch, swap to foot
-  # programs.foot = {
-  # 	enable = true;
-  # };
+  services.hypridle = (import ./hyprland/hypridle.nix { inherit pkgs; });
 
   wayland.windowManager.hyprland = (import ./hyprland/hyprland.nix { inherit pkgs; });
 

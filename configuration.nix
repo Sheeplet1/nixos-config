@@ -95,36 +95,24 @@
     alacritty
     clang
     curl
-    eww
     firefox
     fzf
     gcc
     git
     go
-    grim # screenshot functionality
     gtk3
-    hyprlock
-    hyprcursor
-    hypridle
     jq
+    lazygit
     libnotify
-    mako # notification daemon
+    neovim
     nixfmt-rfc-style
-    obsidian
     qt5.qtwayland
     qt6.qtwayland
     ripgrep
-    slurp # screenshot functionality
-    spotify
     stow
-    swww
     tmux
     tree
-    neovim
     unzip
-    vanilla-dmz
-    vesktop
-    waybar
     wget
     wl-clipboard
     wofi
@@ -132,7 +120,24 @@
     xdg-desktop-portal-gtk
     xdg-utils
     zip
-  ] ++ (if pkgs.system == "x86_64-linux" then  [ inputs.zen-browser.packages."${pkgs.system}".default ] else []); 
+  ] ++ (if pkgs.system == "x86_64-linux" then  [ 
+    # vanilla-dmz
+    ags
+    eww
+    grim # screenshot functionality
+    hyprcursor
+    hypridle
+    hyprlock
+    inputs.zen-browser.packages."${pkgs.system}".default 
+    swaynotificationcenter # notification daemon
+    obsidian
+    slurp # screenshot functionality
+    spotify
+    swww # wallpapers
+    todoist
+    vesktop
+    waybar
+  ] else []); 
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
@@ -198,19 +203,16 @@
   programs = {
     ssh.startAgent = true;
 
-    zsh = {
-      enable = true;
-    };
+    lazygit.enable = true;
+
+    zsh.enable = true;
 
     hyprland = {
       enable = true;
       xwayland.enable = true;
     };
 
-    # regreet = {
-    #     enable = true;
-    #     cageArgs = [ "last" ]; # Prevents greeter from spanning multiple monitors
-    # };
+    hyprlock.enable = true;
 
     waybar.enable = true;
 
@@ -252,6 +254,8 @@
             };
         };
     };
+
+    hypridle.enable = true;
 
     xserver = {
       enable = true;

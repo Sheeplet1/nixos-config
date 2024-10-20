@@ -42,6 +42,7 @@
         bold = iosevka "Bold";
         italic = iosevka "Italic";
         bold_italic = iosevka "Bold Italic";
+        size = 18;
       };
 
     selection.save_to_clipboard = true;
