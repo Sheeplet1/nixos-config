@@ -116,7 +116,7 @@
         ", xf86AudioPrev, exec, bash $HOME/.scripts/media_controls.sh --prv"
         ", xf86Audiostop, exec, bash $HOME/.scripts/media_controls.sh --stop"
 
-        "CTRL ALT, L, exec, bash $HOME/.scripts/lock_screen.sh"
+        "$mod, L, exec, bash $HOME/.scripts/lock_screen.sh"
         "CTRL ALT, P, exec, bash $HOME/.scripts/wlogout.sh"
         "$mod, C, exec, bash $HOME/.scripts/change_audio_device.sh"
       ]

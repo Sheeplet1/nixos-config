@@ -141,6 +141,7 @@
     todoist
     vesktop
     waybar
+    wlogout
   ] else []); 
 
   environment.sessionVariables = {
