@@ -106,6 +106,8 @@
     libnotify
     neovim
     nixfmt-rfc-style
+    nodejs
+    python3
     qt5.qtwayland
     qt6.qtwayland
     ripgrep
@@ -137,6 +139,7 @@
     pulseaudio
     slurp # screenshot functionality
     spotify
+    swappy # image viewer 
     swww # wallpapers
     todoist
     vesktop

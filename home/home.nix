@@ -7,6 +7,7 @@
 let
   nvimConfigLocation = "${config.home.homeDirectory}/nix/home/nvim/nvim";
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
+  wallpapersLocation = "${config.home.homeDirectory}/nix/home/hyprland/wallpapers";
 in 
 {
   imports = [
@@ -25,6 +26,7 @@ in
   # Defining symlinks
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
   home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
+  home.file."Pictures/wallpapers/".source = config.lib.file.mkOutOfStoreSymlink wallpapersLocation;
 
   home.packages = with pkgs; [ ];
 

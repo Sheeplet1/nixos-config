@@ -5,6 +5,8 @@
     "$mod" = "SUPER";
 
     exec-once = [
+      "swww-daemon --format xrgb"
+      "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
       "hyprpanel &"
       "obsidian --ozone-platform-hint=auto &"
       "todoist --ozone-platform-hint=auto &"
@@ -19,6 +21,7 @@
       border_size = 2;
       resize_on_border = true;
       layout = "master";
+      "col.active_border" = "rgb(211, 134, 155)";
     };
 
     decoration = {
@@ -31,6 +34,8 @@
       dim_inactive = true;
       dim_strength = 0.1;
       dim_special = 0.8;
+
+      "col.shadow" = "rgb(211, 134, 155)";
 
       drop_shadow = true;
       shadow_range = 6;
@@ -107,6 +112,9 @@
         "$mod, PRINT, exec, hyprshot -m window" # window
         ", PRINT, exec, hyprshot -m output" # monitor
         "mod SHIFT, PRINT, exec, hyprshot -m region" # region
+
+        # hyprpicker
+        "$mod, p, exec, hyprpicker -a -f hex"
 
         # Controlling media via keyboard
         ", xf86AudioPlayPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
