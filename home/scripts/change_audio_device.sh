@@ -1,6 +1,4 @@
-#!/bin/bash
-
-# TODO : Fix
+#!/usr/bin/env bash
 
 # Get the current default sink
 current_sink=$(pactl get-default-sink)

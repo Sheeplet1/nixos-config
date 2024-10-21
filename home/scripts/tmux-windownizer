@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+curr_session=$(tmux display-message -p '#S')
+curr_window_num=$(tmux display-message -p '#I')
+new_session_name=$(basename "$(pwd)" | tr . _)
+pane_list=$(tmux list-panes -t :$curr_window_num -F '#P')
+
+tmux new-session -s $new_session_name -d
+
+pane_counter=1
+# Iterate over each pane and copy it over to the new session
+for i in $pane_list; do
+	if [ $pane_counter -ne 1 ]; then
+		tmux split-window -t $new_session_name:1
+		tmux select-layout -t $new_session_name:1 tiled
+	fi
+
+	# copy the current working directory and send to the new session
+	pane_command=$(tmux display-message -p -t :$curr_window_num.$i '#{pane_current_command}')
+	if [ "$pane_command" != "" ]; then
+		tmux send-keys -t $new_session_name:1.$((pane_counter - 1)) "$pane_command" C-m
+	else
+		tmux send-keys -t $new_session_name:1.$((pane_counter - 1)) "$SHELL" C-m
+	fi
+
+	pane_counter=$((pane_counter + 1))
+done
+
+tmux switch-client -t $new_session_name
+
+tmux kill-window -t $curr_session:$curr_window_num

@@ -6,6 +6,11 @@
 
     exec-once = [
       "hyprpanel &"
+      "obsidian --ozone-platform-hint=auto &"
+      "todoist --ozone-platform-hint=auto &"
+      "spotify"
+      "zen &"
+      "alacritty &"
     ];
 
     general = {
@@ -48,33 +53,27 @@
     animations = {
       enabled = "yes";
       bezier = [
-        # "overshot, 0.05, 0.9, 0.1, 1.05"
-        # "smoothOut, 0.36, 0, 0.66, -0.56"
-        # "smoothIn, 0.25, 1, 0.5, 1"
         "wind, 0.05, 0.9, 0.1, 1.05"
         "winIn, 0.1, 1.1, 0.1, 1.1"
         "winOut, 0.3, -0.3, 0, 1"
         "liner, 1, 1, 1, 1"
       ];
       animation = [
-        # https://github.com/hyper-dot/Arch-Hyprland/blob/main/.config/hypr/decoration.conf
-        # "windows, 1, 3, overshot, slide"
-        # "windowsOut, 1, 3, smoothOut, slide"
-        # "windowsMove, 1, 3, default"
-        # "border, 1, 3, default"
-        # "fade, 1, 3, smoothIn"
-        # "fadeDim, 1, 3, smoothIn"
-        # "workspaces, 1, 3, default"
         "windows, 1, 6, wind, slide"
         "windowsIn, 1, 6, winIn, slide"
         "windowsOut, 1, 5, winOut, slide"
         "windowsMove, 1, 5, wind, slide"
         "border, 1, 1, liner"
-        # borderangle, 1, 180, liner, loop #used by rainbow borders and rotating colors
         "fade, 1, 10, default"
         "workspaces, 1, 10, wind"
       ];
     };
+
+    # Move/resize windows with $mod + LMB/RMB
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
 
     bind =
       [
@@ -104,11 +103,22 @@
         "$mod SHIFT, Tab, workspace, m-1"
         "$mod, Tab, workspace, m+1"
 
-        # TODO: Need to make scripts the NixOS way 
-        # https://www.youtube.com/watch?v=diIh0P12arA
-        # "CTRL ALT, P, exec, ./scripts/wlogout.sh"
-        # "CTRL ALT, L, exec, ./scripts/lock_screen.sh"
-        # "$mod, C, exec, ./scripts/change_audio_device.sh"
+        # hyprshot
+        "$mod, PRINT, exec, hyprshot -m window" # window
+        ", PRINT, exec, hyprshot -m output" # monitor
+        "mod SHIFT, PRINT, exec, hyprshot -m region" # region
+
+        # Controlling media via keyboard
+        ", xf86AudioPlayPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
+        ", xf86AudioPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
+        ", xf86AudioPlay, exec, bash $HOME/.scripts/media_controls.sh --pause"
+        ", xf86AudioNext, exec, bash $HOME/.scripts/media_controls.sh --nxt"
+        ", xf86AudioPrev, exec, bash $HOME/.scripts/media_controls.sh --prv"
+        ", xf86Audiostop, exec, bash $HOME/.scripts/media_controls.sh --stop"
+
+        "CTRL ALT, L, exec, bash $HOME/.scripts/lock_screen.sh"
+        "CTRL ALT, P, exec, bash $HOME/.scripts/wlogout.sh"
+        "$mod, C, exec, bash $HOME/.scripts/change_audio_device.sh"
       ]
       ++ (builtins.concatLists (
         builtins.genList (
@@ -123,7 +133,7 @@
           ]
         ) 10
       ))
-      ++ (if pkgs.system == "x86_64-linux" then ["$mod, c, exec, zen"] else ["$mod, c, exec, firefox"]);
+      ++ (if pkgs.system == "x86_64-linux" then ["$mod, b, exec, zen"] else ["$mod, b, exec, firefox"]);
   };
   extraConfig = ''
     # Monitors

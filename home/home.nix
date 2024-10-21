@@ -6,6 +6,7 @@
 }:
 let
   nvimConfigLocation = "${config.home.homeDirectory}/nix/home/nvim/nvim";
+  scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
 in 
 {
   imports = [
@@ -21,7 +22,9 @@ in
     EDITOR = "nvim";
   };
 
+  # Defining symlinks
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
+  home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
 
   home.packages = with pkgs; [ ];
 

@@ -129,9 +129,12 @@
     hypridle
     hyprlock
     hyprpicker
+    hyprshot
     inputs.hyprpanel.packages."${pkgs.system}".default
     inputs.zen-browser.packages."${pkgs.system}".default 
     obsidian
+    playerctl
+    pulseaudio
     slurp # screenshot functionality
     spotify
     swww # wallpapers
