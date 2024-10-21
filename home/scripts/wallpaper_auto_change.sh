@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# FIX: Not working
 echo "Starting automatic wallpaper changer..."
 focused_monitor=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
 
@@ -18,13 +17,14 @@ export SWWW_TRANSITION_TYPE=simple
 INTERVAL=1800
 
 while true; do
-	find "$1" |
+	find -L "$1" -type f |
 		while read -r img; do
 			echo "$((RANDOM % 1000)):$img"
 		done |
 		sort -n | cut -d':' -f2- |
 		while read -r img; do
-			swww img -o $focused_monitor "$img"
+			# swww img -o $focused_monitor "$img"
+			swww img "$img"
 			sleep $INTERVAL
 		done
 done

@@ -27,7 +27,7 @@
     decoration = {
       rounding = 10;
 
-      active_opacity = 0.95;
+      active_opacity = 0.85;
       inactive_opacity = 0.8;
       fullscreen_opacity = 1;
 
@@ -107,6 +107,10 @@
         "$mod SHIFT, f, togglefloating"
         "$mod SHIFT, Tab, workspace, m-1"
         "$mod, Tab, workspace, m+1"
+
+        # wallpapers 
+        "$mod, W, exec, bash $HOME/.scripts/wallpaper_select.sh"
+        "CTTR ALT, W, exec, bash $HOME/.scripts/wallpaper_random.sh"
 
         # hyprshot
         "$mod, PRINT, exec, hyprshot -m window" # window
