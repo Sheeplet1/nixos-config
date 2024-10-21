@@ -12,9 +12,8 @@ Clone this repo:
 
 Copy the device hardware configuration over to the system folder under `hardware`.
 
-> cp /etc/nixos/hardware-configuration.nix <destination> 
+> cp /etc/nixos/hardware-configuration.nix <destination>
 
 Then build:
 
 > sudo nixos-rebuild switch --flake <flake-location>#<hardware>
-

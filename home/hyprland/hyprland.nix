@@ -74,6 +74,55 @@
       ];
     };
 
+    monitor = [
+      "DP-1, 3440x1440@175, 0x0, 1"
+      "DP-2, disable"
+      "DP-3, disable"
+      # Uncomment to re-enable monitors and comment out the above
+      # "DP-2, 1920x1080@60, 3440x0, 1"
+      # "DP-3, 1920x1080@60, -1920x0, 1"
+    ];
+
+    workspace = [
+      "1, monitor:DP-1"
+      "2, monitor:DP-1"
+      "3, monitor:DP-2"
+      "4, monitor:DP-2"
+      "5, monitor:DP-3"
+      "6, monitor:DP-3"
+    ];
+
+    windowrulev2 = [
+      # Workspaces
+      "workspace 1, class:^([Aa]lacritty)$"
+
+      "workspace 2, class:^([Vv]ivaldi-stable)$"
+      "workspace 2, class:^([Ff]irefox)$"
+      "workspace 2, initialTitle:^([Zz]en Browser)$"
+
+      "workspace 3, initialTitle:^([Ss]potify)$"
+
+      "workspace 4, class:^([Oo]bsidian)$"
+
+      "workspace 5, class:^([Tt]odoist)$"
+
+      "workspace 6, class:^([Dd]iscord)$"
+      "workspace 6, class:^([Ww]ebCord)$"
+      "workspace 6, class:^([Vv]esktop)$"
+
+      # Floats
+      "float, class:^(org.kde.polkit-kde-authentication-agent-1)$" 
+      "float, class:([Zz]oom|onedriver|onedriver-launcher)$"
+      "float, class:([Tt]hunar), title:(File Operation Progress)"
+      "float, class:([Tt]hunar), title:(Confirm to replace files)"
+      "float, class:(xdg-desktop-portal-gtk)"
+      "float, class:(org.gnome.Calculator), title:(Calculator)"
+
+      # Positions
+      "center, class:([Tt]hunar), title:(File Operation Progress)"
+      "center, class:([Tt]hunar), title:(Confirm to replace files)"
+    ];
+
     # Move/resize windows with $mod + LMB/RMB
     bindm = [
       "$mod, mouse:272, movewindow"
@@ -110,7 +159,7 @@
 
         # wallpapers 
         "$mod, W, exec, bash $HOME/.scripts/wallpaper_select.sh"
-        "CTTR ALT, W, exec, bash $HOME/.scripts/wallpaper_random.sh"
+        "CTRL ALT, W, exec, bash $HOME/.scripts/wallpaper_random.sh"
 
         # hyprshot
         "$mod, PRINT, exec, hyprshot -m window" # window
@@ -121,12 +170,16 @@
         "$mod, p, exec, hyprpicker -a -f hex"
 
         # Controlling media via keyboard
-        ", xf86AudioPlayPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
-        ", xf86AudioPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
-        ", xf86AudioPlay, exec, bash $HOME/.scripts/media_controls.sh --pause"
-        ", xf86AudioNext, exec, bash $HOME/.scripts/media_controls.sh --nxt"
-        ", xf86AudioPrev, exec, bash $HOME/.scripts/media_controls.sh --prv"
-        ", xf86Audiostop, exec, bash $HOME/.scripts/media_controls.sh --stop"
+        # ", xf86AudioPlayPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
+        # ", xf86AudioPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
+        # ", xf86AudioPlay, exec, bash $HOME/.scripts/media_controls.sh --pause"
+        # ", xf86AudioNext, exec, bash $HOME/.scripts/media_controls.sh --nxt"
+        # ", xf86AudioPrev, exec, bash $HOME/.scripts/media_controls.sh --prv"
+        # ", xf86Audiostop, exec, bash $HOME/.scripts/media_controls.sh --stop"
+        ",XF86AudioPlay, exec, playerctl play-pause"
+        ",XF86AudioPause, exec, playerctl play-pause"
+        ",XF86AudioNext, exec, playerctl next"
+        ",XF86AudioPrev, exec, playerctl previous"
 
         "$mod, L, exec, bash $HOME/.scripts/lock_screen.sh"
         "CTRL ALT, P, exec, bash $HOME/.scripts/wlogout.sh"
@@ -148,51 +201,5 @@
       ++ (if pkgs.system == "x86_64-linux" then ["$mod, b, exec, zen"] else ["$mod, b, exec, firefox"]);
   };
   extraConfig = ''
-    # Monitors
-    monitor=DP-1, 3440x1440@175, 0x0, 1
-    monitor=DP-2, disable
-    monitor=DP-3, disable
-    # Uncomment the below and comment out the above to re-enable other monitors
-    # monitor=DP-2, 1920x1080@60, 3440x0, 1
-    # monitor=DP-3, 1920x1080@60, -1920x0, 1
-
-    # Defining workspaces
-    workspace = 1, monitor:DP-1
-    workspace = 2, monitor:DP-1
-
-    workspace = 3, monitor:DP-2
-    workspace = 4, monitor:DP-2
-
-    workspace = 5, monitor:DP-3
-    workspace = 6, monitor:DP-3
-
-    # Workspace Rules
-    windowrulev2 = workspace 2, class:^([Vv]ivaldi-stable)$
-    windowrulev2 = workspace 2, class:^([Ff]irefox)$
-    windowrulev2 = workspace 2, initialTitle:^([Zz]en Browser)$
-
-    windowrulev2 = workspace 1, class:^([Aa]lacritty)$
-
-    windowrulev2 = workspace 4, class:^([Oo]bsidian)$
-
-    windowrulev2 = workspace 3, initialTitle:^([Ss]potify)$
-
-    windowrulev2 = workspace 5, class:^([Tt]odoist)$
-
-    windowrulev2 = workspace 6, class:^([Dd]iscord)$
-    windowrulev2 = workspace 6, class:^([Ww]ebCord)$
-    windowrulev2 = workspace 6, class:^([Vv]esktop)$
-
-    # Defining floats 
-    windowrulev2 = float, class:^(org.kde.polkit-kde-authentication-agent-1)$ 
-    windowrulev2 = float, class:([Zz]oom|onedriver|onedriver-launcher)$
-    windowrulev2 = float, class:([Tt]hunar), title:(File Operation Progress)
-    windowrulev2 = float, class:([Tt]hunar), title:(Confirm to replace files)
-    windowrulev2 = float, class:(xdg-desktop-portal-gtk)
-    windowrulev2 = float, class:(org.gnome.Calculator), title:(Calculator)
-
-    # Defining positions
-    windowrulev2 = center, class:([Tt]hunar), title:(File Operation Progress)
-    windowrulev2 = center, class:([Tt]hunar), title:(Confirm to replace files)
   '';
 }
