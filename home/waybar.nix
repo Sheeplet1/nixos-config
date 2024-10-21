@@ -45,7 +45,12 @@
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ "clock" ];
-      modules-right = [ "network" "pulseaudio" "battery" "custom/power" ];
+      modules-right = [
+        "network"
+        "pulseaudio"
+        "battery"
+        "custom/power"
+      ];
 
       clock = {
         format = "{:%H:%M - %A %d.}";
@@ -53,9 +58,9 @@
 
       battery = {
         states = {
-            # good: 95;
-            warning = 30;
-            critical = 15;
+          # good: 95;
+          warning = 30;
+          critical = 15;
         };
         format = "{capacity}% {icon}";
         format-charging = "{capacity}% ";
@@ -63,7 +68,13 @@
         format-alt = "{time} {icon}";
         # "format-good" = "", // An empty format will hide the module
         # "format-full" = "",
-        format-icons = ["" "" "" "" ""];
+        format-icons = [
+          ""
+          ""
+          ""
+          ""
+          ""
+        ];
       };
 
       "hyprland/window" = {
@@ -78,28 +89,32 @@
         format-source = "{volume}% ";
         format-source-muted = "";
         format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = ["" "" ""];
+          headphone = "";
+          hands-free = "";
+          headset = "";
+          phone = "";
+          portable = "";
+          car = "";
+          default = [
+            ""
+            ""
+            ""
+          ];
         };
         on-click = "pavucontrol";
       };
 
       "custom/power" = {
-          format = "⏻ ";
-          tooltip = false;
-          menu = "on-click";
-          menu-file = "$HOME/.config/waybar/power_menu.xml";
-          menu-actions = {
-            shutdown = "shutdown";
-            reboot = "reboot";
-            suspend = "systemctl suspend";
-            hibernate = "systemctl hibernate";
-          };
+        format = "⏻ ";
+        tooltip = false;
+        menu = "on-click";
+        menu-file = "$HOME/.config/waybar/power_menu.xml";
+        menu-actions = {
+          shutdown = "shutdown";
+          reboot = "reboot";
+          suspend = "systemctl suspend";
+          hibernate = "systemctl hibernate";
+        };
       };
 
       network = {

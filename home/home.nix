@@ -8,7 +8,7 @@ let
   nvimConfigLocation = "${config.home.homeDirectory}/nix/home/nvim/nvim";
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
   wallpapersLocation = "${config.home.homeDirectory}/nix/home/hyprland/wallpapers";
-in 
+in
 {
   imports = [
     ./ags/ags.nix

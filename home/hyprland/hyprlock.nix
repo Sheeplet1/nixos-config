@@ -9,7 +9,7 @@
       hide_cursor = false;
       disable_loading_bar = true;
     };
-    
+
     background = [
       {
         path = "/home/anthonyd/nix/home/hyprland/wallpapers/Fantasy-Japanese-Street.png";
@@ -42,26 +42,26 @@
 
     label = [
       {
-          # Date
-          monitor = "";
-          text = "cmd[update:1000] echo \"$(date +\"%A, %B %d\")\"";
-          color = "rgba(242, 243, 244, 0.75)";
-          font_size = 22;
-          font_family = "Iosevka Nerd Font";
-          position = "0, 300";
-          halign = "center";
-          valign = "center";
+        # Date
+        monitor = "";
+        text = "cmd[update:1000] echo \"$(date +\"%A, %B %d\")\"";
+        color = "rgba(242, 243, 244, 0.75)";
+        font_size = 22;
+        font_family = "Iosevka Nerd Font";
+        position = "0, 300";
+        halign = "center";
+        valign = "center";
       }
       {
-          # Time 
-          monitor = "";
-          text = "cmd[update:1000] echo \"$(date +\"%-I:%M\")\"";
-          color = "rgba(242, 243, 244, 0.75)";
-          font_size = 95;
-          font_family = "Iosevka";
-          position = "0, 200";
-          halign = "center";
-          valign = "center";
+        # Time 
+        monitor = "";
+        text = "cmd[update:1000] echo \"$(date +\"%-I:%M\")\"";
+        color = "rgba(242, 243, 244, 0.75)";
+        font_size = 95;
+        font_family = "Iosevka";
+        position = "0, 200";
+        halign = "center";
+        valign = "center";
       }
       {
         # "Hi there, {$USER}"

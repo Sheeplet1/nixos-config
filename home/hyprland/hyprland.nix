@@ -112,7 +112,7 @@
       "workspace 6, class:^([Vv]esktop)$"
 
       # Floats
-      "float, class:^(org.kde.polkit-kde-authentication-agent-1)$" 
+      "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"
       "float, class:([Zz]oom|onedriver|onedriver-launcher)$"
       "float, class:([Tt]hunar), title:(File Operation Progress)"
       "float, class:([Tt]hunar), title:(Confirm to replace files)"
@@ -199,8 +199,9 @@
           ]
         ) 10
       ))
-      ++ (if pkgs.system == "x86_64-linux" then ["$mod, b, exec, zen"] else ["$mod, b, exec, firefox"]);
+      ++ (
+        if pkgs.system == "x86_64-linux" then [ "$mod, b, exec, zen" ] else [ "$mod, b, exec, firefox" ]
+      );
   };
-  extraConfig = ''
-  '';
+  extraConfig = '''';
 }

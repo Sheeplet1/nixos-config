@@ -14,7 +14,7 @@
     ls = "ls --color";
     vim = "nvim";
     cd = "z";
- };
+  };
   initExtra = ''
     [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
 
@@ -68,6 +68,5 @@
       file = "share/fzf-tab/fzf-tab.plugin.zsh";
     }
   ];
-
 
 }

@@ -58,8 +58,10 @@
       "docker"
     ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-    ];
+    packages =
+      with pkgs;
+      [
+      ];
   };
 
   home-manager = {
@@ -90,65 +92,73 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    alacritty
-    cargo
-    clang
-    curl
-    firefox
-    fzf
-    gcc
-    git
-    go
-    gtk3
-    jq
-    lazygit
-    libnotify
-    neovim
-    nixfmt-rfc-style
-    nodejs
-    python3
-    qt5.qtwayland
-    qt6.qtwayland
-    ripgrep
-    rustc
-    stow
-    tmux
-    tree
-    unzip
-    wget
-    wl-clipboard
-    wofi
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-utils
-    zip
-  ] ++ (if pkgs.system == "x86_64-linux" then  [ 
-    # swaynotificationcenter # notification daemon
-    ags
-    eww
-    grim # screenshot functionality
-    hyprcursor
-    hypridle
-    hyprlock
-    hyprpicker
-    hyprshot
-    inputs.hyprpanel.packages."${pkgs.system}".default
-    inputs.zen-browser.packages."${pkgs.system}".default 
-    obsidian
-    playerctl
-    pulseaudio
-    slurp # screenshot functionality
-    spotify
-    swappy # image viewer 
-    swww # wallpapers
-    todoist-electron
-    vesktop
-    waybar
-    wlogout
-  ] else [
-    open-vm-tools
-  ]); 
+  environment.systemPackages =
+    with pkgs;
+    [
+      alacritty
+      cargo
+      clang
+      curl
+      firefox
+      fzf
+      gcc
+      git
+      go
+      gtk3
+      jq
+      lazygit
+      libnotify
+      neovim
+      nixfmt-rfc-style
+      nodejs
+      python3
+      qt5.qtwayland
+      qt6.qtwayland
+      ripgrep
+      rustc
+      stow
+      tmux
+      tree
+      unzip
+      wget
+      wl-clipboard
+      wofi
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-utils
+      zip
+    ]
+    ++ (
+      if pkgs.system == "x86_64-linux" then
+        [
+          # swaynotificationcenter # notification daemon
+          ags
+          eww
+          grim # screenshot functionality
+          hyprcursor
+          hypridle
+          hyprlock
+          hyprpicker
+          hyprshot
+          inputs.hyprpanel.packages."${pkgs.system}".default
+          inputs.zen-browser.packages."${pkgs.system}".default
+          obsidian
+          playerctl
+          pulseaudio
+          slurp # screenshot functionality
+          spotify
+          swappy # image viewer
+          swww # wallpapers
+          todoist-electron
+          vesktop
+          waybar
+          wlogout
+        ]
+      else
+        [
+          open-vm-tools
+        ]
+    );
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
@@ -182,7 +192,12 @@
 
   fonts.packages = with pkgs; [
     atkinson-hyperlegible
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "Iosevka"
+      ];
+    })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -245,25 +260,25 @@
 
     # TODO: Need to figure out how to maximise resolution
     greetd = {
-        enable = true;
-        vt = 3; # use tty3 
-        settings = {
-            default_session = {
-                user = "anthonyd";
-                # Starting "Hyprland" with TUI login manager
-                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-            };
-            theme = {
-                border = "magenta"; 
-                text = "cyan"; 
-                prompt = "green"; 
-                time = "red"; 
-                action = "blue"; 
-                button = "yellow"; 
-                container = "black"; 
-                input = "red";
-            };
+      enable = true;
+      vt = 3; # use tty3
+      settings = {
+        default_session = {
+          user = "anthonyd";
+          # Starting "Hyprland" with TUI login manager
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         };
+        theme = {
+          border = "magenta";
+          text = "cyan";
+          prompt = "green";
+          time = "red";
+          action = "blue";
+          button = "yellow";
+          container = "black";
+          input = "red";
+        };
+      };
     };
 
     hypridle.enable = true;

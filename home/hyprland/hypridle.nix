@@ -7,7 +7,7 @@
       # unlock_cmd = notify-send "unlock!";
       before_sleep_cmd = "hyprlock";
       # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox)
-      ignore_dbus_inhibit = false; 
+      ignore_dbus_inhibit = false;
     };
 
     listener = [
