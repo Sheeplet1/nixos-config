@@ -13,7 +13,8 @@
     c = "clear";
     ls = "ls --color";
     vim = "nvim";
-  };
+    cd = "z";
+ };
   # TODO: Add completion styling with fzf
   initExtra = ''
     [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}

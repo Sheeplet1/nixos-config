@@ -35,6 +35,7 @@ in
   programs.waybar = (import ./waybar.nix { inherit pkgs; });
   programs.zoxide = (import ./zoxide.nix { inherit pkgs; });
   programs.zsh = (import ./zsh.nix { inherit pkgs; });
+  programs.wofi = (import ./wofi/wofi.nix { inherit pkgs; });
 
   services.hypridle = (import ./hyprland/hypridle.nix { inherit pkgs; });
 
