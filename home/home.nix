@@ -32,6 +32,7 @@ in
 
   programs.alacritty = (import ./alacritty.nix { inherit pkgs; });
   programs.git = (import ./git.nix { inherit pkgs; });
+  programs.fzf = (import ./fzf.nix { inherit pkgs; });
   programs.hyprlock = (import ./hyprland/hyprlock.nix { inherit pkgs; });
   programs.tmux = (import ./tmux.nix { inherit inputs pkgs; });
   programs.waybar = (import ./waybar.nix { inherit pkgs; });

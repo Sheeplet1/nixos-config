@@ -15,9 +15,30 @@
     vim = "nvim";
     cd = "z";
  };
-  # TODO: Add completion styling with fzf
   initExtra = ''
     [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
+
+    # disable sort when completing `git checkout`
+    zstyle ':completion:*:git-checkout:*' sort false
+    # set descriptions format to enable group support
+    # NOTE: don't use escape sequences here, fzf-tab will ignore them
+    zstyle ':completion:*:descriptions' format '[%d]'
+    # set list-colors to enable filename colorizing
+    zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+    # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+    zstyle ':completion:*' menu no
+    # preview directory's content with eza when completing cd
+    zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+    zstyle ':fzf-tab:complete:ls:*' fzf-preview 'cat $realpath'
+    # switch group using `<` and `>`
+    zstyle ':fzf-tab:*' switch-group '<' '>'
+
+    # Tmux attach session or start new
+    if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; 
+    then
+      tmux attach 2>/dev/null || tmux
+    fi
   '';
 
   plugins = [
@@ -47,4 +68,6 @@
       file = "share/fzf-tab/fzf-tab.plugin.zsh";
     }
   ];
+
+
 }

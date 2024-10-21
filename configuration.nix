@@ -59,7 +59,6 @@
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      open-vm-tools
     ];
   };
 
@@ -141,11 +140,13 @@
     spotify
     swappy # image viewer 
     swww # wallpapers
-    todoist
+    todoist-electron
     vesktop
     waybar
     wlogout
-  ] else []); 
+  ] else [
+    open-vm-tools
+  ]); 
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland

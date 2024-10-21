@@ -65,10 +65,5 @@
     # If there is crashes in firefox, comment out the below line.
     GBM_BACKEND = "nvidia-drm";
     NVD_BACKEND = "direct";
-  
-    # TODO: Potentially need to set this variable
-    # github.com/hyprwm/Hyprland/issues/6708
-    # WLR_DRM_DEVICES -> maybe not bc this is wlroots and hyprland on aquamarine
-    # now
   };
 }

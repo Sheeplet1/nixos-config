@@ -1,8 +1,6 @@
 { inputs, config, pkgs, ... }:
 {
-  imports = [
-    ../../modules/vmware-guest.nix
-  ];
+  import = [];
 
   # Enable aarm64 to use x86_64 packages since they most will still work.
   boot.binfmt.emulatedSystems = ["x86_64-linux"];
@@ -13,7 +11,6 @@
 
   # TODO: Trying to sync clipboard between host and guest - to move this into 
   # separate config file
-  disabledModules = [ "virtualisation/vmware-guest.nix" ];
   virtualisation.vmware.guest.enable = true;
 
   fileSystems."/host" = {

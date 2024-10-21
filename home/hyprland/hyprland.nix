@@ -9,7 +9,7 @@
       "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
       "hyprpanel &"
       "obsidian --ozone-platform-hint=auto &"
-      "todoist --ozone-platform-hint=auto &"
+      "todoist-electron --ozone-platform-hint=auto &"
       "spotify"
       "zen &"
       "alacritty &"
@@ -101,6 +101,7 @@
       "workspace 2, initialTitle:^([Zz]en Browser)$"
 
       "workspace 3, initialTitle:^([Ss]potify)$"
+      "workspace 3, initialTitle:^([Ss]potify Premium)$"
 
       "workspace 4, class:^([Oo]bsidian)$"
 
