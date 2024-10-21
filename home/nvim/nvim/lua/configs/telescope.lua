@@ -44,6 +44,7 @@ local options = {
       "%.db",
       "%.mod",
       "%.sum",
+      "%.lock",
     },
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     path_display = { "truncate" },

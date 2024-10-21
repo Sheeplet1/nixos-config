@@ -92,6 +92,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
+    cargo
     clang
     curl
     firefox
@@ -110,6 +111,7 @@
     qt5.qtwayland
     qt6.qtwayland
     ripgrep
+    rustc
     stow
     tmux
     tree

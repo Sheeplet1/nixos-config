@@ -3,31 +3,31 @@
 
 ---@type ChadrcConfig
 local M = {
-  base46 = {
-    theme = "gruvbox",
-    integrations = {
-      "cmp",
-      "todo",
-      "telescope",
-      "rainbowdelimiters",
-      "mason",
-    },
-  },
-
-  ui = {
-    statusline = {
-      theme = "minimal",
-      separator_style = "round",
+    base46 = {
+        theme = "gruvbox",
+        integrations = {
+            "cmp",
+            "todo",
+            "telescope",
+            "rainbowdelimiters",
+            "mason",
+        },
     },
 
-    telescope = {
-      style = "bordered",
-    },
+    ui = {
+        statusline = {
+            theme = "minimal",
+            separator_style = "round",
+        },
 
-    lsp = {
-      signature = false,
+        telescope = {
+            style = "bordered",
+        },
+
+        lsp = {
+            signature = false,
+        },
     },
-  },
 }
 
 return M

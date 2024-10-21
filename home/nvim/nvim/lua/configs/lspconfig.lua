@@ -27,23 +27,25 @@ local servers = {
   cssls = {},
   tailwindcss = {},
 
-  eslint = {
-    filetypes = {
-      "javascript",
-      "javascriptreact",
-      "javascript.jsx",
-      "typescript",
-      "typescriptreact",
-      "typescript.tsx",
-    },
-    root_dir = require("lspconfig").util.root_pattern(
-      ".eslintrc.js",
-      ".eslintrc.json",
-      ".eslintrc.yml",
-      ".eslintrc.yaml",
-      "package.json"
-    ),
-  },
+  rust_analyzer = {},
+
+  -- eslint = {
+  --   filetypes = {
+  --     "javascript",
+  --     "javascriptreact",
+  --     "javascript.jsx",
+  --     "typescript",
+  --     "typescriptreact",
+  --     "typescript.tsx",
+  --   },
+  --   root_dir = require("lspconfig").util.root_pattern(
+  --     ".eslintrc.js",
+  --     ".eslintrc.json",
+  --     ".eslintrc.yml",
+  --     ".eslintrc.yaml",
+  --     "package.json"
+  --   ),
+  -- },
   ts_ls = {
     settings = {
       separate_diagnostic_server = true,
@@ -67,12 +69,12 @@ local servers = {
     },
   },
 
-  clangd = {
-    cmd = {
-      "clangd",
-      "--fallback-style=webkit",
-    },
-  },
+  -- clangd = {
+  --   cmd = {
+  --     "clangd",
+  --     "--fallback-style=webkit",
+  --   },
+  -- },
 }
 
 for name, opts in pairs(servers) do
