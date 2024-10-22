@@ -84,17 +84,8 @@
           default_session = {
             user = "anthonyd";
             # Starting "Hyprland" with TUI login manager
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-          };
-          theme = {
-            border = "magenta";
-            text = "cyan";
-            prompt = "green";
-            time = "red";
-            action = "blue";
-            button = "yellow";
-            container = "black";
-            input = "red";
+            # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+            command = "Hyprland";
           };
         };
       };
