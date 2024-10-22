@@ -17,22 +17,32 @@
 
   services = {
     xserver = {
-      desktopManager = {
-        xterm.enable = false;
-        wallpaper.mode = "fill";
-      };
+      dpi = 254; # DPI for M1 14" Pro
+      # desktopManager = {
+      #   xterm.enable = false;
+      #   wallpaper.mode = "fill";
+      # };
+      #
+      # displayManager = {
+      #   defaultSession = "none+i3";
+      #   lightdm.enable = true;
+      #
+      #   sessionCommands = ''
+      #     ${pkgs.xorg.xset}/bin/xset r rate 200 40
+      #   '';
+      # };
 
-      displayManager = {
-        defaultSession = "none+i3";
-        lightdm.enable = true;
-
-        sessionCommands = ''
-          ${pkgs.xorg.xset}/bin/xset r rate 200 40
-        '';
-      };
-
-      windowManager = {
-        i3.enable = true;
+      greetd = {
+        enable = true;
+        vt = 3; # use tty3
+        settings = {
+          default_session = {
+            user = "anthonyd";
+            # Starting "Hyprland" with TUI login manager
+            # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+            command = "Hyprland";
+          };
+        };
       };
     };
 
