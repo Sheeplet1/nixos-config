@@ -108,6 +108,7 @@
     tree
     unzip
     wget
+    wl-clipboard
     zip
   ];
 
@@ -140,6 +141,18 @@
     xserver = {
       enable = true;
       xkb.layout = "au";
+    };
+    greetd = {
+      enable = true;
+      vt = 3; # use tty3
+      settings = {
+        default_session = {
+          user = "anthonyd";
+          # Starting "Hyprland" with TUI login manager
+          # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+          command = "Hyprland";
+        };
+      };
     };
   };
 

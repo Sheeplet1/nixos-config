@@ -57,7 +57,6 @@
       libnotify
       qt5.qtwayland
       qt6.qtwayland
-      wl-clipboard
       wofi
       xdg-desktop-portal
       xdg-desktop-portal-gtk

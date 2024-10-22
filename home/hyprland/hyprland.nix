@@ -5,7 +5,7 @@
     "$mod" = "SUPER";
 
     exec-once = [
-      "hyprlock"
+      # "hyprlock"
       "swww-daemon --format xrgb"
       "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
       "hyprpanel"
@@ -15,7 +15,7 @@
       "spotify"
       "zen"
       "alacritty"
-    ];
+    ] ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else []);
 
     general = {
       gaps_in = 12;
