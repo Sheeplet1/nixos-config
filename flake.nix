@@ -45,8 +45,7 @@
           inherit inputs;
         };
         modules = [
-          ./configuration.nix
-          ./hardware/aarch64/extra-configuration.nix
+          ./hardware/aarch64/configuration.nix
           ./hardware/aarch64/hardware-configuration.nix
 
           home-manager.nixosModules.default
