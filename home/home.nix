@@ -10,10 +10,6 @@ let
   wallpapersLocation = "${config.home.homeDirectory}/nix/home/hyprland/wallpapers";
 in
 {
-  imports = [
-    ./ags/ags.nix
-  ];
-
   programs.home-manager.enable = true;
   home.username = "anthonyd";
   home.homeDirectory = "/home/anthonyd";
@@ -30,6 +26,7 @@ in
 
   home.packages = with pkgs; [ ];
 
+  # TODO: Modules
   programs.alacritty = (import ./alacritty.nix { inherit pkgs; });
   programs.git = (import ./git.nix { inherit pkgs; });
   programs.fzf = (import ./fzf.nix { inherit pkgs; });
