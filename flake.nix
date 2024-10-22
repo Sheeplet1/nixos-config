@@ -63,11 +63,10 @@
       nixosConfigurations.linux = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit unstable inputs;
+          inherit inputs;
         };
         modules = [
-          ./configuration.nix
-          ./hardware/x86_64-nvidia/extra-configuration.nix
+          ./hardware/x86_64-nvidia/configuration.nix
           ./hardware/x86_64-nvidia/hardware-configuration.nix
 
           inputs.home-manager.nixosModules.default
