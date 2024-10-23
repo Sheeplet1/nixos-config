@@ -8,6 +8,7 @@
   # https://github.com/vmware/open-vm-tools/issues/660 
   virtualisation.vmware.guest.enable = true;
   environment.systemPackages = with pkgs; [ 
+    gnomeExtensions.hide-top-bar
     gtkmm3
     open-vm-tools
     xclip

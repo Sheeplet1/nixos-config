@@ -17,7 +17,7 @@
         x = 4;
         y = 8;
       };
-      decorations = "full";
+      decorations = "none";
       dynamic_title = true;
       title = "Alacritty";
     };
