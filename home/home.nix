@@ -30,7 +30,7 @@ in
   programs.alacritty = (import ./alacritty.nix { inherit pkgs; });
   programs.git = (import ./git.nix { inherit pkgs; });
   programs.fzf = (import ./fzf.nix { inherit pkgs; });
-  # programs.hyprlock = (import ./hyprland/hyprlock.nix { inherit pkgs; });
+  programs.hyprlock = (import ./hyprland/hyprlock.nix { inherit pkgs; });
   programs.neovim = (import ./nvim/neovim.nix { inherit pkgs; });
   programs.tmux = (import ./tmux.nix { inherit inputs pkgs; });
   # programs.waybar = (import ./waybar.nix { inherit pkgs; });
@@ -38,7 +38,7 @@ in
   programs.zsh = (import ./zsh.nix { inherit pkgs; });
   programs.wofi = (import ./wofi/wofi.nix { inherit pkgs; });
 
-  # services.hypridle = (import ./hyprland/hypridle.nix { inherit pkgs; });
+  services.hypridle = (import ./hyprland/hypridle.nix { inherit pkgs; });
 
   wayland.windowManager.hyprland = (import ./hyprland/hyprland.nix { inherit pkgs; });
 
