@@ -24,6 +24,7 @@
       dpi = 254; # DPI for M1 14" Pro
       desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
+      displayManager.gdm.wayland = false;
     };
   };
 
