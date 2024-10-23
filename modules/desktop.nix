@@ -75,7 +75,8 @@
     };
 
     services = {
-      # TODO: Need to figure out how to maximise resolution
+      # TODO: Need to figure out how to maximise resolution for tuigreet rather
+      # than pseudo lockscreen with hyprlock.
       greetd = {
         enable = true;
         vt = 3; # use tty3
