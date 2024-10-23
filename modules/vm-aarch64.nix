@@ -8,8 +8,8 @@
   # https://github.com/vmware/open-vm-tools/issues/660 
   virtualisation.vmware.guest.enable = true;
   environment.systemPackages = with pkgs; [ 
-    # gtkmm3
-    xsel
+    gtkmm3
+    open-vm-tools
     xclip
   ];
 
@@ -21,10 +21,12 @@
 
   services = {
     xserver = {
-      dpi = 254; # DPI for M1 14" Pro
+      dpi = 220; # DPI for M1 14" Pro
       desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
-      displayManager.gdm.wayland = false;
+
+      # Enabling this option lags out VMWare Fusion.
+      # displayManager.gdm.wayland = false;
     };
   };
 
