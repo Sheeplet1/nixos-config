@@ -46,6 +46,7 @@ local servers = {
   --     "package.json"
   --   ),
   -- },
+
   ts_ls = {
     settings = {
       separate_diagnostic_server = true,
@@ -95,6 +96,8 @@ local servers = {
       -- },
     },
   },
+
+  svelte = {},
 }
 
 for name, opts in pairs(servers) do

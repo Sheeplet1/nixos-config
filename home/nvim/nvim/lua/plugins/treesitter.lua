@@ -3,23 +3,22 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "vim",
-        "vimdoc",
-        "lua",
-        "regex",
-
-        "html",
         "css",
+        "go",
+        "html",
         "javascript",
-        "typescript",
-        "tsx",
-
         "json",
+        "lua",
         "markdown",
         "markdown_inline",
-
-        "go",
+        "nix",
+        "regex",
         "rust",
+        "svelte",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
         -- "cpp",
       },
     },
