@@ -2,6 +2,10 @@
 {
   enable = true;
   settings = {
+    import = [
+      pkgs.alacritty-theme.kanagawa_wave
+    ];
+
     env = {
       TERM = "xterm-256color";
       # Hack for VM

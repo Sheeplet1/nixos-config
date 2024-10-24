@@ -24,21 +24,24 @@
 
     ags.url = "github:Aylur/ags";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
   outputs =
     {
-      self,
       nixpkgs,
-      nixpkgs-unstable,
+      alacritty-theme,
       home-manager,
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
-      unstable = import nixpkgs-unstable { inherit system; };
     in
     {
+      nixpkgs.overlays = [
+        alacritty-theme.overlays.default
+      ];
+
       nixosConfigurations.aarch64 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {
@@ -48,8 +51,16 @@
           ./hardware/aarch64/configuration.nix
           ./hardware/aarch64/hardware-configuration.nix
 
-          home-manager.nixosModules.default
+          (
+            { config, pkgs, ... }:
+            {
+              nixpkgs.overlays = [
+                alacritty-theme.overlays.default
+              ];
+            }
+          )
 
+          home-manager.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -68,8 +79,16 @@
           ./hardware/x86_64-nvidia/configuration.nix
           ./hardware/x86_64-nvidia/hardware-configuration.nix
 
-          inputs.home-manager.nixosModules.default
+          (
+            { config, pkgs, ... }:
+            {
+              nixpkgs.overlays = [
+                alacritty-theme.overlays.default
+              ];
+            }
+          )
 
+          home-manager.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
