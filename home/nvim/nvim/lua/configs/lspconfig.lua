@@ -75,6 +75,26 @@ local servers = {
   --     "--fallback-style=webkit",
   --   },
   -- },
+
+  nixd = {
+    cmd = { "nixd" },
+    settings = {
+      nixpkgs = {
+        expr = "import <nixpkgs> { }",
+      },
+      formatting = {
+        command = { "nixfmt" },
+      },
+      -- options = {
+      --   nixos = {
+      --     expr = '(builtins.getFlake ("~/nix")).nixosConfigurations.linux.options',
+      --   },
+      --   home_manager = {
+      --     expr = '(builtins.getFlake "~/nix").homeConfigurations.anthonyd.options',
+      --   },
+      -- },
+    },
+  },
 }
 
 for name, opts in pairs(servers) do

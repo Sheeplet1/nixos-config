@@ -1,6 +1,6 @@
 {
   inputs,
-  config, 
+  config,
   unstable,
   pkgs,
   ...
@@ -15,7 +15,7 @@
   boot.loader.grub = {
     enable = true;
     device = "nodev";
-    useOSProber = true;
+    useOSProber = (if pkgs.system == "x86_64-linux" then true else false);
     efiSupport = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
@@ -82,7 +82,10 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    nixPath = [ "nixos-config=${config.users.users.anthonyd.home}/nix/configuration.nix" ];
+    nixPath = [
+      "nixos-config=${config.users.users.anthonyd.home}/nix/configuration.nix"
+      "nixpkgs=${inputs.nixpkgs}"
+    ];
   };
 
   environment.systemPackages = with pkgs; [

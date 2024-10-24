@@ -31,8 +31,10 @@
     gopls
     gofumpt
     goimports-reviser
-    golines
     gomodifytags
+    golines
     gotests
+
+    nixd
   ];
 }
