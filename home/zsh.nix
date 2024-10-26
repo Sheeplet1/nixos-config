@@ -14,6 +14,7 @@
     ls = "ls --color";
     vim = "nvim";
     cd = "z";
+    gl = "git log --graph --decorate --pretty=oneline --abbrev-commit --all";
   };
   initExtra = ''
     [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
