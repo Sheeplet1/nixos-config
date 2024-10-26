@@ -7,11 +7,8 @@
 let
   nvimConfigLocation = "${config.home.homeDirectory}/nix/home/nvim/nvim";
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
-in 
+in
 {
-  # This configuration is for my Macbook VM which is basically a 
-  # terminal replacement.
-
   programs.home-manager.enable = true;
   home.username = "anthonyd";
   home.homeDirectory = "/home/anthonyd";
@@ -20,6 +17,11 @@ in
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     EDITOR = "nvim";
   };
+
+  nix.nixPath = [
+    "nixos-config=/home/anthonyd/nix/configuration.nix"
+    "nixpkgs=${inputs.nixpkgs}"
+  ];
 
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
   home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;

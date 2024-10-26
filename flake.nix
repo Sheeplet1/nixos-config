@@ -65,7 +65,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.anthonyd = import ./home/minimal-home.nix;
+            home-manager.users.anthonyd = import ./home/common-home.nix;
           }
 
         ];
