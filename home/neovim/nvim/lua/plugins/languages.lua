@@ -1,14 +1,4 @@
 return {
-  -- {
-  --   "olexsmir/gopher.nvim",
-  --   ft = "go",
-  --   config = function(_, opts)
-  --     require("gopher").setup(opts)
-  --   end,
-  --   build = function()
-  --     vim.cmd [[silent! GoInstallDeps]]
-  --   end,
-  -- },
   {
     "ray-x/go.nvim",
     dependencies = { -- optional packages
@@ -22,5 +12,22 @@ return {
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
+
+  {
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    tag = "stable",
+    config = function()
+      require("crates").setup()
+    end,
+  },
+
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
   },
 }

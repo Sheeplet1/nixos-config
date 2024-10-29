@@ -6,4 +6,11 @@ return {
       require "configs.conform"
     end,
   },
+
+  {
+    "saghen/blink.cmp",
+    lazy = false,
+    dependencies = "rafamadriz/friendly-snippets",
+    version = "v0.*",
+  },
 }

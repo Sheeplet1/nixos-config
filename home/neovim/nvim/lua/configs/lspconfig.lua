@@ -1,25 +1,37 @@
-local nvlsp = require "nvchad.configs.lspconfig"
+-- local nvlsp = require "nvchad.configs.lspconfig"
 
--- local nvchad_on_attach = nvlsp.on_attach
--- local on_attach = function(client, bufnr)
---   nvchad_on_attach(client, bufnr)
---   -- extend on_attach here
--- end
+local lsp = require "configs.lsp"
 
-local on_attach = nvlsp.on_attach
-local on_init = nvlsp.on_init
-local capabilities = nvlsp.capabilities
+-- local on_attach = nvlsp.on_attach
+-- local on_init = nvlsp.on_init
+-- local capabilities = nvlsp.capabilities
 
--- leaving this here incase I want to use this function again
--- local function organise_imports()
---   local params = {
---     command = "_typescript.organizeImports",
---     arguments = { vim.api.nvim_buf_get_name(0) },
---   }
---   vim.lsp.buf.execute_command(params)
--- end
+local on_attach = lsp.on_attach
+local on_init = lsp.on_init
+local capabilities = lsp.capabilities
 
 local servers = {
+  lua_ls = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = {
+            vim.fn.expand "$VIMRUNTIME/lua",
+            vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
+            vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
+            vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+            "${3rd}/luv/library",
+          },
+          maxPreload = 100000,
+          preloadFileSize = 10000,
+        },
+      },
+    },
+  },
+
   pyright = {},
   ruff = {},
 
@@ -86,19 +98,13 @@ local servers = {
       formatting = {
         command = { "nixfmt" },
       },
-      -- options = {
-      --   nixos = {
-      --     expr = '(builtins.getFlake ("~/nix")).nixosConfigurations.linux.options',
-      --   },
-      --   home_manager = {
-      --     expr = '(builtins.getFlake "~/nix").homeConfigurations.anthonyd.options',
-      --   },
-      -- },
     },
   },
 
   svelte = {},
 }
+
+require("lspconfig").lua_ls.setup {}
 
 for name, opts in pairs(servers) do
   opts.on_init = on_init

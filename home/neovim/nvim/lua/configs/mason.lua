@@ -1,4 +1,19 @@
+dofile(vim.g.base46_cache .. "mason")
+
 return {
+  PATH = "skip",
+
+  ui = {
+    border = "rounded",
+    icons = {
+      package_pending = " ",
+      package_installed = " ",
+      package_uninstalled = " ",
+    },
+  },
+
+  max_concurrent_installers = 10,
+
   ensure_installed = {
     -- Python
     "pyright",
@@ -34,9 +49,5 @@ return {
     -- C++
     "clangd",
     "clang-format",
-  },
-
-  ui = {
-    border = "rounded",
   },
 }

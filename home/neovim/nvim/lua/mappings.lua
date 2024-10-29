@@ -1,5 +1,3 @@
-require "nvchad.mappings"
-
 local map = vim.keymap.set
 
 local mappings = {
@@ -58,37 +56,9 @@ local mappings = {
       "Decrease window width",
     },
 
-    ----------------------------------- dap ------------------------------------
-    ["<leader>db"] = {
-      function()
-        require("lua.configs.nvim-dap").toggle_breakpoint()
-      end,
-      "Toggle breakpoint",
-    },
-    ["<leader>dr"] = { "<cmd> DapContinue<CR>", "Run or continue the debugger" },
-    ["<leader>dsi"] = {
-      function()
-        require("lua.configs.nvim-dap").step_into()
-      end,
-      "Step into function",
-    },
-    ["<leader>dso"] = {
-      function()
-        require("lua.configs.nvim-dap").step_over()
-      end,
-      "Step over function",
-    },
-    ["<leader>dsO"] = {
-      function()
-        require("lua.configs.nvim-dap").step_out()
-      end,
-      "Step out of function",
-    },
-
-    ----------------------------------------------------------------------------
-
-    ["<leader>fu"] = { "<cmd>Telescope undo<CR>", "Open undotree" },
-    -- ["<C-n>"] = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>" },
+    ["<leader>ff"] = { "<cmd>Telescope find_files<CR>", "Telescope find files" },
+    ["<leader>fw"] = { "<cmd>Telescope live_grep<CR>", "Telescope live grep" },
+    ["<leader>tu"] = { "<cmd>Telescope undo<CR>", "Open undotree" },
 
     ["<leader>gg"] = { "<cmd>LazyGit<CR>", "Open LazyGit" },
 
@@ -110,6 +80,38 @@ local mappings = {
         vim.diagnostic.open_float(nil, { border = "rounded" })
       end,
       "Open diagnostic",
+    },
+
+    ["<Esc>"] = { "<cmd>noh<CR>", "Clear highlights" },
+
+    ["<tab>"] = {
+      function()
+        require("nvchad.tabufline").next()
+      end,
+      "Go to the next buffer",
+    },
+
+    ["<S-tab>"] = {
+      function()
+        require("nvchad.tabufline").prev()
+      end,
+      "Go to the prev buffer",
+    },
+
+    ["<leader>x"] = {
+      function()
+        require("nvchad.tabufline").close_buffer()
+      end,
+      "Close buffer",
+    },
+
+    ["<leader>b"] = { "<cmd>enew<CR>", "New buffer" },
+
+    ["<leader>th"] = {
+      function()
+        require("nvchad.themes").open()
+      end,
+      "Telescope nvchad themes",
     },
   },
 
@@ -161,6 +163,11 @@ local mappings = {
 -- end, { desc = "Go to prev Harpoon file" })
 
 -------------------------------------- - ---------------------------------------
+
+-- Comment
+map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
+map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
+
 for mode, maps in pairs(mappings) do
   for key, val in pairs(maps) do
     map(mode, key, val[1], { desc = val[2] })
