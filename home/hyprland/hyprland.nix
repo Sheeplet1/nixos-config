@@ -58,7 +58,7 @@
     };
 
     input = {
-      repeat_rate = 15;
+      repeat_rate = 33;
       repeat_delay = 225;
     };
 
