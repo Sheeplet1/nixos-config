@@ -15,7 +15,7 @@
       "spotify"
       "zen"
       "alacritty"
-    ] ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else []);
+    ] ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
     general = {
       gaps_in = 12;

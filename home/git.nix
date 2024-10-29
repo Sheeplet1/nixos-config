@@ -7,8 +7,8 @@
     pull.rebase = true;
     init.defaultBranch = "main";
     core = {
-	longpaths = true;
-	protectNTFS = false;
+      longpaths = true;
+      protectNTFS = false;
     };
   };
 }
