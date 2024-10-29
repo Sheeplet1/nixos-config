@@ -1,13 +1,18 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   # Setup qemu so we can run x86_64 binaries
-  boot.binfmt.emulatedSystems = ["x86_64-linux"];
+  boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
 
   # open-vm-tools host and guest clipboard sync only works 
   # with X11 at the moment.
   # https://github.com/vmware/open-vm-tools/issues/660 
   virtualisation.vmware.guest.enable = true;
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     gnomeExtensions.hide-top-bar
     gtkmm3
     open-vm-tools
