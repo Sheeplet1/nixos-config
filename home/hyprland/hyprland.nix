@@ -57,6 +57,11 @@
       no_hardware_cursors = true;
     };
 
+    input = {
+      repeat_rate = 15;
+      repeat_delay = 225;
+    };
+
     animations = {
       enabled = "yes";
       bezier = [
