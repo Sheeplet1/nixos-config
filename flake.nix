@@ -26,6 +26,14 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+
+    # NOTE: Required for building blink-cmp (neovim plugin) since there was 
+    # too many dependencies that needed to be built. Having rust-overlay lets 
+    # us use nightly Rust with pre-built binaries.
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -33,6 +41,7 @@
       nixpkgs,
       alacritty-theme,
       home-manager,
+      rust-overlay,
       ...
     }@inputs:
     let
@@ -40,6 +49,7 @@
     {
       nixpkgs.overlays = [
         alacritty-theme.overlays.default
+        rust-overlay.overlays.default
       ];
 
       nixosConfigurations.aarch64 = nixpkgs.lib.nixosSystem {
@@ -56,7 +66,9 @@
             {
               nixpkgs.overlays = [
                 alacritty-theme.overlays.default
+                rust-overlay.overlays.default
               ];
+              environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
             }
           )
 
@@ -84,7 +96,9 @@
             {
               nixpkgs.overlays = [
                 alacritty-theme.overlays.default
+                rust-overlay.overlays.default
               ];
+              environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
             }
           )
 

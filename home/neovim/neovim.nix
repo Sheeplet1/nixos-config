@@ -20,7 +20,7 @@
     isort
 
     tailwindcss-language-server
-    # typescript-language-server
+    typescript-language-server
     # html-language-server
     # css-lsp
 
