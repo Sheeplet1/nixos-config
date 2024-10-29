@@ -2,9 +2,13 @@
 {
   enable = true;
   settings = {
-    import = [
-      pkgs.alacritty-theme.kanagawa_wave
-    ];
+    general = {
+      import = [
+        pkgs.alacritty-theme.kanagawa_wave
+      ];
+
+      live_config_reload = true;
+    };
 
     env = {
       TERM = "xterm-256color";
@@ -30,7 +34,7 @@
       style = "Block";
     };
 
-    shell = {
+    terminal.shell = {
       program = "${pkgs.zsh}/bin/zsh";
     };
 
@@ -51,6 +55,5 @@
 
     selection.save_to_clipboard = true;
 
-    live_config_reload = true;
   };
 }
