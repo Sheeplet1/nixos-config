@@ -1,4 +1,5 @@
 {
+  # TODO: Eventually, need to clean up this flake and duplicated code
   description = "Top-level NixOS Flake";
 
   # Inputs
@@ -62,7 +63,7 @@
           ./hardware/aarch64/hardware-configuration.nix
 
           (
-            { config, pkgs, ... }:
+            { pkgs, ... }:
             {
               nixpkgs.overlays = [
                 alacritty-theme.overlays.default
@@ -92,7 +93,7 @@
           ./hardware/x86_64-nvidia/hardware-configuration.nix
 
           (
-            { config, pkgs, ... }:
+            { pkgs, ... }:
             {
               nixpkgs.overlays = [
                 alacritty-theme.overlays.default
