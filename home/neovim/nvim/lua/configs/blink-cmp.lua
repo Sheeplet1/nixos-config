@@ -44,9 +44,9 @@ return {
       auto_show_delay_ms = 250,
     },
 
-    ghost_text = {
-      enabled = true,
-    },
+    -- ghost_text = {
+    --   enabled = true,
+    -- },
   },
 
   providers = {

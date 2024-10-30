@@ -27,11 +27,22 @@ return {
     end,
   },
 
+  -- autopairing of {}, (), [] when typing
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = true,
     -- use opts = {} for passing setup options
     -- this is equivalent to setup({}) function
+  },
+
+  -- sets the `commentstring` option based on the cursor location of the
+  -- file instead of by filetype. Helpful for embedded languages in certain
+  -- file types like Svelte/Vue.
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    opts = {
+      require "configs.context-commentstring",
+    },
   },
 }
