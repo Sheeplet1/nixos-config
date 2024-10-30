@@ -5,6 +5,7 @@ end)
 
 local options = {
   ensure_installed = {
+    "bash",
     "css",
     "go",
     "html",
