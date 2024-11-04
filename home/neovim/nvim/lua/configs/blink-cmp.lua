@@ -1,15 +1,18 @@
 return {
   -- Newer release mappings
-  -- keymap = {
-  --   ["<CR>"] = { "select_and_accept" },
-  -- },
-
   keymap = {
-    accept = "<CR>",
-    hide = "<C-e>",
-    select_prev = "<S-Tab>",
-    select_next = "<Tab>",
+    ["<CR>"] = { "accept", "fallback" },
+    ["<S-Tab"] = { "select_prev", "fallback" },
+    ["<Tab>"] = { "select_next", "fallback" },
   },
+
+  -- Old version of keymaps
+  -- keymap = {
+  --   accept = "<CR>",
+  --   hide = "<C-e>",
+  --   select_prev = "<S-Tab>",
+  --   select_next = "<Tab>",
+  -- },
 
   highlight = {
     -- sets the fallback highlight groups to nvim-cmp's highlight groups
