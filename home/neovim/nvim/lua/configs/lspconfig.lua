@@ -104,12 +104,13 @@ local servers = {
   svelte = {},
 }
 
-require("lspconfig").lua_ls.setup {}
-
 for name, opts in pairs(servers) do
   opts.on_init = on_init
   opts.on_attach = on_attach
-  opts.capabilities = capabilities
+  -- opts.capabilities = capabilities
+  -- NOTE: No idea if I did this correct below
+  opts.capabilities =
+    vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities(opts.capabilities))
 
   require("lspconfig")[name].setup(opts)
 end

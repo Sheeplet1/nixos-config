@@ -30,6 +30,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = "User FilePost",
+    dependencies = { "saghen/blink.cmp" },
     -- dependencies = { "williamboman/mason.nvim" },
     -- opts = {
     --   setup = {
