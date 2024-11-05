@@ -147,6 +147,7 @@
         # "$mod, D, exec, pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"
         "$mod, T, exec, thunar"
         "$mod, M, exit"
+        "$mod, F, fullscreen"
 
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"

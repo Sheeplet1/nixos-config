@@ -4,6 +4,7 @@ return {
     ["<CR>"] = { "accept", "fallback" },
     ["<S-Tab"] = { "select_prev", "fallback" },
     ["<Tab>"] = { "select_next", "fallback" },
+    ["<C-e>"] = { "hide", "fallback" },
   },
 
   -- Old version of keymaps
