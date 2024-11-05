@@ -23,11 +23,10 @@
     };
 
     environment.systemPackages = with pkgs; [
-      # swaynotificationcenter # notification daemon
-      # waybar
       ags
       eww
       grim # screenshot functionality
+      gtk3
       hyprcursor
       hypridle
       hyprlock
@@ -35,9 +34,12 @@
       hyprshot
       inputs.hyprpanel.packages."${pkgs.system}".default
       inputs.zen-browser.packages."${pkgs.system}".default
+      libnotify
       obsidian
       playerctl
       pulseaudio
+      qt5.qtwayland
+      qt6.qtwayland
       slurp # screenshot functionality
       spotify
       swappy # image viewer
@@ -45,10 +47,6 @@
       todoist-electron
       vesktop
       wlogout
-      gtk3
-      libnotify
-      qt5.qtwayland
-      qt6.qtwayland
       wofi
       xdg-desktop-portal
       xdg-desktop-portal-gtk

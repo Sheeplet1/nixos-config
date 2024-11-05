@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  unstable,
   pkgs,
   ...
 }:
@@ -67,10 +66,6 @@
       "docker"
     ];
     shell = pkgs.zsh;
-    packages =
-      with pkgs;
-      [
-      ];
   };
 
   home-manager = {
@@ -100,6 +95,8 @@
       "nixpkgs=${inputs.nixpkgs}"
     ];
   };
+
+  security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
     alacritty
