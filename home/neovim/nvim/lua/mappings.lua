@@ -45,6 +45,12 @@ map("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window w
 
 -- Telescope mappings
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Telescope find files" })
+map(
+  "n",
+  "<leader>fa",
+  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+  { desc = "Telescope find all files" }
+)
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep" })
 map("n", "<leader>tu", "<cmd>Telescope undo<CR>", { desc = "Telescope undotree" })
 

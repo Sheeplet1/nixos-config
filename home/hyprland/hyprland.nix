@@ -76,7 +76,7 @@
         "windowsOut, 1, 5, winOut, slide"
         "windowsMove, 1, 5, wind, slide"
         "border, 1, 1, liner"
-        "fade, 1, 10, default"
+        "fade, 1, 8, default"
         "workspaces, 1, 10, wind"
       ];
     };
@@ -93,7 +93,8 @@
     workspace = [
       "1, monitor:DP-1"
       "2, monitor:DP-1"
-      "3, monitor:DP-2"
+      "3, monitor:DP-1"
+
       "4, monitor:DP-2"
       # "5, monitor:DP-3"
       # "6, monitor:DP-3"
@@ -109,16 +110,16 @@
       "workspace 2, class:^([Ff]irefox)$"
       "workspace 2, initialTitle:^([Zz]en Browser)$"
 
-      "workspace 3, initialTitle:^([Ss]potify)$"
-      "workspace 3, initialTitle:^([Ss]potify Premium)$"
+      "workspace 3, class:^([Oo]bsidian)$"
 
-      "workspace 4, class:^([Oo]bsidian)$"
+      "workspace 4, initialTitle:^([Ss]potify)$"
+      "workspace 4, initialTitle:^([Ss]potify Premium)$"
 
-      "workspace 5, class:^([Tt]odoist)$"
+      "workspace 5, class:^([Dd]iscord)$"
+      "workspace 5, class:^([Ww]ebCord)$"
+      "workspace 5, class:^([Vv]esktop)$"
 
-      "workspace 6, class:^([Dd]iscord)$"
-      "workspace 6, class:^([Ww]ebCord)$"
-      "workspace 6, class:^([Vv]esktop)$"
+      "workspace 6, class:^([Tt]odoist)$"
 
       # Floats
       "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"
