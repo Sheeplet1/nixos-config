@@ -28,9 +28,7 @@
 
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
-    # NOTE: Required for building blink-cmp (neovim plugin) since there was 
-    # too many dependencies that needed to be built. Having rust-overlay lets 
-    # us use nightly Rust with pre-built binaries.
+    # Having rust-overlay lets us use nightly Rust with pre-built binaries.
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
