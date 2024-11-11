@@ -75,6 +75,11 @@ vim.o.numberwidth = 2
 -- disable neovim intro
 vim.opt.shortmess:append "sI"
 
+-- using treesitter for native nvim folds
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevelstart = 99
+
 --------------------------------------------------------------------------------
 -- Keybindings for saving and quitting (typos)
 vim.cmd [[command! W w]]
