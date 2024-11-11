@@ -175,8 +175,8 @@
 
         # hyprshot
         "$mod, PRINT, exec, hyprshot -m window" # window
-        ", PRINT, exec, hyprshot -m output" # monitor
-        "mod SHIFT, PRINT, exec, hyprshot -m region" # region
+        # ", PRINT, exec, hyprshot -m output" # monitor
+        "$mod SHIFT, PRINT, exec, hyprshot -m region" # region
 
         # hyprpicker
         "$mod, p, exec, hyprpicker -a -f hex"
