@@ -29,7 +29,7 @@
     decoration = {
       rounding = 10;
 
-      active_opacity = 0.85;
+      active_opacity = 0.9;
       inactive_opacity = 0.8;
       fullscreen_opacity = 1;
 
