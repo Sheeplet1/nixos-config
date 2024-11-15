@@ -175,9 +175,9 @@
         "CTRL ALT, W, exec, bash $HOME/.scripts/wallpaper_random.sh"
 
         # hyprshot
+        ", PRINT, exec, hyprshot -m output" # whole monitor
         "$mod, PRINT, exec, hyprshot -m window" # window
-        # ", PRINT, exec, hyprshot -m output" # monitor
-        "$mod SHIFT, PRINT, exec, hyprshot -m region" # region
+        "$mod, S, exec, hyprshot -m region" # like Windows snipping tool
 
         # hyprpicker
         "$mod, p, exec, hyprpicker -a -f hex"
