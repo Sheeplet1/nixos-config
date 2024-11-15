@@ -10,7 +10,7 @@
       "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
       "hyprpanel"
       "obsidian --ozone-platform-hint=auto"
-      "todoist-electron --ozone-platform-hint=auto"
+      # "todoist-electron --ozone-platform-hint=auto"
       "vesktop"
       "spotify"
       "zen"
@@ -37,11 +37,12 @@
       dim_strength = 0.1;
       dim_special = 0.8;
 
-      "col.shadow" = "rgb(211, 134, 155)";
-
-      drop_shadow = true;
-      shadow_range = 6;
-      shadow_render_power = 1;
+      shadow = {
+        enabled = true;
+        color = "rgb(211, 134, 155)";
+        range = 6;
+        render_power = 1;
+      };
 
       blur = {
         enabled = true;
