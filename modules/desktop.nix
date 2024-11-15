@@ -32,6 +32,7 @@
       hyprlock
       hyprpicker
       hyprshot
+      hyprsunset
       inputs.hyprpanel.packages."${pkgs.system}".default
       inputs.zen-browser.packages."${pkgs.system}".default
       libnotify
