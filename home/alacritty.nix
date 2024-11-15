@@ -4,7 +4,8 @@
   settings = {
     general = {
       import = [
-        pkgs.alacritty-theme.kanagawa_wave
+        # pkgs.alacritty-theme.kanagawa_wave
+        pkgs.alacritty-theme.nord
       ];
 
       live_config_reload = true;
