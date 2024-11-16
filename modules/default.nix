@@ -127,6 +127,8 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_PICTURES_DIR = "$HOME/Pictures";
+    HYPRSHOT_DIR = "$HOME/Pictures/screenshots";
 
     # Firefox
     MOZ_ENABLE_WAYLAND = "1";
