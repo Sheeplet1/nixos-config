@@ -38,19 +38,12 @@
   outputs =
     {
       nixpkgs,
-      alacritty-theme,
       home-manager,
-      rust-overlay,
       ...
     }@inputs:
     let
     in
     {
-      nixpkgs.overlays = [
-        alacritty-theme.overlays.default
-        rust-overlay.overlays.default
-      ];
-
       nixosConfigurations.aarch64 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {
@@ -60,16 +53,7 @@
           ./hardware/aarch64/configuration.nix
           ./hardware/aarch64/hardware-configuration.nix
 
-          (
-            { pkgs, ... }:
-            {
-              nixpkgs.overlays = [
-                alacritty-theme.overlays.default
-                rust-overlay.overlays.default
-              ];
-              environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-            }
-          )
+          (import ./overlays)
 
           home-manager.nixosModules.default
           home-manager.nixosModules.home-manager
@@ -78,7 +62,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.anthonyd = import ./home/common-home.nix;
           }
-
         ];
       };
       nixosConfigurations.linux = nixpkgs.lib.nixosSystem {
@@ -90,16 +73,7 @@
           ./hardware/x86_64-nvidia/configuration.nix
           ./hardware/x86_64-nvidia/hardware-configuration.nix
 
-          (
-            { pkgs, ... }:
-            {
-              nixpkgs.overlays = [
-                alacritty-theme.overlays.default
-                rust-overlay.overlays.default
-              ];
-              environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-            }
-          )
+          (import ./overlays)
 
           home-manager.nixosModules.default
           home-manager.nixosModules.home-manager
