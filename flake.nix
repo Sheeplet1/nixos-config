@@ -50,8 +50,7 @@
           inherit inputs;
         };
         modules = [
-          ./machines/aarch64/configuration.nix
-          ./machines/aarch64/hardware-configuration.nix
+          ./machines/vm-aarch64.nix
 
           (import ./overlays)
 
@@ -70,8 +69,7 @@
           inherit inputs;
         };
         modules = [
-          ./machines/x86_64-nvidia/configuration.nix
-          ./machines/x86_64-nvidia/hardware-configuration.nix
+          ./machines/desktop.nix
 
           (import ./overlays)
 
