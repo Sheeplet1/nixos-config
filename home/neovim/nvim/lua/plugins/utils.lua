@@ -67,8 +67,17 @@ return {
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
-    config = function()
-      require "configs.zen-mode"
-    end,
+    opts = {
+      window = {
+        width = 180,
+        height = 1,
+        backdrop = 0.93,
+      },
+      plugins = {
+        options = { showcmd = true },
+        tmux = { enabled = true },
+        gitsigns = { enabled = true },
+      },
+    },
   },
 }
