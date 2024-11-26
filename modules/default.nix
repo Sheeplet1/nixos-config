@@ -99,6 +99,7 @@
   security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
+    adwaita-icon-theme
     alacritty
     cargo
     clang
@@ -113,6 +114,7 @@
     neovim
     nixfmt-rfc-style
     nodejs
+    papirus-icon-theme
     python3
     ripgrep
     rustc
@@ -152,6 +154,12 @@
 
   services = {
     openssh.enable = true;
+
+    # mount USB Drives
+    gvfs.enable = true;
+    udisks2.enable = true;
+    devmon.enable = true;
+
     xserver = {
       enable = true;
       xkb.layout = "au";
