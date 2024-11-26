@@ -128,3 +128,6 @@ end, { desc = "Go to next Harpoon file" })
 map("n", "<leader>hN", function()
   harpoon:list():prev()
 end, { desc = "Go to prev Harpoon file" })
+
+-- todo-view
+map("n", "<leader>td", "<cmd>TodoView<CR>", { desc = "Toggle TodoView" })
