@@ -18,6 +18,7 @@
   };
   initExtra = ''
     [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
+    # source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
     # disable sort when completing `git checkout`
     zstyle ':completion:*:git-checkout:*' sort false

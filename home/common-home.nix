@@ -23,6 +23,11 @@ in
     "nixpkgs=${inputs.nixpkgs}"
   ];
 
+  home.packages = with pkgs; [
+    zsh-powerlevel10k
+    meslo-lgs-nf
+  ];
+
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
   home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
 
