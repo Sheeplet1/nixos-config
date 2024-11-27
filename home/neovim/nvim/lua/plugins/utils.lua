@@ -83,6 +83,9 @@ return {
 
   {
     "Sheeplet1/todo-view.nvim",
+    -- "todo-view.nvim",
+    -- dir = "~/Documents/projects/todo-view.nvim",
+    -- dev = true,
     event = "VeryLazy",
     opts = {},
   },

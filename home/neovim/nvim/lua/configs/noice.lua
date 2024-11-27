@@ -22,6 +22,6 @@ require("noice").setup {
     view_warn = "mini",
   },
   notify = {
-    enabled = true,
+    enabled = false,
   },
 }
