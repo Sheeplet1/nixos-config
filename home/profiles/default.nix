@@ -1,3 +1,5 @@
+# Basic home-manager profile that is shared across all profiles. No desktop 
+# environment is set here.
 {
   inputs,
   config,
@@ -31,13 +33,13 @@ in
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
   home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
 
-  programs.alacritty = (import ./alacritty.nix { inherit pkgs; });
-  programs.git = (import ./git.nix { inherit pkgs; });
-  programs.fzf = (import ./fzf.nix { inherit pkgs; });
-  programs.neovim = (import ./neovim/neovim.nix { inherit pkgs; });
-  programs.tmux = (import ./tmux.nix { inherit inputs pkgs; });
-  programs.zoxide = (import ./zoxide.nix { inherit pkgs; });
-  programs.zsh = (import ./zsh.nix { inherit pkgs; });
+  programs.alacritty = (import ../alacritty.nix { inherit pkgs; });
+  programs.git = (import ../git.nix { inherit pkgs; });
+  programs.fzf = (import ../fzf.nix { inherit pkgs; });
+  programs.neovim = (import ../neovim/neovim.nix { inherit pkgs; });
+  programs.tmux = (import ../tmux.nix { inherit inputs pkgs; });
+  programs.zoxide = (import ../zoxide.nix { inherit pkgs; });
+  programs.zsh = (import ../zsh.nix { inherit pkgs; });
 
   home.stateVersion = "24.05";
 }

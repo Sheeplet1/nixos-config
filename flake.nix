@@ -60,7 +60,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.anthonyd = import ./home/common-home.nix;
+            home-manager.users.anthonyd = import ./home/profiles/default.nix;
           }
         ];
       };
@@ -80,7 +80,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.anthonyd = import ./home/home.nix;
+            home-manager.users.anthonyd = import ./home/profiles/desktop.nix;
           }
         ];
       };
