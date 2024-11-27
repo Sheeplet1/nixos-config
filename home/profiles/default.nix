@@ -33,6 +33,8 @@ in
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
   home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
 
+  xdg.configFile."electron-flags.conf".source = ./electron-flags.conf;
+
   programs.alacritty = (import ../alacritty.nix { inherit pkgs; });
   programs.git = (import ../git.nix { inherit pkgs; });
   programs.fzf = (import ../fzf.nix { inherit pkgs; });
