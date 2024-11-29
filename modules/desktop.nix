@@ -23,6 +23,7 @@
     };
 
     environment.systemPackages = with pkgs; [
+      adwaita-icon-theme
       ags
       eww
       grim # screenshot functionality
@@ -37,6 +38,7 @@
       inputs.zen-browser.packages."${pkgs.system}".default
       libnotify
       obsidian
+      papirus-icon-theme
       playerctl
       pulseaudio
       qt5.qtwayland

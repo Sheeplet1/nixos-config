@@ -26,8 +26,25 @@ in
   ];
 
   home.packages = with pkgs; [
-    zsh-powerlevel10k
+    cargo
+    curl
+    firefox
+    gcc
+    go
+    jq
+    lazygit
     meslo-lgs-nf
+    nixfmt-rfc-style
+    nodejs
+    python3
+    ripgrep
+    rustc
+    stow
+    tree
+    unzip
+    wget
+    zip
+    zsh-powerlevel10k
   ];
 
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;

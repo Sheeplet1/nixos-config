@@ -12,7 +12,18 @@ in
     ./default.nix
   ];
 
+  home.sessionVariables = {
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_PICTURES_DIR = "$HOME/Pictures";
+    HYPRSHOT_DIR = "$HOME/Pictures/screenshots";
+
+    # Firefox
+    MOZ_ENABLE_WAYLAND = "1";
+  };
+
   home.packages = with pkgs; [
+    adwaita-icon-theme
+    papirus-icon-theme
     prusa-slicer
   ];
 

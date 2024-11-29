@@ -99,31 +99,7 @@
   security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
-    adwaita-icon-theme
-    alacritty
-    cargo
     clang
-    curl
-    firefox
-    fzf
-    gcc
-    git
-    go
-    jq
-    lazygit
-    neovim
-    nixfmt-rfc-style
-    nodejs
-    papirus-icon-theme
-    python3
-    ripgrep
-    rustc
-    stow
-    tmux
-    tree
-    unzip
-    wget
-    zip
   ];
 
   environment.sessionVariables = {
