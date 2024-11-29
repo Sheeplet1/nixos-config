@@ -52,6 +52,7 @@ map(
   { desc = "Telescope find all files" }
 )
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep" })
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Telescope buffers" })
 map("n", "<leader>tu", "<cmd>Telescope undo<CR>", { desc = "Telescope undotree" })
 
 -- Plugin mappings
@@ -131,3 +132,10 @@ end, { desc = "Go to prev Harpoon file" })
 
 -- todo-view
 map("n", "<leader>td", "<cmd>TodoView<CR>", { desc = "Toggle TodoView" })
+
+-- maps <Alt+i> keys to change buffers
+for i = 1, 9, 1 do
+  map("n", string.format("<A-%s>", i), function()
+    vim.api.nvim_set_current_buf(vim.t.bufs[i])
+  end)
+end
