@@ -3,6 +3,10 @@
   enable = true;
   history.size = 10000;
   shellAliases = {
+    cat = "bat";
+    # ls = "ls --color";
+    ls = "exa";
+
     gs = "git status";
     gcl = "git clone";
     ga = "git add";
@@ -10,12 +14,13 @@
     gc = "git commit -m";
     gd = "git diff";
     gp = "git push";
+    gl = "git log --graph --decorate --pretty=oneline --abbrev-commit --all";
+
     c = "clear";
-    ls = "ls --color";
     vim = "nvim";
     cd = "z";
-    gl = "git log --graph --decorate --pretty=oneline --abbrev-commit --all";
   };
+
   initExtra = ''
     [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
 

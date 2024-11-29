@@ -26,9 +26,11 @@ in
   ];
 
   home.packages = with pkgs; [
+    bat
     cargo
     curl
-    firefox
+    eza
+    fd
     gcc
     go
     jq
