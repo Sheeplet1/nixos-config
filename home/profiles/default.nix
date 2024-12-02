@@ -58,6 +58,7 @@ in
   programs.git = (import ../git.nix { inherit pkgs; });
   programs.fzf = (import ../fzf.nix { inherit pkgs; });
   programs.neovim = (import ../neovim/neovim.nix { inherit pkgs; });
+  # programs.starship = (import ../starship.nix { inherit pkgs; });
   programs.tmux = (import ../tmux.nix { inherit inputs pkgs; });
   programs.zoxide = (import ../zoxide.nix { inherit pkgs; });
   programs.zsh = (import ../zsh.nix { inherit pkgs; });
