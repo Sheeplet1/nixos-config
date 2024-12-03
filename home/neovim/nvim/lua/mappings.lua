@@ -87,8 +87,9 @@ map("n", "<leader>th", function()
   require("nvchad.themes").open()
 end, { desc = "Telescope nvchad themes" })
 
-map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move the selected lines down" })
-map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move the selected lines up" })
+-- replaced my mini.move
+-- map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move the selected lines down" })
+-- map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move the selected lines up" })
 
 -- Remap commenting buttons to be similar to Comment.nvim
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
