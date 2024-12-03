@@ -16,6 +16,7 @@ local options = {
     "markdown",
     "markdown_inline",
     "nix",
+    "python",
     "regex",
     "rust",
     "svelte",

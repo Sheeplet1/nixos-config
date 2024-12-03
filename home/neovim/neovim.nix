@@ -15,6 +15,7 @@
     lua-language-server
     stylua
 
+    # Python
     ruff-lsp
     pyright
     isort
