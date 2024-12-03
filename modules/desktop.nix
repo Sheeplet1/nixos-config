@@ -25,8 +25,9 @@
     environment.systemPackages = with pkgs; [
       adwaita-icon-theme
       ags
+      chromium
       eww
-      grim # screenshot functionality
+      firefox
       gtk3
       hyprcursor
       hypridle
@@ -43,7 +44,6 @@
       pulseaudio
       qt5.qtwayland
       qt6.qtwayland
-      slurp # screenshot functionality
       spotify
       swappy # image viewer
       swww # wallpapers

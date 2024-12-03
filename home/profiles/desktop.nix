@@ -22,10 +22,6 @@ in
   };
 
   home.packages = with pkgs; [
-    adwaita-icon-theme
-    chromium
-    firefox
-    papirus-icon-theme
     prusa-slicer
   ];
 

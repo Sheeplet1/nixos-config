@@ -10,7 +10,7 @@
       "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
       "hyprpanel"
       "obsidian --ozone-platform-hint=auto"
-      # "todoist-electron --ozone-platform-hint=auto"
+      "todoist-electron --ozone-platform-hint=auto"
       "vesktop"
       "spotify"
       "zen"
