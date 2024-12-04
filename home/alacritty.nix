@@ -24,7 +24,7 @@
       };
       padding = {
         x = 4;
-        y = 8;
+        # y = 2;
       };
       decorations = "none";
       dynamic_title = true;
