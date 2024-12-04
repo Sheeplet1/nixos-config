@@ -1,5 +1,15 @@
 { inputs, pkgs, ... }:
 let
+  tokyo-night = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tokyo-night";
+    version = "unstable-2023-01-06";
+    src = pkgs.fetchFromGitHub {
+      owner = "janoamaral";
+      repo = "tokyo-night-tmux";
+      rev = "master";
+      sha256 = "sha256-3rMYYzzSS2jaAMLjcQoKreE0oo4VWF9dZgDtABCUOtY=";
+    };
+  };
 in
 {
   enable = true;
@@ -18,13 +28,14 @@ in
     resurrect
     copycat
     continuum
-    {
-      plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
-      extraConfig = ''
-        set -g @minimal-tmux-justify "left"
-        set -g @minimal-tmux-indicator false
-      '';
-    }
+    # {
+    #   plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
+    #   extraConfig = ''
+    #     set -g @minimal-tmux-justify "left"
+    #     set -g @minimal-tmux-indicator false
+    #   '';
+    # }
+    tokyo-night
   ];
 
   extraConfig = ''
@@ -63,8 +74,8 @@ in
     bind - split-window -v -c "#{pane_current_path}"
 
     # Refresh tmux source configuration 
-    unbind r
-    bind r source-file ~/.config/tmux/tmux.conf
+    unbind ]
+    bind ] source-file ~/.config/tmux/tmux.conf
 
     # Bind vim keys to resize panels
     bind -r j resize-pane -D 5
@@ -80,8 +91,22 @@ in
     bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
     bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
-    ### Tmux Sessionizer ###
+    # Tmux Sessionizer 
     bind-key -r f run-shell "tmux neww ~/.scripts/tmux-sessionizer"
     bind-key -r m run-shell "~/.scripts/tmux-windownizer"
+
+    # Switch windows
+    bind-key -n S-Left previous-window
+    bind-key -n S-Right next-window
+
+    # Using vim keybinds to switch windows
+    bind-key -n M-H previous-window
+    bind-key -n M-L next-window
+
+    set -g @tokyo-night-tmux_window_id_style hsquare 
+    set -g @tokyo-night-tmux_show_datetime 0
+    set -g @tokyo-night-tmux_show_path 0
+
+    run-shell ${tokyo-night}/share/tmux-plugins/tokyo-night/tokyo-night.tmux
   '';
 }
