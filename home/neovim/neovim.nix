@@ -16,7 +16,7 @@
     stylua
 
     # Python
-    ruff-lsp
+    ruff
     pyright
     isort
 
