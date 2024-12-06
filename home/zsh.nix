@@ -53,6 +53,8 @@
     then
       tmux attach 2>/dev/null || tmux
     fi
+
+    eval "$(direnv hook zsh)"
   '';
 
   plugins = [

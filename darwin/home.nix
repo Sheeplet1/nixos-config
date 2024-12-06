@@ -19,5 +19,11 @@ in
     programs.zoxide = (import ../home/zoxide.nix { inherit pkgs; });
     programs.zsh = (import ../home/zsh.nix { inherit pkgs; });
 
+    programs.direnv = {
+	enable = true;
+	enableZshIntegration = true;
+	nix-direnv.enable = true;
+    };
+
     home.stateVersion = "24.11";
 }
