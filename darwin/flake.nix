@@ -88,6 +88,10 @@
             onActivation.upgrade = true;
           };
 
+          programs.direnv = {
+            enable = true;
+          };
+
           # Activation Script to fix Spotlight
           system.activationScripts.applications.text =
             let
