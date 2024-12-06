@@ -26,7 +26,8 @@
         x = 4;
         # y = 2;
       };
-      decorations = "none";
+      startup_mode = "Windowed";
+      # decorations = "none";
       dynamic_title = true;
       title = "Alacritty";
     };

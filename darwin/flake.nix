@@ -3,46 +3,65 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-  };
 
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
   outputs =
-    inputs@{
+    {
       self,
       nix-darwin,
       nixpkgs,
       nix-homebrew,
-    }:
+      home-manager,
+      alacritty-theme,
+      ...
+    }@inputs:
     let
       configuration =
         { pkgs, config, ... }:
         {
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
-
           nixpkgs.config.allowUnfree = true;
 
-          environment.systemPackages = [
-            pkgs.alacritty
-            pkgs.git
-            pkgs.gnupg
-            pkgs.mkalias
-            pkgs.neovim
-            pkgs.obsidian
-            pkgs.tmux
-            pkgs.wget
+          environment.systemPackages = with pkgs; [
+            alacritty
+            bat
+            eza
+            fzf
+            git
+            mkalias
+            neovim
+            obsidian
+            tmux
+            wget
+            zoxide
           ];
 
           fonts.packages = with pkgs; [
-            (nerdfonts.override {
-              fonts = [
-                "JetBrainsMono"
-                "Iosevka"
-              ];
-            })
+            nerd-fonts.jetbrains-mono
+            nerd-fonts.iosevka
           ];
+
+          users.users.anthonyd = {
+            name = "anthonyd";
+            home = "/Users/anthonyd";
+          };
 
           homebrew = {
             enable = true;
@@ -64,9 +83,6 @@
               "the-unarchiver"
               "spotify"
             ];
-            # masApps = { 
-            #      "Yoink" = 457622435;
-            # };
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
@@ -87,7 +103,7 @@
               rm -rf /Applications/Nix\ Apps
               mkdir -p /Applications/Nix\ Apps
               find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-              while read src; do
+              while read -r src; do
                   app_name=$(basename "$src")
                   echo "copying $src" >&2
                   ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
@@ -97,6 +113,7 @@
           system.defaults = {
             dock.autohide = true;
             dock.persistent-apps = [
+              "/System/Applications/Messages.app"
               "/Applications/Zen Browser.app"
               "/Applications/Spotify.app"
               "${pkgs.alacritty}/Applications/Alacritty.app"
@@ -105,21 +122,21 @@
             loginwindow.GuestEnabled = false;
             NSGlobalDomain.AppleInterfaceStyle = "Dark";
             NSGlobalDomain.KeyRepeat = 2;
+            NSGlobalDomain.InitialKeyRepeat = 15;
           };
 
           # Auto upgrade nix package and the daemon service.
           services.nix-daemon.enable = true;
-          # nix.package = pkgs.nix;
 
           # Necessary for using flakes on this system.
           nix.settings.experimental-features = "nix-command flakes";
 
           # Create /etc/zshrc that loads the nix-darwin environment.
           programs.zsh.enable = true; # default shell on catalina
-          # programs.fish.enable = true;
 
           # Set Git commit hash for darwin-version.
           system.configurationRevision = self.rev or self.dirtyRev or null;
+
 
           # Used for backwards compatibility, please read the changelog before changing.
           # $ darwin-rebuild changelog
@@ -133,16 +150,29 @@
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#simple
       darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
+        specialArgs = {
+        inherit inputs;
+                };
         modules = [
           configuration
+
+          (import ../overlays)
+
           nix-homebrew.darwinModules.nix-homebrew
           {
             nix-homebrew = {
               enable = true;
               enableRosetta = true; # Apple Silicon only
-              user = "huananthonydo";
+              user = "anthonyd";
               # autoMigrate = true;
             };
+          }
+
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.anthonyd = import ./home.nix;
           }
         ];
       };
