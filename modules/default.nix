@@ -114,12 +114,8 @@
 
   fonts.packages = with pkgs; [
     atkinson-hyperlegible
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "Iosevka"
-      ];
-    })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka
   ];
 
   programs = {

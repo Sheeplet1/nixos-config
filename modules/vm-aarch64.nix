@@ -6,9 +6,8 @@
   # Setup qemu so we can run x86_64 binaries
   boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
 
-  # open-vm-tools host and guest clipboard sync only works 
-  # with X11 at the moment.
-  # https://github.com/vmware/open-vm-tools/issues/660 
+  # open-vm-tools host and guest clipboard sync only works with X11 at the
+  # moment. https://github.com/vmware/open-vm-tools/issues/660
   virtualisation.vmware.guest.enable = true;
   environment.systemPackages = with pkgs; [
     gnomeExtensions.hide-top-bar
