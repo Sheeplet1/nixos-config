@@ -1,16 +1,20 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 let
   nvimConfigLocation = "${config.home.homeDirectory}/nix/home/neovim/nvim";
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
-in {
+in
+{
   programs.home-manager.enable = true;
 
   xdg.enable = true;
 
-  home.file.".config/nvim/".source =
-    config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
-  home.file.".scripts/".source =
-    config.lib.file.mkOutOfStoreSymlink scriptsLocation;
+  home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
+  home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
 
   programs.alacritty = (import ../home/alacritty.nix { inherit pkgs; });
   programs.git = (import ../home/git.nix { inherit pkgs; });
