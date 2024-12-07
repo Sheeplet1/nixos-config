@@ -16,25 +16,25 @@
     stylua
 
     # Python
-    ruff
-    pyright
-    isort
+    # ruff
+    # pyright
+    # isort
 
-    tailwindcss-language-server
-    nodePackages.typescript-language-server
+    # tailwindcss-language-server
+    # nodePackages.typescript-language-server
     # html-language-server
     # css-lsp
 
-    svelte-language-server
+    # svelte-language-server
 
-    rust-analyzer
+    # rust-analyzer
 
-    gopls
-    gofumpt
-    goimports-reviser
-    gomodifytags
-    golines
-    gotests
+    # gopls
+    # gofumpt
+    # goimports-reviser
+    # gomodifytags
+    # golines
+    # gotests
 
     nixd
   ];

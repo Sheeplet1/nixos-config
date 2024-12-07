@@ -18,6 +18,7 @@ in
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     EDITOR = "nvim";
+    NIX_NEOVIM = "1"; # Disabling Mason on NixOS 
   };
 
   nix.nixPath = [
