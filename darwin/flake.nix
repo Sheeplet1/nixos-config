@@ -21,145 +21,119 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs =
-    {
-      self,
-      nix-darwin,
-      nixpkgs,
-      nix-homebrew,
-      home-manager,
-      alacritty-theme,
-      ...
-    }@inputs:
+  outputs = { self, nix-darwin, nixpkgs, nix-homebrew, home-manager
+    , alacritty-theme, ... }@inputs:
     let
-      configuration =
-        { pkgs, config, ... }:
-        {
-          # List packages installed in system profile. To search by name, run:
-          # $ nix-env -qaP | grep wget
-          nixpkgs.config.allowUnfree = true;
+      configuration = { pkgs, config, ... }: {
+        # List packages installed in system profile. To search by name, run:
+        # $ nix-env -qaP | grep wget
+        nixpkgs.config.allowUnfree = true;
 
-          environment.systemPackages = with pkgs; [
-            alacritty
-            bat
-            eza
-            fzf
-            git
-            mkalias
-            neovim
-            obsidian
-            ripgrep
-            tmux
-            wget
-            zoxide
-          ];
+        environment.systemPackages = with pkgs; [
+          alacritty
+          bat
+          eza
+          fzf
+          git
+          mkalias
+          neovim
+          nixd
+          nixfmt-classic
+          obsidian
+          ripgrep
+          tmux
+          wget
+          zoxide
+          zsh-syntax-highlighting
+          lazygit
+        ];
 
-          fonts.packages = with pkgs; [
-            nerd-fonts.jetbrains-mono
-            nerd-fonts.iosevka
-          ];
+        fonts.packages = with pkgs; [
+          nerd-fonts.jetbrains-mono
+          nerd-fonts.iosevka
+        ];
 
-          users.users.anthonyd = {
-            name = "anthonyd";
-            home = "/Users/anthonyd";
-          };
-
-          homebrew = {
-            enable = true;
-            brews = [
-              "mas"
-              "zoxide"
-              "zinit"
-              "zsh-syntax-highlighting"
-              "lazygit"
-              "fzf"
-              "stow"
-              "rustup"
-              "ripgrep"
-              "pass"
-            ];
-            casks = [
-              "zen-browser"
-              "iina"
-              "the-unarchiver"
-              "spotify"
-            ];
-            onActivation.cleanup = "zap";
-            onActivation.autoUpdate = true;
-            onActivation.upgrade = true;
-          };
-
-          # Activation Script to fix Spotlight
-          system.activationScripts.applications.text =
-            let
-              env = pkgs.buildEnv {
-                name = "system-applications";
-                paths = config.environment.systemPackages;
-                pathsToLink = "/Applications";
-              };
-            in
-            pkgs.lib.mkForce ''
-              # Set up applications.
-              echo "setting up /Applications..." >&2
-              rm -rf /Applications/Nix\ Apps
-              mkdir -p /Applications/Nix\ Apps
-              find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-              while read -r src; do
-                  app_name=$(basename "$src")
-                  echo "copying $src" >&2
-                  ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
-              done
-            '';
-
-          system.defaults = {
-            dock.autohide = true;
-            dock.persistent-apps = [
-              "/System/Applications/Messages.app"
-              "/Applications/Zen Browser.app"
-              "/Applications/Spotify.app"
-              "${pkgs.alacritty}/Applications/Alacritty.app"
-              "${pkgs.obsidian}/Applications/Obsidian.app"
-            ];
-            loginwindow.GuestEnabled = false;
-            NSGlobalDomain.AppleInterfaceStyle = "Dark";
-            NSGlobalDomain.KeyRepeat = 2;
-            NSGlobalDomain.InitialKeyRepeat = 15;
-          };
-
-          # Auto upgrade nix package and the daemon service.
-          services.nix-daemon.enable = true;
-
-          # Necessary for using flakes on this system.
-          nix.settings.experimental-features = "nix-command flakes";
-
-          # Create /etc/zshrc that loads the nix-darwin environment.
-          programs.zsh.enable = true; # default shell on catalina
-
-          # Set Git commit hash for darwin-version.
-          system.configurationRevision = self.rev or self.dirtyRev or null;
-
-          security.pam.enableSudoTouchIdAuth = true;
-
-          # Used for backwards compatibility, please read the changelog before changing.
-          # $ darwin-rebuild changelog
-          system.stateVersion = 5;
-
-          # The platform the configuration will be used on.
-          nixpkgs.hostPlatform = "aarch64-darwin";
+        users.users.anthonyd = {
+          name = "anthonyd";
+          home = "/Users/anthonyd";
         };
-    in
-    {
+
+        homebrew = {
+          enable = true;
+          brews = [ "mas" ];
+          casks = [ "zen-browser" "iina" "the-unarchiver" "spotify" ];
+          onActivation.cleanup = "zap";
+          onActivation.autoUpdate = true;
+          onActivation.upgrade = true;
+        };
+
+        # Activation Script to fix Spotlight
+        system.activationScripts.applications.text = let
+          env = pkgs.buildEnv {
+            name = "system-applications";
+            paths = config.environment.systemPackages;
+            pathsToLink = "/Applications";
+          };
+        in pkgs.lib.mkForce ''
+          # Set up applications.
+          echo "setting up /Applications..." >&2
+          rm -rf /Applications/Nix\ Apps
+          mkdir -p /Applications/Nix\ Apps
+          find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
+          while read -r src; do
+              app_name=$(basename "$src")
+              echo "copying $src" >&2
+              ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
+          done
+        '';
+
+        system.defaults = {
+          dock.autohide = true;
+          dock.persistent-apps = [
+            "/System/Applications/Messages.app"
+            "/Applications/Zen Browser.app"
+            "/Applications/Spotify.app"
+            "${pkgs.alacritty}/Applications/Alacritty.app"
+            "${pkgs.obsidian}/Applications/Obsidian.app"
+          ];
+          loginwindow.GuestEnabled = false;
+          NSGlobalDomain.AppleInterfaceStyle = "Dark";
+          NSGlobalDomain.KeyRepeat = 2;
+          NSGlobalDomain.InitialKeyRepeat = 15;
+        };
+
+        # Auto upgrade nix package and the daemon service.
+        services.nix-daemon.enable = true;
+
+        # Necessary for using flakes on this system.
+        nix.settings.experimental-features = "nix-command flakes";
+
+        # Create /etc/zshrc that loads the nix-darwin environment.
+        programs.zsh.enable = true; # default shell on catalina
+
+        # Set Git commit hash for darwin-version.
+        system.configurationRevision = self.rev or self.dirtyRev or null;
+
+        security.pam.enableSudoTouchIdAuth = true;
+
+        # Used for backwards compatibility, please read the changelog before changing.
+        # $ darwin-rebuild changelog
+        system.stateVersion = 5;
+
+        # The platform the configuration will be used on.
+        nixpkgs.hostPlatform = "aarch64-darwin";
+      };
+    in {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#simple
       darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
-        specialArgs = {
-        inherit inputs;
-                };
+        specialArgs = { inherit inputs; };
         modules = [
           configuration
 
           (import ../overlays)
 
+          # Nix Homebrew module
           nix-homebrew.darwinModules.nix-homebrew
           {
             nix-homebrew = {
@@ -170,6 +144,7 @@
             };
           }
 
+          #  Home-manager module
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
