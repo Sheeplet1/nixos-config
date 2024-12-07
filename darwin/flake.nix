@@ -42,9 +42,11 @@
           environment.systemPackages = with pkgs; [
             alacritty
             bat
+            direnv
             eza
             fzf
             git
+            lazygit
             mkalias
             neovim
             nixd
@@ -55,12 +57,11 @@
             wget
             zoxide
             zsh-syntax-highlighting
-            lazygit
           ];
 
           fonts.packages = with pkgs; [
-            nerd-fonts.jetbrains-mono
             nerd-fonts.iosevka
+            nerd-fonts.jetbrains-mono
           ];
 
           users.users.anthonyd = {
