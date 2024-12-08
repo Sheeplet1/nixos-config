@@ -1,4 +1,4 @@
-# Basic home-manager profile that is shared across all profiles. No desktop 
+# Basic home-manager profile that is shared across all profiles. No desktop
 # environment is set here.
 {
   inputs,
@@ -18,7 +18,7 @@ in
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     EDITOR = "nvim";
-    NIX_NEOVIM = "1"; # Disabling Mason on NixOS 
+    NIX_NEOVIM = "1"; # Disabling Mason on NixOS
   };
 
   nix.nixPath = [
@@ -63,6 +63,12 @@ in
   programs.tmux = (import ../tmux.nix { inherit inputs pkgs; });
   programs.zoxide = (import ../zoxide.nix { inherit pkgs; });
   programs.zsh = (import ../zsh.nix { inherit pkgs; });
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   home.stateVersion = "24.05";
 }
