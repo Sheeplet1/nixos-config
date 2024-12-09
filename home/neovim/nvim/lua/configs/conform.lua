@@ -13,8 +13,8 @@ local options = {
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
 
-    python = { "isort", "black" },
-    go = { "gofumpt", "goimports", "golines" },
+    python = { "isort", "black", "ruff" },
+    go = { "gofumpt", "goimports", "golines", "prettierd" },
   },
 
   format_on_save = {

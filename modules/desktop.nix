@@ -50,6 +50,7 @@
       todoist-electron
       vesktop
       wlogout
+      wl-clipboard
       wofi
       xdg-desktop-portal
       xdg-desktop-portal-gtk
@@ -84,7 +85,7 @@
       };
     };
 
-    # Potentially needed to get hyprland working on nvidia? 
+    # Potentially needed to get hyprland working on nvidia?
     # nixos.wiki/wiki/Hyprland
     # security.polkit.enable = true;
   };
