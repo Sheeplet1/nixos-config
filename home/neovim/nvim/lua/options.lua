@@ -17,6 +17,8 @@ vim.opt.clipboard = "unnamedplus"
 -- enable break indent
 vim.o.breakindent = true
 
+vim.o.smartindent = false
+
 -- save undo history
 vim.o.undofile = true
 
@@ -35,9 +37,9 @@ vim.o.scrolloff = 10
 
 local SPACES = 4
 vim.o.tabstop = SPACES -- TAB looks like x SPACES
-vim.o.expandtab = true -- use spaces instead of TABs
 vim.o.softtabstop = SPACES -- Number of spaces inserted instead of a TAB
 vim.o.shiftwidth = SPACES -- Number of spaces when indenting
+vim.o.expandtab = true -- use spaces instead of TABs
 
 -- stop swapfile
 vim.o.swapfile = false

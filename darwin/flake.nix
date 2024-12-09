@@ -46,6 +46,7 @@
             eza
             fzf
             git
+            go
             lazygit
             mkalias
             neovim
