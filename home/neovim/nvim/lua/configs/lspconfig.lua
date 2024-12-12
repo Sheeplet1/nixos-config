@@ -1,10 +1,4 @@
--- local nvlsp = require "nvchad.configs.lspconfig"
-
 local lsp = require "configs.lsp"
-
--- local on_attach = nvlsp.on_attach
--- local on_init = nvlsp.on_init
--- local capabilities = nvlsp.capabilities
 
 local on_attach = lsp.on_attach
 local on_init = lsp.on_init
@@ -40,24 +34,6 @@ local servers = {
   tailwindcss = {},
 
   rust_analyzer = {},
-
-  -- eslint = {
-  --   filetypes = {
-  --     "javascript",
-  --     "javascriptreact",
-  --     "javascript.jsx",
-  --     "typescript",
-  --     "typescriptreact",
-  --     "typescript.tsx",
-  --   },
-  --   root_dir = require("lspconfig").util.root_pattern(
-  --     ".eslintrc.js",
-  --     ".eslintrc.json",
-  --     ".eslintrc.yml",
-  --     ".eslintrc.yaml",
-  --     "package.json"
-  --   ),
-  -- },
 
   ts_ls = {
     settings = {

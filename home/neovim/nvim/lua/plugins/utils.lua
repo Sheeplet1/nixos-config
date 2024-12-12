@@ -64,19 +64,34 @@ return {
   },
 
   -- distraction-free coding
+  -- {
+  --   "folke/zen-mode.nvim",
+  --   cmd = "ZenMode",
+  --   opts = {
+  --     window = {
+  --       width = 120,
+  --       height = 1,
+  --       backdrop = 0.93,
+  --     },
+  --     plugins = {
+  --       options = { showcmd = true },
+  --       tmux = { enabled = true },
+  --       gitsigns = { enabled = true },
+  --     },
+  --   },
+  -- },
   {
-    "folke/zen-mode.nvim",
-    cmd = "ZenMode",
+    "folke/snacks.nvim",
     opts = {
-      window = {
-        width = 180,
-        height = 1,
-        backdrop = 0.93,
-      },
-      plugins = {
-        options = { showcmd = true },
-        tmux = { enabled = true },
-        gitsigns = { enabled = true },
+      zen = {},
+    },
+    keys = {
+      {
+        "<leader>z",
+        function()
+          Snacks.zen()
+        end,
+        desc = "Toggle Zen Mode",
       },
     },
   },
