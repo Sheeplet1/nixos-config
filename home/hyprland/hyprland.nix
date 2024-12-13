@@ -29,7 +29,7 @@
     decoration = {
       rounding = 10;
 
-      active_opacity = 0.9;
+      active_opacity = 1;
       inactive_opacity = 0.8;
       fullscreen_opacity = 1;
 
@@ -170,7 +170,7 @@
         "$mod SHIFT, Tab, workspace, m-1"
         "$mod, Tab, workspace, m+1"
 
-        # wallpapers 
+        # wallpapers
         "$mod, W, exec, bash $HOME/.scripts/wallpaper_select.sh"
         "CTRL ALT, W, exec, bash $HOME/.scripts/wallpaper_random.sh"
 
