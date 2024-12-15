@@ -24,6 +24,7 @@ local options = {
     "typescript",
     "vim",
     "vimdoc",
+    "zig",
     -- "cpp",
   },
 

@@ -46,6 +46,7 @@ in
     tree
     unzip
     wget
+    zig
     zip
     zsh-powerlevel10k
   ];

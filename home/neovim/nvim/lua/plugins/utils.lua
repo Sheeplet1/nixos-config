@@ -123,7 +123,7 @@ return {
     "nvzone/showkeys",
     cmd = "ShowkeysToggle",
     opts = {
-      timeout = 1,
+      timeout = 60,
       maxkeys = 5,
       -- more opts
     },
