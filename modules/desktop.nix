@@ -55,6 +55,7 @@
       xdg-desktop-portal
       xdg-desktop-portal-gtk
       xdg-utils
+      xwayland
     ];
 
     programs = {
