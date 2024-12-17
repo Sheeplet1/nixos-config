@@ -16,6 +16,7 @@ return {
 
   {
     "saecki/crates.nvim",
+    enabled = false,
     event = { "BufRead Cargo.toml" },
     tag = "stable",
     config = function()
@@ -25,9 +26,18 @@ return {
 
   {
     "rust-lang/rust.vim",
+    enabled = false,
     ft = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
+    end,
+  },
+
+  {
+    "ziglang/zig.vim",
+    ft = "zig",
+    init = function()
+      vim.g.zig_fmt_autosave = 1
     end,
   },
 }

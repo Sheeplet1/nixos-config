@@ -35,7 +35,7 @@ vim.o.termguicolors = true
 -- minimum number of screen lines to keep above and below the cursor
 vim.o.scrolloff = 10
 
-local SPACES = 4
+local SPACES = 2
 vim.o.tabstop = SPACES -- TAB looks like x SPACES
 vim.o.softtabstop = SPACES -- Number of spaces inserted instead of a TAB
 vim.o.shiftwidth = SPACES -- Number of spaces when indenting

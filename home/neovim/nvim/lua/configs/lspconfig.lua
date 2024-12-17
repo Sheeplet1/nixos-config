@@ -78,6 +78,7 @@ local servers = {
   },
 
   svelte = {},
+  zls = {},
 }
 
 for name, opts in pairs(servers) do
