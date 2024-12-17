@@ -26,6 +26,10 @@
         in
         {
           devShells.default = pkgs.mkShell {
+            nativeBuildInputs = with pkgs; [
+              # Need to add packages depending on build requirements.
+            ];
+
             packages = with pkgs; [
               zls
             ];
