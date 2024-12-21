@@ -85,6 +85,11 @@ return {
     opts = {
       scroll = { enabled = true },
       zen = {},
+      styles = {
+        zen = {
+          keys = { q = "close" },
+        },
+      },
     },
     keys = {
       {
