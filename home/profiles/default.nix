@@ -11,6 +11,10 @@ let
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
 in
 {
+  imports = [
+    ../ghostty.nix
+  ];
+
   programs.home-manager.enable = true;
   home.username = "anthonyd";
   home.homeDirectory = "/home/anthonyd";
@@ -57,7 +61,7 @@ in
 
   xdg.configFile."electron-flags.conf".source = ./electron-flags.conf;
 
-  programs.alacritty = (import ../alacritty.nix { inherit pkgs; });
+  # programs.alacritty = (import ../alacritty.nix { inherit pkgs; });
   programs.git = (import ../git.nix { inherit pkgs; });
   programs.fzf = (import ../fzf.nix { inherit pkgs; });
   programs.neovim = (import ../neovim/neovim.nix { inherit pkgs; });

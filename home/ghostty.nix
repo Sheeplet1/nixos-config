@@ -10,5 +10,6 @@
     font-size = 18
 
     theme = tokyonight
+    window-theme = ghostty
   '';
 }

@@ -22,15 +22,27 @@ in
   };
 
   home.packages = with pkgs; [
+    dconf # required for gtk.enable
     prusa-slicer
   ];
 
   # Defining symlinks
   home.file."Pictures/wallpapers/".source = config.lib.file.mkOutOfStoreSymlink wallpapersLocation;
 
+  # GTK Theming
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Tokyonight-Dark";
+      package = pkgs.tokyonight-gtk-theme;
+    };
+  };
+
+  # Programs
   programs.hyprlock = (import ../hyprland/hyprlock.nix { inherit pkgs; });
   programs.wofi = (import ../wofi/wofi.nix { inherit pkgs; });
 
+  # Services
   services.hypridle = (import ../hyprland/hypridle.nix { inherit pkgs; });
 
   wayland.windowManager.hyprland = (import ../hyprland/hyprland.nix { inherit pkgs; });
