@@ -11,10 +11,10 @@
       "hyprpanel"
       "obsidian --ozone-platform-hint=auto"
       "todoist-electron --ozone-platform-hint=auto"
-      "vesktop"
+      "vesktop silent"
       "spotify"
       "zen"
-      "alacritty"
+      "ghostty"
     ] ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
     general = {
