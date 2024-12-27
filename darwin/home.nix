@@ -20,7 +20,7 @@ in
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
   home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
 
-  programs.alacritty = (import ../home/alacritty.nix { inherit pkgs; });
+  # programs.alacritty = (import ../home/alacritty.nix { inherit pkgs; });
   programs.git = (import ../home/git.nix { inherit pkgs; });
   programs.fzf = (import ../home/fzf.nix { inherit pkgs; });
   programs.neovim = (import ../home/neovim/neovim.nix { inherit pkgs; });

@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+    # alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
@@ -28,7 +28,6 @@
       nixpkgs,
       nix-homebrew,
       home-manager,
-      alacritty-theme,
       ...
     }@inputs:
     let
@@ -40,7 +39,7 @@
           nixpkgs.config.allowUnfree = true;
 
           environment.systemPackages = with pkgs; [
-            alacritty
+            # alacritty
             bat
             direnv
             eza
