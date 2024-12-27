@@ -34,6 +34,7 @@ in
     fd
     gcc
     go
+    inputs.ghostty.packages."${pkgs.system}".default
     jq
     lazygit
     meslo-lgs-nf
