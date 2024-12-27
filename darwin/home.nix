@@ -9,6 +9,10 @@ let
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
 in
 {
+  imports = [
+    ../home/ghostty.nix
+  ];
+
   programs.home-manager.enable = true;
 
   xdg.enable = true;

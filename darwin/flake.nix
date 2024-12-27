@@ -75,6 +75,7 @@
             brews = [ "mas" ];
             casks = [
               "zen-browser"
+              "ghostty"
               "iina"
               "the-unarchiver"
               "spotify"
@@ -112,7 +113,8 @@
               "/System/Applications/Messages.app"
               "/Applications/Zen Browser.app"
               "/Applications/Spotify.app"
-              "${pkgs.alacritty}/Applications/Alacritty.app"
+              # "${pkgs.alacritty}/Applications/Alacritty.app"
+              "/Applications/Ghostty.app"
               "${pkgs.obsidian}/Applications/Obsidian.app"
             ];
             loginwindow.GuestEnabled = false;
