@@ -106,6 +106,7 @@
     windowrulev2 = [
       # Workspaces
       "workspace 1, class:^([Aa]lacritty)$"
+      "workspace 1, class:^([Gg]hostty)$"
 
       "workspace 2, class:^([Vv]ivaldi-stable)$"
       "workspace 2, class:^([Ff]irefox)$"
