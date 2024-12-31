@@ -35,6 +35,7 @@
       hyprpicker
       hyprshot
       hyprsunset
+      hyprland-qtutils
       inputs.hyprpanel.packages."${pkgs.system}".default
       inputs.zen-browser.packages."${pkgs.system}".default
       libnotify
