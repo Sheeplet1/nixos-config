@@ -9,11 +9,18 @@ return {
   },
 
   {
-    "nvchad/base46",
+    "Sheeplet1/base46",
     build = function()
       require("base46").load_all_highlights()
     end,
   },
+
+  -- {
+  --   "nvchad/base46",
+  --   build = function()
+  --     require("base46").load_all_highlights()
+  --   end,
+  -- },
 
   "nvchad/volt",
   "nvchad/menu",

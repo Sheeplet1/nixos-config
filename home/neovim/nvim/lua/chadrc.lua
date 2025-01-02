@@ -4,7 +4,7 @@
 ---@type ChadrcConfig
 local M = {
   base46 = {
-    theme = "tokyonight",
+    theme = "ashen",
     integrations = {
       "cmp",
       "todo",
