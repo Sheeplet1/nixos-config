@@ -12,6 +12,10 @@ return {
 
     menu = {
       border = "rounded",
+      -- don't show completion menu automatically in cmdline mode
+      auto_show = function(ctx)
+        return ctx.mode ~= "cmdline"
+      end,
     },
 
     documentation = {
@@ -27,6 +31,7 @@ return {
   },
 
   sources = {
+    default = { "lsp", "path", "snippets", "buffer" },
     providers = {
       lsp = {
         min_keyword_length = 1,
