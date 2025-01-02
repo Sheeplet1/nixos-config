@@ -15,7 +15,7 @@ in
     font-family = "Iosevka Nerd Font Mono"
     font-size = 18
 
-    theme = ashen 
+    theme = tokyonight 
     window-theme = ghostty
   '';
 }
