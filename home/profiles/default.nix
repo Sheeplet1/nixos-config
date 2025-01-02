@@ -12,7 +12,7 @@ let
 in
 {
   imports = [
-    ../ghostty.nix
+    ../ghostty/ghostty.nix
   ];
 
   programs.home-manager.enable = true;
