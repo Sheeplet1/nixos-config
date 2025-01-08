@@ -83,7 +83,7 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
-      scroll = { enabled = true },
+      scroll = { enabled = false },
       zen = {},
       styles = {
         zen = {
