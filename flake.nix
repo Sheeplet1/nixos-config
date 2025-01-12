@@ -26,7 +26,7 @@
     ags.url = "github:Aylur/ags";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
-    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+    # alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
     # Having rust-overlay lets us use nightly Rust with pre-built binaries.
     rust-overlay = {
