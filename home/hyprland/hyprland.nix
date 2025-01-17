@@ -11,8 +11,6 @@
       "hyprpanel"
       "obsidian --ozone-platform-hint=auto"
       "todoist-electron --ozone-platform-hint=auto"
-      "vesktop silent"
-      "spotify"
       "zen"
       "ghostty"
     ] ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
@@ -30,7 +28,7 @@
       rounding = 10;
 
       active_opacity = 1;
-      inactive_opacity = 0.8;
+      inactive_opacity = 0.9;
       fullscreen_opacity = 1;
 
       dim_inactive = true;

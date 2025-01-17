@@ -1,5 +1,6 @@
 return {
   "nvim-lua/plenary.nvim",
+
   {
     "nvchad/ui",
     lazy = false,
@@ -17,6 +18,7 @@ return {
 
   {
     "nvchad/base46",
+    branch = "v3.0",
     build = function()
       require("base46").load_all_highlights()
     end,
