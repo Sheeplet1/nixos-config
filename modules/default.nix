@@ -26,15 +26,15 @@
     networkmanager.enable = true;
     # The local DNS has been flaky lately so we are prioritising Google
     # and Cloudflare first.
-    networkmanager.dns = "none";
-    nameservers = [
-      "8.8.8.8"
-      "1.1.1.1"
-    ];
-    networkmanager.insertNameservers = [
-      "8.8.8.8"
-      "1.1.1.1"
-    ];
+    # networkmanager.dns = "none";
+    # nameservers = [
+    #   "8.8.8.8"
+    #   "1.1.1.1"
+    # ];
+    # networkmanager.insertNameservers = [
+    #   "8.8.8.8"
+    #   "1.1.1.1"
+    # ];
   };
 
   # Set your time zone.
