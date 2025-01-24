@@ -19,6 +19,8 @@
     c = "clear";
     vim = "nvim";
     cd = "z";
+
+    k = "kubectl";
   };
 
   initExtra = ''

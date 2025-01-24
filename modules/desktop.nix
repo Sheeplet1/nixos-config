@@ -38,7 +38,6 @@
       hyprland-qtutils
       inputs.hyprpanel.packages."${pkgs.system}".default
       inputs.zen-browser.packages."${pkgs.system}".default
-      k3s
       libnotify
       obsidian
       papirus-icon-theme
@@ -58,6 +57,10 @@
       xdg-desktop-portal-gtk
       xdg-utils
       xwayland
+
+      k3s
+      kubernetes-helm
+      helmfile
     ];
 
     programs = {
