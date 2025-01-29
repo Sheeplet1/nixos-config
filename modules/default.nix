@@ -164,8 +164,10 @@
       # If you simply want to keep the behaviour in < 1.17, which uses the first
       # portal implementation found in lexicographical order, use the following:
       config.common.default = "*";
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-hyprland
       ];
     };
   };

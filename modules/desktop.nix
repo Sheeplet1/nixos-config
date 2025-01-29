@@ -26,6 +26,7 @@
       adwaita-icon-theme
       ags
       chromium
+      discord
       eww
       firefox
       gtk3
