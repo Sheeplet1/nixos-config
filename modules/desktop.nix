@@ -22,11 +22,14 @@
       pulse.enable = true;
     };
 
+    virtualisation.docker.enable = true;
+
     environment.systemPackages = with pkgs; [
       adwaita-icon-theme
       ags
       chromium
       discord
+      docker
       eww
       firefox
       gtk3
@@ -44,6 +47,7 @@
       papirus-icon-theme
       playerctl
       pulseaudio
+      protonvpn-gui
       qt5.qtwayland
       qt6.qtwayland
       spotify
