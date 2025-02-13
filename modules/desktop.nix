@@ -47,14 +47,11 @@
       papirus-icon-theme
       playerctl
       pulseaudio
-      protonvpn-gui
       qt5.qtwayland
       qt6.qtwayland
       spotify
       swappy # image viewer
       swww # wallpapers
-      todoist-electron
-      vesktop
       wlogout
       wl-clipboard
       wofi
@@ -63,9 +60,12 @@
       xdg-utils
       xwayland
 
+      # Packages for homelab
+      argocd
       k3s
       kubernetes-helm
       helmfile
+      kubeseal
     ];
 
     programs = {
