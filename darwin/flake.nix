@@ -40,7 +40,9 @@
 
           environment.systemPackages = with pkgs; [
             bat
+            discord
             direnv
+            docker
             eza
             fzf
             git
@@ -78,6 +80,8 @@
               "iina"
               "the-unarchiver"
               "spotify"
+              "rectangle"
+              "flux"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
@@ -110,7 +114,7 @@
             dock.autohide = true;
             dock.persistent-apps = [
               "/System/Applications/Messages.app"
-              "/Applications/Zen Browser.app"
+              "/Applications/Zen.app"
               "/Applications/Spotify.app"
               # "${pkgs.alacritty}/Applications/Alacritty.app"
               "/Applications/Ghostty.app"
