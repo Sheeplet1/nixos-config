@@ -39,6 +39,9 @@
           nixpkgs.config.allowUnfree = true;
 
           environment.systemPackages = with pkgs; [
+            vscode
+            code-cursor
+
             bat
             discord
             direnv
@@ -82,6 +85,7 @@
               "spotify"
               "rectangle"
               "flux"
+              "microsoft-office"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
