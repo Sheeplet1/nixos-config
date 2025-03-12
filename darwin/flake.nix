@@ -64,9 +64,9 @@
             nerd-fonts.jetbrains-mono
           ];
 
-          users.users.anthonyd = {
-            name = "anthonyd";
-            home = "/Users/anthonyd";
+          users.users.anthonydo = {
+            name = "anthonydo";
+            home = "/Users/anthonydo";
           };
 
           homebrew = {
@@ -160,7 +160,7 @@
             nix-homebrew = {
               enable = true;
               enableRosetta = true; # Apple Silicon only
-              user = "anthonyd";
+              user = "anthonydo";
               # autoMigrate = true;
             };
           }
@@ -170,7 +170,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.anthonyd = import ./home.nix;
+            home-manager.users.anthonydo = import ./home.nix;
           }
         ];
       };
