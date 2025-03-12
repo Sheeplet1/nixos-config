@@ -39,7 +39,6 @@
           nixpkgs.config.allowUnfree = true;
 
           environment.systemPackages = with pkgs; [
-            # alacritty
             bat
             direnv
             eza
@@ -57,6 +56,7 @@
             wget
             zoxide
             zsh-syntax-highlighting
+            xcodes
           ];
 
           fonts.packages = with pkgs; [
