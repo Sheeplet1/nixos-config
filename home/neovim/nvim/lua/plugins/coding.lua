@@ -43,11 +43,22 @@ return {
 
   {
     "zbirenbaum/copilot.lua",
-    enabled = false,
+    enabled = true,
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
       require "configs.copilot"
     end,
+  },
+
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    event = "BufRead",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    build = "make tiktoken",
+    opts = {},
   },
 }

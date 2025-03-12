@@ -100,6 +100,8 @@
 
   environment.systemPackages = with pkgs; [
     clang
+    vscode
+    gnumake
   ];
 
   environment.sessionVariables = {

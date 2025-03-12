@@ -143,3 +143,6 @@ end
 
 -- Showkeys
 map("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
+
+-- Copilot Chat
+map("n", "<leader>cc", "<cmd>CopilotChatOpen<CR>", { desc = "Open Copilot Chat" })
