@@ -59,13 +59,6 @@
       xdg-desktop-portal-gtk
       xdg-utils
       xwayland
-
-      # Packages for homelab
-      argocd
-      k3s
-      kubernetes-helm
-      helmfile
-      kubeseal
     ];
 
     programs = {
