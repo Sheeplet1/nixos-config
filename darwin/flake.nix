@@ -76,7 +76,13 @@
 
           homebrew = {
             enable = true;
-            brews = [ "mas" ];
+            brews = [
+              "mas"
+              "xcode-build-server"
+              "xcbeautify"
+
+              "typescript-language-server"
+            ];
             casks = [
               "zen-browser"
               "ghostty"
@@ -116,12 +122,13 @@
 
           system.defaults = {
             dock.autohide = true;
+            dock.show-recents = false;
             dock.persistent-apps = [
               "/System/Applications/Messages.app"
               "/Applications/Zen.app"
               "/Applications/Spotify.app"
-              # "${pkgs.alacritty}/Applications/Alacritty.app"
               "/Applications/Ghostty.app"
+              "/Applications/Nix Apps/Cursor.app"
               "${pkgs.obsidian}/Applications/Obsidian.app"
             ];
             loginwindow.GuestEnabled = false;
