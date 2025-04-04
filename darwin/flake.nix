@@ -14,8 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
-
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,11 +37,19 @@
           nixpkgs.config.allowUnfree = true;
 
           environment.systemPackages = with pkgs; [
+            # Testing coding environments.
             vscode
             code-cursor
 
+            # Streamyfin
+            bun
+            biome
+            libyaml
+            ruby
+            cocoapods
+            nodePackages.nodejs
+
             bat
-            discord
             direnv
             docker
             eza
@@ -55,13 +61,19 @@
             neovim
             nixd
             nixfmt-rfc-style
-            obsidian
             ripgrep
             tmux
             wget
             zoxide
             zsh-syntax-highlighting
             xcodes
+
+            # Packages for Homelab management.
+            argocd
+            kubernetes-helm
+            helmfile
+            kubeseal
+            kubectl
           ];
 
           fonts.packages = with pkgs; [
@@ -80,18 +92,18 @@
               "mas"
               "xcode-build-server"
               "xcbeautify"
-
-              "typescript-language-server"
             ];
             casks = [
-              "zen-browser"
+              "aerospace"
+              "discord"
+              "flux"
               "ghostty"
               "iina"
-              "the-unarchiver"
-              "spotify"
-              "rectangle"
-              "flux"
               "microsoft-office"
+              "obsidian"
+              "rectangle"
+              "the-unarchiver"
+              "zen-browser"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
@@ -126,10 +138,9 @@
             dock.persistent-apps = [
               "/System/Applications/Messages.app"
               "/Applications/Zen.app"
-              "/Applications/Spotify.app"
+              "${pkgs.spotify}/Applications/Spotify.app"
               "/Applications/Ghostty.app"
-              "/Applications/Nix Apps/Cursor.app"
-              "${pkgs.obsidian}/Applications/Obsidian.app"
+              "/Applications/Obsidian.app"
             ];
             loginwindow.GuestEnabled = false;
             NSGlobalDomain.AppleInterfaceStyle = "Dark";

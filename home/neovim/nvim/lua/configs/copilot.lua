@@ -11,12 +11,13 @@ local options = {
   },
 
   suggestion = {
+    accept = false,
     auto_trigger = true,
     keymap = {
       accept = "<M-l>",
       prev = "<M-[>",
       next = "<M-]>",
-      dismiss = "<C-]>",
+      dismiss = "<C-e>",
     },
   },
 

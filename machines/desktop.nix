@@ -9,6 +9,7 @@
     ../modules/desktop.nix
     ../modules/nvidia.nix
     ../modules/home.nix
+    ../modules/homelab.nix
   ];
 
   desktop.enable = true;
