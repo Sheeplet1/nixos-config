@@ -97,7 +97,6 @@
               "aerospace"
               "discord"
               "flux"
-              "ghostty"
               "iina"
               "microsoft-office"
               "obsidian"

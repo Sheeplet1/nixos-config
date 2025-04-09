@@ -11,10 +11,6 @@ let
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
 in
 {
-  imports = [
-    ../ghostty/ghostty.nix
-  ];
-
   programs.home-manager.enable = true;
   home.username = "anthonyd";
   home.homeDirectory = "/home/anthonyd";
@@ -38,7 +34,6 @@ in
     fd
     gcc
     go
-    inputs.ghostty.packages."${pkgs.system}".default
     jq
     lazygit
     meslo-lgs-nf
@@ -61,8 +56,8 @@ in
 
   xdg.configFile."electron-flags.conf".source = ./electron-flags.conf;
 
-  # programs.alacritty = (import ../alacritty.nix { inherit pkgs; });
   programs.git = (import ../git.nix { inherit pkgs; });
+  programs.ghostty = (import ../ghostty.nix { inherit pkgs; });
   programs.fzf = (import ../fzf.nix { inherit pkgs; });
   programs.neovim = (import ../neovim/neovim.nix { inherit pkgs; });
   # programs.starship = (import ../starship.nix { inherit pkgs; });

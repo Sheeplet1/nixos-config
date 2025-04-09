@@ -9,10 +9,6 @@ let
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
 in
 {
-  imports = [
-    ../home/ghostty/ghostty.nix
-  ];
-
   programs.home-manager.enable = true;
 
   xdg.enable = true;
@@ -22,6 +18,7 @@ in
 
   programs.aerospace = (import ./home/aerospace.nix { inherit pkgs; });
   programs.git = (import ../home/git.nix { inherit pkgs; });
+  programs.ghostty = (import ../home/ghostty.nix { inherit pkgs; });
   programs.fzf = (import ../home/fzf.nix { inherit pkgs; });
   programs.neovim = (import ../home/neovim/neovim.nix { inherit pkgs; });
   programs.tmux = (import ../home/tmux.nix { inherit inputs pkgs; });

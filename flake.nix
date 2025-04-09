@@ -14,11 +14,6 @@
 
     zen-browser.url = "github:omarcresp/zen-browser-flake";
 
-    # minimal-tmux = {
-    #   url = "github:niksingh710/minimal-tmux-status";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
@@ -26,16 +21,10 @@
     ags.url = "github:Aylur/ags";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
-    # alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
-
     # Having rust-overlay lets us use nightly Rust with pre-built binaries.
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
     };
   };
 
