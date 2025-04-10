@@ -8,7 +8,7 @@
       # "hyprlock"
       "swww-daemon --format xrgb"
       # "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
-      "hyprpanel"
+      # "hyprpanel"
       "obsidian --ozone-platform-hint=auto"
       "todoist-electron --ozone-platform-hint=auto"
       "zen"

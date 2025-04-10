@@ -1,5 +1,6 @@
 # Desktop environment home-manager profile.
 {
+  inputs,
   config,
   pkgs,
   ...
@@ -10,6 +11,7 @@ in
 {
   imports = [
     ./default.nix
+    inputs.hyprpanel.homeManagerModules.hyprpanel
   ];
 
   home.sessionVariables = {
@@ -39,6 +41,7 @@ in
   };
 
   # Programs
+  programs.hyprpanel = (import ../hyprland/hyprpanel.nix { inherit pkgs; });
   programs.hyprlock = (import ../hyprland/hyprlock.nix { inherit pkgs; });
   programs.wofi = (import ../wofi/wofi.nix { inherit pkgs; });
 
