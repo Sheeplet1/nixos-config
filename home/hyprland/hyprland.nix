@@ -114,6 +114,7 @@
 
       "workspace 4, initialTitle:^([Ss]potify)$"
       "workspace 4, initialTitle:^([Ss]potify Premium)$"
+      "workspace 4, title:^([Jj]ellyfin Media Player)$"
 
       "workspace 5, class:^([Dd]iscord)$"
       "workspace 5, class:^([Ww]ebCord)$"
