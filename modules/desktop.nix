@@ -35,13 +35,14 @@
       gtk3
       hyprcursor
       hypridle
+      hyprland-qtutils
       hyprlock
       hyprpicker
       hyprshot
       hyprsunset
-      hyprland-qtutils
       inputs.hyprpanel.packages."${pkgs.system}".default
       inputs.zen-browser.packages."${pkgs.system}".default
+      jellyfin-media-player
       libnotify
       obsidian
       papirus-icon-theme
@@ -52,8 +53,8 @@
       spotify
       swappy # image viewer
       swww # wallpapers
-      wlogout
       wl-clipboard
+      wlogout
       wofi
       xdg-desktop-portal
       xdg-desktop-portal-gtk
