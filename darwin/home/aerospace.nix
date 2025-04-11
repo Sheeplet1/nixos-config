@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   enable = true;
+  start-at-login = true;
   userSettings = {
     gaps = {
       outer.left = 8;
