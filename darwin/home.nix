@@ -18,7 +18,11 @@ in
 
   programs.aerospace = (import ./home/aerospace.nix { inherit pkgs; });
   programs.git = (import ../home/git.nix { inherit pkgs; });
-  programs.ghostty = (import ../home/ghostty.nix { inherit pkgs; });
+
+  # Cannot build ghostty through Nix on Darwin yet. See the below issue:
+  # https://github.com/NixOS/nixpkgs/issues/388984
+  # programs.ghostty = (import ../home/ghostty.nix { inherit pkgs; });
+
   programs.fzf = (import ../home/fzf.nix { inherit pkgs; });
   programs.neovim = (import ../home/neovim/neovim.nix { inherit pkgs; });
   programs.tmux = (import ../home/tmux.nix { inherit inputs pkgs; });

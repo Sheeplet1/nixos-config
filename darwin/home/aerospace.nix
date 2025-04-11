@@ -44,6 +44,16 @@
       alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
     };
 
+    workspace-to-monitor-force-assignment = {
+      "1" = "secondary main";
+      "2" = "secondary main";
+      "3" = "secondary main";
+      "4" = "secondary main";
+      "5" = "main secondary";
+      "6" = "main secondary";
+      "7" = "main secondary";
+    };
+
     on-window-detected = [
       {
         "if".app-id = "com.mitchellh.ghostty";
@@ -72,6 +82,10 @@
       {
         "if".app-id = "com.hnc.Discord";
         run = [ "move-node-to-workspace 6" ];
+      }
+      {
+        "if".app-id = "com.spotify.client";
+        run = [ "move-node-to-workspace 7" ];
       }
     ];
   };

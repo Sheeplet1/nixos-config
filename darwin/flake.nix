@@ -64,6 +64,7 @@
             ripgrep
             tmux
             wget
+            zig
             zoxide
             zsh-syntax-highlighting
             xcodes
@@ -97,11 +98,14 @@
               "aerospace"
               "discord"
               "flux"
+              "ghostty"
               "iina"
               "microsoft-office"
               "obsidian"
               "rectangle"
               "the-unarchiver"
+              "scroll-reverser"
+              "spotify"
               "zen-browser"
             ];
             onActivation.cleanup = "zap";
