@@ -1,8 +1,10 @@
 { pkgs, ... }:
 {
   enable = true;
-  start-at-login = true;
+
   userSettings = {
+    start-at-login = true;
+
     gaps = {
       outer.left = 8;
       outer.right = 8;
@@ -46,10 +48,10 @@
     };
 
     workspace-to-monitor-force-assignment = {
-      "1" = "secondary main";
-      "2" = "secondary main";
-      "3" = "secondary main";
-      "4" = "secondary main";
+      "1" = "secondary";
+      "2" = "secondary";
+      "3" = "secondary";
+      "4" = "secondary";
       "5" = "main secondary";
       "6" = "main secondary";
       "7" = "main secondary";
