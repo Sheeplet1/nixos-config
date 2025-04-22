@@ -2,8 +2,8 @@
 {
   enable = true;
   defaultEditor = true;
-  viAlias = true;
-  vimAlias = true;
+  # viAlias = true;
+  # vimAlias = true;
   extraPackages = with pkgs; [
     # Adding LSP servers here since Mason binaries do not work on NixOS.
     prettierd

@@ -28,6 +28,7 @@ in
   programs.tmux = (import ../home/tmux.nix { inherit inputs pkgs; });
   programs.zoxide = (import ../home/zoxide.nix { inherit pkgs; });
   programs.zsh = (import ../home/zsh.nix { inherit pkgs; });
+  programs.vim = (import ../home/vim.nix { inherit pkgs; });
 
   programs.direnv = {
     enable = true;

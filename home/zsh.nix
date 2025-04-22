@@ -17,7 +17,7 @@
     gl = "git log --graph --decorate --pretty=oneline --abbrev-commit --all";
 
     c = "clear";
-    vim = "nvim";
+    # vim = "nvim";
     cd = "z";
 
     k = "kubectl";
