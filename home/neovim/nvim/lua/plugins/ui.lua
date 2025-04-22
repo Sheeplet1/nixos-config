@@ -58,6 +58,15 @@ return {
     end,
   },
 
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "VeryLazy",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = function()
+      return require "configs.treesitter-context"
+    end,
+  },
+
   -- edit file system in a buffer
   {
     "stevearc/oil.nvim",
