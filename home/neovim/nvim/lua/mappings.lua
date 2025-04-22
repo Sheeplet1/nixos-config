@@ -144,15 +144,7 @@ end
 -- Showkeys
 map("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
 
--- Copilot Chat
-map("n", "<leader>cc", "<cmd>CopilotChatOpen<CR>", { desc = "Open Copilot Chat" })
-
-map("i", "<Tab>", function()
-  if require("copilot.suggestion").is_visible() then
-    require("copilot.suggestion").accept()
-  else
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-  end
-end, {
-  silent = true,
-})
+-- CodeCompanion
+map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanion<CR>", { desc = "Toggle CodeCompanion" })
+map("v", "<C-c>", "<cmd>CodeCompanionChat Add<CR>", { desc = "Add to visual selection to CodeCompanion" })
+map("v", "<C-a>", "<cmd>CodeCompanionActions<CR>", { desc = "CodeCompanion Actions" })

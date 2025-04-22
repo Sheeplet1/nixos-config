@@ -25,18 +25,33 @@ return {
         max_height = 15,
         border = "rounded",
       },
-      auto_show = true,
+      auto_show = false,
       auto_show_delay_ms = 250,
     },
   },
 
+  signature = {
+    enabled = false,
+    window = {
+      show_documentation = false,
+    },
+  },
+
+  fuzzy = {
+    implementation = "lua",
+  },
+
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
+    -- default = { "lsp", "path", "buffer" },
     providers = {
       lsp = {
         min_keyword_length = 1,
         score_offset = -1,
       },
     },
+    -- per_filetype = {
+    --   codecompanion = { "codecompanion" },
+    -- },
   },
 }

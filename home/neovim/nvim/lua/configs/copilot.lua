@@ -1,8 +1,10 @@
 local options = {
+  enabled = false,
+
   panel = {
     auto_refresh = false,
     keymap = {
-      accept = "<CR>",
+      accept = "<M-l>",
       jump_prev = "[[",
       jump_next = "]]",
       refresh = "gr",
@@ -14,7 +16,7 @@ local options = {
     accept = false,
     auto_trigger = true,
     keymap = {
-      accept = "<M-l>",
+      accept = "<C-l>",
       prev = "<M-[>",
       next = "<M-]>",
       dismiss = "<C-e>",
