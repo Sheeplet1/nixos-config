@@ -8,5 +8,6 @@
 
     theme = "Kanagawa Wave";
     window-theme = "ghostty";
+    macos-option-as-alt = true;
   };
 }
