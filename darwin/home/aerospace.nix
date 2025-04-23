@@ -5,6 +5,8 @@
   userSettings = {
     start-at-login = true;
 
+    on-focus-changed = [ "move-mouse monitor-lazy-center" ];
+
     gaps = {
       outer.left = 8;
       outer.right = 8;
@@ -60,7 +62,10 @@
     on-window-detected = [
       {
         "if".app-id = "com.mitchellh.ghostty";
-        run = [ "move-node-to-workspace 1" ];
+        run = [
+          "layout tiling"
+          "move-node-to-workspace 1"
+        ];
       }
       {
         "if".app-id = "app.zen-browser.zen";
