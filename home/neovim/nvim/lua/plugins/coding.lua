@@ -10,6 +10,7 @@ return {
   -- alternative completion plugin to nvim-cmp
   {
     "saghen/blink.cmp",
+    enabled = false,
     lazy = false, -- lazy loading handled internally
     dependencies = { "rafamadriz/friendly-snippets" },
 
@@ -54,12 +55,13 @@ return {
   {
     "olimorris/codecompanion.nvim",
     lazy = false,
+    opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require "configs.codecompanion"
-    end,
+    -- config = function()
+    --   require "configs.codecompanion"
+    -- end,
   },
 }

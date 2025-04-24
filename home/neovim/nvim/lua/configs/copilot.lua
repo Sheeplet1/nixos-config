@@ -1,6 +1,4 @@
 local options = {
-  enabled = false,
-
   panel = {
     auto_refresh = false,
     keymap = {

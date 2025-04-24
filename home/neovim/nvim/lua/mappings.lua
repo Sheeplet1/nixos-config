@@ -145,6 +145,6 @@ end
 map("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
 
 -- CodeCompanion
-map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanion<CR>", { desc = "Toggle CodeCompanion" })
-map("v", "<C-c>", "<cmd>CodeCompanionChat Add<CR>", { desc = "Add to visual selection to CodeCompanion" })
-map("v", "<C-a>", "<cmd>CodeCompanionActions<CR>", { desc = "CodeCompanion Actions" })
+map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion" })
+map("v", "<C-a>", "<cmd>CodeCompanionChat Add<CR>", { desc = "Add to visual selection to CodeCompanion" })
+map("v", "<C-c>", "<cmd>CodeCompanionActions<CR>", { desc = "CodeCompanion Actions" })

@@ -57,6 +57,8 @@
     fi
 
     eval "$(direnv hook zsh)"
+
+    export PATH="$HOME/go/bin:$PATH"
   '';
 
   plugins = [
