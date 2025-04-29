@@ -1,15 +1,5 @@
 { inputs, pkgs, ... }:
 let
-  tokyo-night = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "tokyo-night";
-    version = "unstable-2023-01-06";
-    src = pkgs.fetchFromGitHub {
-      owner = "janoamaral";
-      repo = "tokyo-night-tmux";
-      rev = "master";
-      sha256 = "sha256-3rMYYzzSS2jaAMLjcQoKreE0oo4VWF9dZgDtABCUOtY=";
-    };
-  };
 in
 {
   enable = true;
@@ -35,7 +25,8 @@ in
     #     set -g @minimal-tmux-indicator false
     #   '';
     # }
-    tokyo-night
+    # tokyo-night-tmux
+    gruvbox
   ];
 
   extraConfig = ''
@@ -75,7 +66,7 @@ in
 
     # Refresh tmux source configuration 
     unbind ]
-    bind ] source-file ~/.config/tmux/tmux.conf
+    bind ] source ~/.config/tmux/tmux.conf
 
     # Bind vim keys to resize panels
     bind -r j resize-pane -D 5
@@ -102,11 +93,5 @@ in
     # Using vim keybinds to switch windows
     bind-key -n M-H previous-window
     bind-key -n M-L next-window
-
-    set -g @tokyo-night-tmux_window_id_style hsquare 
-    set -g @tokyo-night-tmux_show_datetime 0
-    set -g @tokyo-night-tmux_show_path 0
-
-    run-shell ${tokyo-night}/share/tmux-plugins/tokyo-night/tokyo-night.tmux
   '';
 }

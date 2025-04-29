@@ -60,8 +60,5 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    -- config = function()
-    --   require "configs.codecompanion"
-    -- end,
   },
 }
