@@ -42,6 +42,7 @@ in
     python3
     ripgrep
     rustc
+    sshs
     stow
     tree
     unzip

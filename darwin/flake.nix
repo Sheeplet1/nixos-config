@@ -62,6 +62,7 @@
             nixd
             nixfmt-rfc-style
             ripgrep
+            sshs
             tmux
             wget
             zig

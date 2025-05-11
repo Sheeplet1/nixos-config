@@ -23,7 +23,7 @@
     k = "kubectl";
   };
 
-  initExtra = ''
+  initContent = ''
     [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
 
     # disable sort when completing `git checkout`

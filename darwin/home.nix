@@ -25,6 +25,7 @@ in
 
   programs.fzf = (import ../home/fzf.nix { inherit pkgs; });
   programs.neovim = (import ../home/neovim/neovim.nix { inherit pkgs; });
+  programs.spotify-player = (import ../home/spotify-player.nix { inherit pkgs; });
   programs.tmux = (import ../home/tmux.nix { inherit inputs pkgs; });
   programs.zoxide = (import ../home/zoxide.nix { inherit pkgs; });
   programs.zsh = (import ../home/zsh.nix { inherit pkgs; });
