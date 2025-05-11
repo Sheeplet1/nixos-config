@@ -68,6 +68,10 @@
         ];
       }
       {
+        "if".app-id = "com.apple.Safari";
+        run = [ "move-node-to-workspace 2" ];
+      }
+      {
         "if".app-id = "app.zen-browser.zen";
         run = [ "move-node-to-workspace 2" ];
       }
