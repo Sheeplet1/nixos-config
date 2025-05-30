@@ -15,4 +15,5 @@
   desktop.enable = true;
   nvidia.enable = true;
   atHome.enable = true;
+  homelab.enable = true;
 }

@@ -4,7 +4,11 @@
 ---@type ChadrcConfig
 local M = {
   base46 = {
+<<<<<<< HEAD
     theme = "gruvbox",
+=======
+    theme = "tokyonight",
+>>>>>>> 8e1730a (update deps)
     integrations = {
       "cmp",
       "todo",
