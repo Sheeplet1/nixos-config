@@ -28,7 +28,7 @@ in
   programs.spotify-player = (import ../home/spotify-player.nix { inherit pkgs; });
   programs.tmux = (import ../home/tmux.nix { inherit inputs pkgs; });
   programs.zoxide = (import ../home/zoxide.nix { inherit pkgs; });
-  programs.zsh = (import ../home/zsh.nix { inherit pkgs; });
+  programs.zsh = (import ../home/zsh.nix { inherit pkgs config; });
   programs.vim = (import ../home/vim.nix { inherit pkgs; });
 
   programs.direnv = {
