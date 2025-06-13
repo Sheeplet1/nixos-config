@@ -25,8 +25,9 @@ in
     #     set -g @minimal-tmux-indicator false
     #   '';
     # }
+    onedark-theme
     # tokyo-night-tmux
-    gruvbox
+    # gruvbox
   ];
 
   extraConfig = ''
