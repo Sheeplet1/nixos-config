@@ -44,9 +44,9 @@
           nixpkgs.config.allowUnfree = true;
 
           environment.systemPackages = with pkgs; [
-            # Testing coding environments.
-            vscode
-            code-cursor
+            # Testing with AI
+            claude-code
+            codex
 
             # Streamyfin dependencies
             bun
@@ -70,6 +70,7 @@
             nixfmt-rfc-style
             ripgrep
             sshs
+            tree
             tmux
             wget
             zig
@@ -77,7 +78,7 @@
             zsh-syntax-highlighting
             xcodes
 
-            # Packages for Homelab management.
+            # Packages for my Homelab
             argocd
             kubernetes-helm
             helmfile
@@ -114,7 +115,7 @@
               "the-unarchiver"
               "scroll-reverser"
               "spotify"
-              "zen-browser"
+              "zen"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
