@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
+    event = "BufWritePre",
     config = function()
       require "configs.conform"
     end,
@@ -10,14 +10,10 @@ return {
   -- alternative completion plugin to nvim-cmp
   {
     "saghen/blink.cmp",
-    enabled = false,
+    enabled = true,
     lazy = false, -- lazy loading handled internally
     dependencies = { "rafamadriz/friendly-snippets" },
-
-    -- use a release tag to download pre-built binaries
     version = "v0.*",
-    -- If you use nix, you can build from source using latest nightly rust with:
-    -- build = "nix run .#build-plugin",
     config = function()
       require("blink-cmp").setup(require "configs.blink-cmp")
     end,
@@ -28,8 +24,6 @@ return {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = true,
-    -- use opts = {} for passing setup options
-    -- this is equivalent to setup({}) function
   },
 
   -- sets the `commentstring` option based on the cursor location of the
