@@ -23,6 +23,24 @@ in
   };
 
   home.packages = with pkgs; [
+    # Homelab packages
+    argocd
+    kubernetes-helm
+    helmfile
+    kubeseal
+    kubectl
+
+    # AI Packages
+    claude-code
+    codex
+
+    # Streamyfin packages
+    bun
+    biome
+    libyaml
+    ruby
+    cocoapods
+
     bat
     cargo
     curl
@@ -33,8 +51,9 @@ in
     jq
     lazygit
     meslo-lgs-nf
+    nixd
     nixfmt-rfc-style
-    nodejs
+    nodePackages.nodejs
     python3
     ripgrep
     rustc

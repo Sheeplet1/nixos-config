@@ -42,50 +42,6 @@
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           nixpkgs.config.allowUnfree = true;
-          nixpkgs.config.allowBroken = true;
-
-          environment.systemPackages = with pkgs; [
-            # Testing with AI
-            claude-code
-            codex
-
-            # Streamyfin dependencies
-            bun
-            biome
-            libyaml
-            ruby
-            cocoapods
-            nodePackages.nodejs
-
-            bat
-            direnv
-            docker
-            eza
-            fzf
-            git
-            go
-            lazygit
-            mkalias
-            neovim
-            nixd
-            nixfmt-rfc-style
-            ripgrep
-            sshs
-            tree
-            tmux
-            wget
-            zig
-            zoxide
-            zsh-syntax-highlighting
-            xcodes
-
-            # Packages for my Homelab
-            argocd
-            kubernetes-helm
-            helmfile
-            kubeseal
-            kubectl
-          ];
 
           fonts.packages = with pkgs; [
             nerd-fonts.iosevka
@@ -163,12 +119,6 @@
 
           # Necessary for using flakes on this system.
           nix.settings.experimental-features = "nix-command flakes";
-
-          # Create /etc/zshrc that loads the nix-darwin environment.
-          programs = {
-            direnv.enable = true;
-            zsh.enable = true;
-          };
 
           # Set Git commit hash for darwin-version.
           system.configurationRevision = self.rev or self.dirtyRev or null;

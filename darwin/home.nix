@@ -11,5 +11,10 @@
 
   xdg.enable = true;
 
+  home.packages = with pkgs; [
+    mkalias
+    xcodes
+  ];
+
   programs.aerospace = (import ./home/aerospace.nix { inherit pkgs; });
 }
