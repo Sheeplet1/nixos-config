@@ -7,13 +7,14 @@
   ...
 }:
 let
+  isDarwin = pkgs.stdenv.isDarwin;
+
   nvimConfigLocation = "${config.home.homeDirectory}/nix/home/neovim/nvim";
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
 in
 {
-  programs.home-manager.enable = true;
-  home.username = "anthonyd";
-  home.homeDirectory = "/home/anthonyd";
+  home.username = if isDarwin then "anthonydo" else "anthonyd";
+  home.homeDirectory = if isDarwin then "/Users/anthonydo" else "/home/anthonyd";
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
@@ -21,12 +22,25 @@ in
     NIX_NEOVIM = "1"; # Disabling Mason on NixOS
   };
 
-  nix.nixPath = [
-    "nixos-config=/home/anthonyd/nix/configuration.nix"
-    "nixpkgs=${inputs.nixpkgs}"
-  ];
-
   home.packages = with pkgs; [
+    # Homelab packages
+    argocd
+    kubernetes-helm
+    helmfile
+    kubeseal
+    kubectl
+
+    # AI Packages
+    claude-code
+    codex
+
+    # Streamyfin packages
+    bun
+    biome
+    libyaml
+    ruby
+    cocoapods
+
     bat
     cargo
     curl
@@ -37,8 +51,9 @@ in
     jq
     lazygit
     meslo-lgs-nf
+    nixd
     nixfmt-rfc-style
-    nodejs
+    nodePackages.nodejs
     python3
     ripgrep
     rustc
@@ -57,20 +72,22 @@ in
 
   xdg.configFile."electron-flags.conf".source = ./electron-flags.conf;
 
-  programs.git = (import ../git.nix { inherit pkgs; });
-  programs.ghostty = (import ../ghostty.nix { inherit pkgs; });
-  programs.fzf = (import ../fzf.nix { inherit pkgs; });
-  programs.neovim = (import ../neovim/neovim.nix { inherit pkgs; });
-  # programs.starship = (import ../starship.nix { inherit pkgs; });
-  programs.tmux = (import ../tmux.nix { inherit inputs pkgs; });
-  programs.zoxide = (import ../zoxide.nix { inherit pkgs; });
-  programs.zsh = (import ../zsh.nix { inherit pkgs; });
-
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
+  programs = {
+    home-manager.enable = true;
+    git = import ../git.nix { inherit pkgs; };
+    fzf = import ../fzf.nix { inherit pkgs; };
+    neovim = import ../neovim/neovim.nix { inherit pkgs; };
+    # starship = import ../starship.nix { inherit pkgs; };
+    tmux = import ../tmux.nix { inherit inputs pkgs; };
+    zoxide = import ../zoxide.nix { inherit pkgs; };
+    zsh = import ../zsh.nix { inherit pkgs; };
+    vim = import ../vim.nix { inherit pkgs; };
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
   };
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 }
