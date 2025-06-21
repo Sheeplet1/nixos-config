@@ -41,7 +41,7 @@ in
   };
 
   programs = {
-    ghostty = (import ../ghostty/ghostty.nix { inherit pkgs; });
+    ghostty = (import ../ghostty.nix { inherit pkgs; });
     hyprpanel = (import ../hyprland/hyprpanel.nix { inherit pkgs; });
     hyprlock = (import ../hyprland/hyprlock.nix { inherit pkgs; });
     wofi = (import ../wofi/wofi.nix { inherit pkgs; });
@@ -52,5 +52,5 @@ in
 
   wayland.windowManager.hyprland = (import ../hyprland/hyprland.nix { inherit pkgs; });
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 }

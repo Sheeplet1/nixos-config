@@ -22,50 +22,59 @@ in
     NIX_NEOVIM = "1"; # Disabling Mason on NixOS
   };
 
-  home.packages = with pkgs; [
-    # Homelab packages
-    argocd
-    kubernetes-helm
-    helmfile
-    kubeseal
-    kubectl
+  home.packages =
+    with pkgs;
+    [
+      # Homelab packages
+      argocd
+      kubernetes-helm
+      helmfile
+      kubeseal
+      kubectl
 
-    # AI Packages
-    claude-code
-    codex
+      # AI Packages
+      claude-code
+      codex
 
-    # Streamyfin packages
-    bun
-    biome
-    libyaml
-    ruby
-    cocoapods
+      # Streamyfin packages
+      bun
+      biome
+      libyaml
+      ruby
 
-    bat
-    cargo
-    curl
-    eza
-    fd
-    gcc
-    go
-    jq
-    lazygit
-    meslo-lgs-nf
-    nixd
-    nixfmt-rfc-style
-    nodePackages.nodejs
-    python3
-    ripgrep
-    rustc
-    sshs
-    stow
-    tree
-    unzip
-    wget
-    zig
-    zip
-    zsh-powerlevel10k
-  ];
+      bat
+      cargo
+      curl
+      eza
+      fd
+      gcc
+      go
+      jq
+      lazygit
+      meslo-lgs-nf
+      nixd
+      nixfmt-rfc-style
+      nodePackages.nodejs
+      python3
+      ripgrep
+      rustc
+      sshs
+      stow
+      tree
+      unzip
+      wget
+      zig
+      zip
+      zsh-powerlevel10k
+    ]
+    ++ (
+      if isDarwin then
+        [
+          cocoapods
+        ]
+      else
+        [ ]
+    );
 
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
   home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
