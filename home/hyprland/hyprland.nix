@@ -83,10 +83,10 @@
     monitor = [
       "DP-1, 3440x1440@175, 0x0, 1"
       # "DP-2, disable"
-      "DP-3, disable"
+      # "DP-3, disable"
       # Uncomment to re-enable monitors and comment out the above
-      "DP-2, 1920x1080@60, 3440x0, 1"
-      # "DP-3, 1920x1080@60, -1920x0, 1"
+      # "DP-2, 1920x1080@60, 3440x0, 1"
+      "DP-3, 1920x1080@60, -1920x0, 1"
     ];
 
     workspace = [
@@ -94,11 +94,9 @@
       "2, monitor:DP-1"
       "3, monitor:DP-1"
 
-      "4, monitor:DP-2"
-      # "5, monitor:DP-3"
-      # "6, monitor:DP-3"
-      "5, monitor:DP-2"
-      "6, monitor:DP-2"
+      "4, monitor:DP-3"
+      "5, monitor:DP-3"
+      "6, monitor:DP-3"
     ];
 
     windowrulev2 = [
