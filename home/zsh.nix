@@ -60,6 +60,8 @@
 
     export PATH="$HOME/go/bin:$PATH"
     export JJ_CONFIG="$HOME/.config/jj/config.toml"
+
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
   '';
 
   plugins = [
