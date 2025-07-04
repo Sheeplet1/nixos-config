@@ -63,7 +63,7 @@
             casks = [
               "aerospace"
               "discord"
-              "flux"
+              "flux-app"
               "ghostty"
               "iina"
               "microsoft-office"
