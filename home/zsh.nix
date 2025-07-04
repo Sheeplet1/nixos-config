@@ -59,6 +59,7 @@
     eval "$(direnv hook zsh)"
 
     export PATH="$HOME/go/bin:$PATH"
+    export JJ_CONFIG="$HOME/.config/jj/config.toml"
   '';
 
   plugins = [

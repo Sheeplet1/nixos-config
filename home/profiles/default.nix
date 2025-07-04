@@ -50,6 +50,7 @@ in
       gcc
       go
       jq
+      jujutsu
       lazygit
       meslo-lgs-nf
       nixd
@@ -78,6 +79,8 @@ in
 
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
   home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
+  home.file.".config/jj/config.toml".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix/home/jujutsu.toml";
 
   xdg.configFile."electron-flags.conf".source = ./electron-flags.conf;
 
