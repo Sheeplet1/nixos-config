@@ -80,6 +80,8 @@
             onActivation.upgrade = true;
           };
 
+          system.primaryUser = "anthonydo";
+
           # Activation Script to fix Spotlight
           system.activationScripts.applications.text =
             let
