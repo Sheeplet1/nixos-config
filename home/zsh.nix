@@ -26,6 +26,15 @@
   initContent = ''
     [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
 
+    export PATH="$HOME/go/bin:$PATH"
+
+    # Making sure that the correct config path is set for jj
+    export JJ_CONFIG="$HOME/.config/jj/config.toml"
+
+    # On darker backgorunds of the terminal, the autosuggestions can blend in 
+    # completely, so we change the colour for readability.
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
+
     # disable sort when completing `git checkout`
     zstyle ':completion:*:git-checkout:*' sort false
 
@@ -58,10 +67,7 @@
 
     eval "$(direnv hook zsh)"
 
-    export PATH="$HOME/go/bin:$PATH"
-    export JJ_CONFIG="$HOME/.config/jj/config.toml"
-
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
+    source $HOME/.scripts/bw.sh
   '';
 
   plugins = [
