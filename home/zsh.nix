@@ -67,7 +67,10 @@
 
     eval "$(direnv hook zsh)"
 
+    # API Keys 
     source $HOME/.scripts/bw.sh
+    export GEMINI_API_KEY=$(bw get password gemini-api-key)
+    export OPENAI_API_KEY=$(bw get password openai-api-key)
   '';
 
   plugins = [

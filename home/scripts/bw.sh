@@ -8,12 +8,17 @@
 # - BW_PASSWORD environment variable must be set.
 ################################################################################
 
-# Source our environment variables from the .bw_env file.
-source "$HOME/.bw_env"
-
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 COLOR_OFF='\033[0m' # Text Reset
+
+# Source our environment variables from the .bw_env file.
+if ! [ -f "$HOME/.bw_env" ]; then
+  echo -e "${RED}Error: .bw_env file not found in home directory. Please create it with BW_CLIENTID, BW_CLIENTSECRET, and BW_PASSWORD."
+  return 1
+fi
+
+source "$HOME/.bw_env"
 
 # Check if BW is installed. If BW is not installed, then we return early.
 if ! command -v bw &>/dev/null; then
