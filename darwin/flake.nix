@@ -56,6 +56,7 @@
           homebrew = {
             enable = true;
             brews = [
+              "bitwarden-cli"
               "mas"
               "xcode-build-server"
               "xcbeautify"

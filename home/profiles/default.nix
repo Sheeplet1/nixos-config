@@ -74,7 +74,12 @@ in
           cocoapods
         ]
       else
-        [ ]
+        [
+          # Bitwarden CLI has a build failure on Darwin. See below issue:
+          # https://github.com/NixOS/nixpkgs/issues/339576
+          # Instead, we've install bitwarden-cli via Brew.
+          bitwarden-cli
+        ]
     );
 
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
