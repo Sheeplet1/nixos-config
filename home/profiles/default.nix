@@ -42,6 +42,12 @@ in
       libyaml
       ruby
 
+      # Bash scripting development
+      bash-language-server
+      shellcheck
+      shfmt
+
+      # General packages
       bat
       cargo
       curl

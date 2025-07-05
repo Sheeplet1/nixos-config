@@ -5,6 +5,8 @@ local on_init = lsp.on_init
 local capabilities = lsp.capabilities
 
 local servers = {
+  bashls = {},
+
   lua_ls = {
     settings = {
       Lua = {
