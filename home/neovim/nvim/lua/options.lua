@@ -100,3 +100,6 @@ vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. d
 --------------------------------------------------------------------------------
 
 vim.g.zig_fmt_parse_errors = 0
+
+-- Required for obsidian.nvim
+vim.opt.conceallevel = 1
