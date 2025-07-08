@@ -43,108 +43,37 @@ map("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
 map("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
 
--- Telescope mappings
-map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Telescope find files" })
 map(
   "n",
-  "<leader>fa",
-  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-  { desc = "Telescope find all files" }
+  "<leader>lf",
+  function() vim.diagnostic.open_float(nil, { border = "rounded" }) end,
+  { desc = "Open diagnostic" }
 )
-map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Telescope buffers" })
-map("n", "<leader>tu", "<cmd>Telescope undo<CR>", { desc = "Telescope undotree" })
-
--- Plugin mappings
-map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
-map("n", "<leader>zm", "<cmd>ZenMode<CR>", { desc = "ZenMode" })
-map("n", "<leader>md", "<cmd>MarkdownPreview<CR>", { desc = "Markdown Preview" })
--- map("n", "<leader>tt", "<cmd>TroubleToggle<CR>", { desc = "TodoTrouble" })
-map("n", "<C-n>", "<cmd>Oil --float<CR>", { desc = "Open Oil" })
-
--- Tmux navigation mappings
-map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", { desc = "Navigate left tmux pane" })
-map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "Navigate down tmux pane" })
-map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { desc = "Navigate up tmux pane" })
-map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", { desc = "Navigate right tmux pane" })
-
-map("n", "<leader>lf", function()
-  vim.diagnostic.open_float(nil, { border = "rounded" })
-end, { desc = "Open diagnostic" })
 
 -- NvChad UI keybinds
-map("n", "<Tab>", function()
-  require("nvchad.tabufline").next()
-end, { desc = "Go to the next buffer" })
-map("n", "<S-Tab>", function()
-  require("nvchad.tabufline").prev()
-end, { desc = "Go to the prev buffer" })
-map("n", "<leader>x", function()
-  require("nvchad.tabufline").close_buffer()
-end, { desc = "Close buffer" })
+map("n", "<Tab>", function() require("nvchad.tabufline").next() end, { desc = "Go to the next buffer" })
+map("n", "<S-Tab>", function() require("nvchad.tabufline").prev() end, { desc = "Go to the prev buffer" })
+map("n", "<leader>x", function() require("nvchad.tabufline").close_buffer() end, { desc = "Close buffer" })
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "New buffer" })
-map("n", "<leader>th", function()
-  require("nvchad.themes").open()
-end, { desc = "Telescope nvchad themes" })
-
--- replaced my mini.move
--- map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move the selected lines down" })
--- map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move the selected lines up" })
+map("n", "<leader>th", function() require("nvchad.themes").open() end, { desc = "Telescope nvchad themes" })
 
 -- Remap commenting buttons to be similar to Comment.nvim
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
--- harpoon
-local harpoon = require "harpoon"
-harpoon:setup()
-
-map("n", "<leader>h", function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { desc = "Harpoon Menu" })
-
-map("n", "<leader>ha", function()
-  harpoon:list():add()
-end, { desc = "Add to Harpoon" })
-
-map("n", "<A-h>", function()
-  harpoon:list():select(1)
-end, { desc = "Open first Harpoon file" })
-
-map("n", "<A-j>", function()
-  harpoon:list():select(2)
-end, { desc = "Open second Harpoon file" })
-
-map("n", "<A-k>", function()
-  harpoon:list():select(3)
-end, { desc = "Open third Harpoon file" })
-
-map("n", "<A-l>", function()
-  harpoon:list():select(4)
-end, { desc = "Open fourth Harpoon file" })
-
-map("n", "<leader>hn", function()
-  harpoon:list():next()
-end, { desc = "Go to next Harpoon file" })
-
-map("n", "<leader>hN", function()
-  harpoon:list():prev()
-end, { desc = "Go to prev Harpoon file" })
-
--- todo-view
-map("n", "<leader>td", "<cmd>TodoView<CR>", { desc = "Toggle TodoView" })
-
 -- maps <Alt+i> keys to change buffers
 for i = 1, 9, 1 do
-  map("n", string.format("<A-%s>", i), function()
-    vim.api.nvim_set_current_buf(vim.t.bufs[i])
-  end)
+  map("n", string.format("<A-%s>", i), function() vim.api.nvim_set_current_buf(vim.t.bufs[i]) end)
 end
 
--- Showkeys
-map("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
-
--- CodeCompanion
-map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion" })
-map("v", "<C-a>", "<cmd>CodeCompanionChat Add<CR>", { desc = "Add to visual selection to CodeCompanion" })
-map("v", "<C-c>", "<cmd>CodeCompanionActions<CR>", { desc = "CodeCompanion Actions" })
+-- Harppon
+local harpoon = require "harpoon"
+harpoon:setup()
+map("n", "<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon Menu" })
+map("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Add to Harpoon" })
+map("n", "<A-h>", function() harpoon:list():select(1) end, { desc = "Open first Harpoon file" })
+map("n", "<A-j>", function() harpoon:list():select(2) end, { desc = "Open second Harpoon file" })
+map("n", "<A-k>", function() harpoon:list():select(3) end, { desc = "Open third Harpoon file" })
+map("n", "<A-l>", function() harpoon:list():select(4) end, { desc = "Open fourth Harpoon file" })
+map("n", "<leader>hn", function() harpoon:list():next() end, { desc = "Go to next Harpoon file" })
+map("n", "<leader>hN", function() harpoon:list():prev() end, { desc = "Go to prev Harpoon file" })

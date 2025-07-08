@@ -1,6 +1,9 @@
+local ENABLED = false
+
 return {
   {
     "nvim-telescope/telescope.nvim",
+    enabled = ENABLED,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = "Telescope",
     opts = {
@@ -15,7 +18,7 @@ return {
           "--column",
           "--smart-case",
         },
-        -- prompt_prefix = "   ",
+        prompt_prefix = "   ",
         selection_caret = "  ",
         entry_prefix = "  ",
         initial_mode = "insert",
@@ -68,15 +71,30 @@ return {
           i = { ["<ESC>"] = require("telescope.actions").close },
         },
       },
-
       extensions_list = { "themes", "terms" },
       extensions = {},
+    },
+    keys = {
+      {
+        "<Leader>ff",
+        require("telescope.builtin").find_files,
+        desc = "[f]ind [f]iles (Telescope)",
+      },
+      {
+        "<Leader>fw",
+        require("telescope.builtin").live_grep,
+        desc = "[l]ive [g]rep (Telescope)",
+      },
+      {
+        "<Leader>fb",
+        require("telescope.builtin").buffers,
+        desc = "[f]ind [b]uffers (Telescope)",
+      },
     },
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "telescope")
       local telescope = require "telescope"
       telescope.setup(opts)
-
       -- load extensions
       for _, ext in ipairs(opts.extensions_list) do
         telescope.load_extension(ext)
@@ -86,17 +104,15 @@ return {
   -- pretty ui for code-actions mainly
   {
     "nvim-telescope/telescope-ui-select.nvim",
+    enabled = ENABLED,
     event = "VeryLazy",
-    config = function()
-      require("telescope").load_extension "ui-select"
-    end,
+    config = function() require("telescope").load_extension "ui-select" end,
   },
   -- undo tree
   {
     "debugloop/telescope-undo.nvim",
+    enabled = ENABLED,
     event = "VeryLazy",
-    config = function()
-      require("telescope").load_extension "undo"
-    end,
+    config = function() require("telescope").load_extension "undo" end,
   },
 }

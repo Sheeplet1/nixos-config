@@ -51,4 +51,21 @@ return {
       },
     },
   },
+  keys = {
+    {
+      "<leader>cc",
+      "<cmd>CodeCompanionChat Toggle<CR>",
+      desc = "Toggle CodeCompanion",
+    },
+    {
+      "v<C-a>",
+      "<cmd>CodeCompanionChat Add<CR>",
+      desc = "Add to visual selection to CodeCompanion",
+    },
+    {
+      "v<C-c>",
+      "<cmd>CodeCompanionActions<CR>",
+      desc = "CodeCompanion Actions",
+    },
+  },
 }

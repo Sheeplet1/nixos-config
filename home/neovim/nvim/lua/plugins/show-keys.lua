@@ -6,4 +6,11 @@ return {
     maxkeys = 5,
     -- more opts
   },
+  keys = {
+    {
+      "<leader>sk",
+      "<cmd>ShowkeysToggle<CR>",
+      desc = "Toggle Showkeys",
+    },
+  },
 }
