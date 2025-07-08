@@ -96,11 +96,10 @@ return {
     "folke/snacks.nvim",
     opts = {
       scroll = { enabled = false },
+      image = {},
       zen = {},
       styles = {
-        zen = {
-          keys = { q = "close" },
-        },
+        zen = { keys = { q = "close" } },
       },
     },
     keys = {
@@ -148,13 +147,13 @@ return {
   },
 
   {
-    "epwalsh/obsidian.nvim",
+    "obsidian.nvim/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
-    -- ft = "markdown",
-    event = {
-      "BufReadPre " .. vim.fn.expand "~" .. "/Documents/personal/vaults/my-second-brain/*.md",
-    },
+    ft = "markdown",
+    -- event = {
+    --   "BufReadPre " .. vim.fn.expand "~" .. "/Documents/personal/vaults/my-second-brain/*.md",
+    -- },
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

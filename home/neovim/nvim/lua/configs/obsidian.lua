@@ -7,11 +7,9 @@ local options = {
   },
   notes_subdir = "notes",
   new_notes_location = "notes_subdir",
-  templates = {
-    folder = "templates",
-  },
-  attachments = {
-    img_folder = "attachments",
-  },
+  templates = { folder = "templates" },
+  attachments = { img_folder = "attachments" },
+  completion = { nvim_cmp = false, blink = true },
+  picker = { name = "telescope.nvim" },
 }
 require("obsidian").setup(options)

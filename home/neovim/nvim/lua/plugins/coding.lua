@@ -13,7 +13,7 @@ return {
     enabled = true,
     lazy = false, -- lazy loading handled internally
     dependencies = { "rafamadriz/friendly-snippets" },
-    version = "v0.*",
+    version = "*",
     config = function()
       require("blink-cmp").setup(require "configs.blink-cmp")
     end,

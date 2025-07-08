@@ -58,6 +58,7 @@
             brews = [
               "bitwarden-cli"
               "mas"
+              "pngpaste"
               "xcode-build-server"
               "xcbeautify"
             ];
