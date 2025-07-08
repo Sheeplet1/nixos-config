@@ -1,9 +1,9 @@
 local ENABLED = false
+if not ENABLED then return {} end
 
 return {
   {
     "nvim-telescope/telescope.nvim",
-    enabled = ENABLED,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = "Telescope",
     opts = {
@@ -104,14 +104,12 @@ return {
   -- pretty ui for code-actions mainly
   {
     "nvim-telescope/telescope-ui-select.nvim",
-    enabled = ENABLED,
     event = "VeryLazy",
     config = function() require("telescope").load_extension "ui-select" end,
   },
   -- undo tree
   {
     "debugloop/telescope-undo.nvim",
-    enabled = ENABLED,
     event = "VeryLazy",
     config = function() require("telescope").load_extension "undo" end,
   },

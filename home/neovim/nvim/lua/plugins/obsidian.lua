@@ -1,5 +1,5 @@
 return {
-  "obsidian.nvim/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = "markdown",
@@ -9,6 +9,8 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  ---@module 'obsidian'
+  ---@type obsidian.config
   opts = {
     workspaces = {
       {
@@ -20,7 +22,7 @@ return {
     new_notes_location = "notes_subdir",
     templates = { folder = "templates" },
     attachments = { img_folder = "attachments" },
-    completion = { nvim_cmp = false, blink = true },
-    picker = { name = "telescope.nvim" },
+    completion = { nvim_cmp = false, blink = true, min_chars = 2 },
+    picker = { name = "snacks.pick" },
   },
 }
