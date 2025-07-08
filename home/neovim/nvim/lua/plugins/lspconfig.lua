@@ -6,7 +6,7 @@ return {
       return require "configs.mason"
     end,
     config = function(_, opts)
-      if os.getenv("NIX_NEOVIM") ~= "1" then
+      if os.getenv "NIX_NEOVIM" ~= "1" then
         require("mason").setup(opts)
         vim.api.nvim_create_user_command("MasonInstallAll", function()
           if opts.ensure_installed and #opts.ensure_installed > 0 then
