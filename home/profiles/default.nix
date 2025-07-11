@@ -76,6 +76,7 @@ in
       stow
       tree
       unzip
+      uv
       wget
       zig
       zip

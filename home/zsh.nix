@@ -29,6 +29,7 @@
     [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
 
     export PATH="$HOME/go/bin:$PATH"
+    export PATH="$HOME/.local/share/../bin:$PATH"
 
     # Making sure that the correct config path is set for jj
     export JJ_CONFIG="$HOME/.config/jj/config.toml"
