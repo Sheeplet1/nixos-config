@@ -56,7 +56,6 @@
           homebrew = {
             enable = true;
             brews = [
-              "bitwarden-cli"
               "mas"
               "pngpaste"
               "xcode-build-server"
@@ -70,6 +69,7 @@
               "iina"
               "microsoft-office"
               "obsidian"
+              "1password"
               "rectangle"
               "the-unarchiver"
               "scroll-reverser"
@@ -127,7 +127,11 @@
           # Set Git commit hash for darwin-version.
           system.configurationRevision = self.rev or self.dirtyRev or null;
 
-          security.pam.services.sudo_local.touchIdAuth = true;
+          security.pam.services.sudo_local = {
+            enable = true;
+            touchIdAuth = true;
+            reattach = true;
+          };
 
           # Used for backwards compatibility, please read the changelog before changing.
           # $ darwin-rebuild changelog

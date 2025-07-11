@@ -20,11 +20,17 @@ in
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     EDITOR = "nvim";
     NIX_NEOVIM = "1"; # Disabling Mason on NixOS
+
+    # API Keys
+    OPENAI_API_KEY = "op://Personal/openapi-personal/credential";
+    GEMINI_API_KEY = "op://Personal/gemini-personal/credential";
   };
 
   home.packages =
     with pkgs;
     [
+      _1password-cli
+
       # Homelab packages
       argocd
       kubernetes-helm
@@ -81,12 +87,7 @@ in
           cocoapods
         ]
       else
-        [
-          # Bitwarden CLI has a build failure on Darwin. See below issue:
-          # https://github.com/NixOS/nixpkgs/issues/339576
-          # Instead, we've install bitwarden-cli via Brew.
-          bitwarden-cli
-        ]
+        [ ]
     );
 
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;

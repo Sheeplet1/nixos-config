@@ -21,6 +21,8 @@
     cd = "z";
 
     k = "kubectl";
+    codex = "op run -- codex";
+    gemini = "op run -- gemini";
   };
 
   initContent = ''
@@ -68,9 +70,9 @@
     eval "$(direnv hook zsh)"
 
     # API Keys 
-    source $HOME/.scripts/bw.sh
-    export GEMINI_API_KEY=$(bw get password gemini-api-key)
-    export OPENAI_API_KEY=$(bw get password openai-api-key)
+    # source $HOME/.scripts/bw.sh
+    # export GEMINI_API_KEY=$(bw get password gemini-api-key)
+    # export OPENAI_API_KEY=$(bw get password openai-api-key)
   '';
 
   plugins = [
