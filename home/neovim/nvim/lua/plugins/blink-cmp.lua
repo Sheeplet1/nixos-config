@@ -15,6 +15,7 @@ return {
 
     completion = {
       accept = { auto_brackets = { enabled = true } },
+      ghost_text = { enabled = false },
 
       menu = {
         border = "rounded",
@@ -35,7 +36,7 @@ return {
     },
 
     signature = {
-      enabled = false,
+      enabled = true,
       window = {
         show_documentation = false,
       },
