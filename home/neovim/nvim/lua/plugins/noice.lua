@@ -9,8 +9,8 @@ return {
         ["vim.lsp.util.stylize_markdown"] = true,
         ["cmp.entry.get_documentation"] = true,
       },
-      signature = { enabled = false },
-      hover = { enabled = false },
+      -- signature = { enabled = false },
+      -- hover = { enabled = false },
     },
     presets = {
       bottom_search = true, -- use a classic bottom cmdline for search
@@ -29,7 +29,5 @@ return {
       enabled = false,
     },
   },
-  init = function()
-    vim.g.lsp_handlers_enabled = false
-  end,
+  init = function() vim.g.lsp_handlers_enabled = false end,
 }
