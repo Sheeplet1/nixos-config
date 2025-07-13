@@ -1,3 +1,5 @@
+vim.g.omni_sql_default_compl_type = "syntax"
+
 -- column border of 80
 vim.opt.colorcolumn = "80"
 

@@ -99,6 +99,10 @@
         "if".app-id = "com.spotify.client";
         run = [ "move-node-to-workspace 7" ];
       }
+      {
+        "if".app-id = "com.1password.1password";
+        run = [ "move-node-to-workspace 8" ];
+      }
     ];
   };
 }
