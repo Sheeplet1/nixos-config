@@ -7,6 +7,7 @@
     # ls = "ls --color";
     ls = "exa";
 
+    # Git aliases
     gs = "git status";
     gcl = "git clone";
     ga = "git add";
@@ -16,10 +17,16 @@
     gp = "git push";
     gl = "git log --graph --decorate --pretty=oneline --abbrev-commit --all";
 
-    c = "clear";
-    # vim = "nvim";
-    cd = "z";
+    # jj aliases
+    jd = "jj desc";
+    jf = "jj git fetch";
+    jn = "jj new";
+    jp = "jj git push";
+    js = "jj st";
+    jt = "jj tug";
 
+    c = "clear";
+    cd = "z";
     k = "kubectl";
     codex = "op run -- codex";
     gemini = "op run -- gemini";

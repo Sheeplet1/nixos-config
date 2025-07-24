@@ -38,17 +38,21 @@ local M = {
 
   ui = {
     statusline = {
-      theme = "minimal",
-      separator_style = "block",
+      theme = "default",
+      separator_style = "arrow",
     },
 
     telescope = {
       style = "bordered",
     },
 
-    lsp = {
-      signature = false,
+    tabufline = {
+      order = { "treeOffset", "buffers" },
     },
+  },
+
+  lsp = {
+    signature = false,
   },
 }
 

@@ -50,6 +50,8 @@ in
     # renumber windows when a window is closed
     set -g renumber-windows on
 
+    set-option -g detach-on-destroy off
+
     ################################# key rebinds ##################################
     # Pane selections
     bind h select-pane -L

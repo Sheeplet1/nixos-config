@@ -80,7 +80,13 @@ local servers = {
   },
 
   svelte = {},
-  zls = {},
+  zls = {
+    settings = {
+      zls = {
+        enable_inlay_hints = false,
+      },
+    },
+  },
 }
 
 for name, opts in pairs(servers) do

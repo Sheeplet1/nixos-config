@@ -2,9 +2,7 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-    opts = function()
-      return require "configs.mason"
-    end,
+    opts = function() return require "configs.mason" end,
     config = function(_, opts)
       if os.getenv "NIX_NEOVIM" ~= "1" then
         require("mason").setup(opts)
@@ -16,9 +14,7 @@ return {
             mr.refresh(function()
               for _, tool in ipairs(opts.ensure_installed) do
                 local p = mr.get_package(tool)
-                if not p:is_installed() then
-                  p:install()
-                end
+                if not p:is_installed() then p:install() end
               end
             end)
           end
