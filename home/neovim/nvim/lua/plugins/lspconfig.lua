@@ -37,6 +37,9 @@ return {
     --     end,
     --   },
     -- },
+    opts = {
+      inlay_hints = { enabled = false },
+    },
     config = function()
       require("configs.lsp").defaults()
       require "configs.lspconfig"

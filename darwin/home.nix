@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     mkalias
     xcodes
+    zls
   ];
 
   programs.aerospace = (import ./home/aerospace.nix { inherit pkgs; });
