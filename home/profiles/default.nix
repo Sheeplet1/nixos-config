@@ -101,6 +101,7 @@ in
   programs = {
     home-manager.enable = true;
     git = import ../git.nix { inherit pkgs; };
+    fish = import ../fish.nix { inherit pkgs; };
     fzf = import ../fzf.nix { inherit pkgs; };
     neovim = import ../neovim/neovim.nix { inherit pkgs; };
     # starship = import ../starship.nix { inherit pkgs; };
