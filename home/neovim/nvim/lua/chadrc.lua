@@ -4,7 +4,7 @@
 ---@type ChadrcConfig
 local M = {
   base46 = {
-    theme = "onenord",
+    theme = "onedark",
     integrations = {
       "cmp",
       "todo",
@@ -38,7 +38,7 @@ local M = {
 
   ui = {
     statusline = {
-      theme = "default",
+      theme = "vscode_colored",
       separator_style = "arrow",
     },
 
@@ -47,12 +47,12 @@ local M = {
     },
 
     tabufline = {
-      order = { "treeOffset", "buffers" },
+      -- order = { "treeOffset", "buffers" },
     },
   },
 
   lsp = {
-    signature = false,
+    signature = true,
   },
 }
 

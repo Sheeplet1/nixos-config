@@ -18,8 +18,8 @@ vim.opt.clipboard = "unnamedplus"
 
 -- enable break indent
 vim.o.breakindent = true
-
-vim.o.smartindent = false
+vim.o.smartindent = true
+vim.o.autoindent = true
 
 -- save undo history
 vim.o.undofile = true
@@ -52,7 +52,7 @@ vim.o.laststatus = 3
 vim.o.showmode = false
 
 -- enable sign column
-vim.o.signcolumn = "yes"
+vim.o.signcolumn = "no"
 
 -- split columns
 vim.o.splitright = true

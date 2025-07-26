@@ -1,8 +1,12 @@
 return {
   "folke/noice.nvim",
+  enabled = false,
   event = "VeryLazy",
-  dependencies = { "MunifTanjim/nui.nvim", "neovim/nvim-lspconfig", "rcarriga/nvim-notify" },
+  dependencies = { "MunifTanjim/nui.nvim", "neovim/nvim-lspconfig" },
   opts = {
+    cmdline = {
+      view = "cmdline", -- (cmdline_popup|cmdline)
+    },
     lsp = {
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -10,7 +14,7 @@ return {
         ["cmp.entry.get_documentation"] = true,
       },
       signature = { enabled = false },
-      -- hover = { enabled = false },
+      hover = { enabled = false },
     },
     presets = {
       bottom_search = true, -- use a classic bottom cmdline for search

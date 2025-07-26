@@ -40,7 +40,7 @@ return {
         enable = true,
         disable = function(lang, buf)
           if lang == "html" then
-            print "disabled"
+            vim.notify("HTML file detected, disabling Treesitter.", vim.log.levels.INFO, nil)
             return true
           end
 
@@ -57,12 +57,9 @@ return {
         end,
         use_languagetree = true,
       },
-
-      indent = { enable = true },
+      indent = { enabled = false },
     },
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-    end,
+    config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
   },
 
   {
