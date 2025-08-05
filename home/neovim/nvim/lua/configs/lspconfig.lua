@@ -60,12 +60,12 @@ local servers = {
     },
   },
 
-  -- clangd = {
-  --   cmd = {
-  --     "clangd",
-  --     "--fallback-style=webkit",
-  --   },
-  -- },
+  clangd = {
+    cmd = {
+      "clangd",
+      "--fallback-style=webkit",
+    },
+  },
 
   nixd = {
     cmd = { "nixd" },

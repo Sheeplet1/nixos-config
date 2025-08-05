@@ -98,7 +98,6 @@ in
     bind-key -n M-L next-window
 
     # Move statusline to the top 
-    set -g status 2
-    set -g status-format[1] \'\'
+    set -g status-position top
   '';
 }

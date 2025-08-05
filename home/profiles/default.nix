@@ -55,9 +55,20 @@ in
       shellcheck
       shfmt
 
+      # C++ Development
+      cppcheck
+      clang-tools
+      clang-analyzer
+      gtest
+      # Profiling tools
+      gdb
+      lldb
+      # Build
+      cmake
+      ninja
+
       # General packages
       bat
-      cargo
       curl
       eza
       fd
@@ -72,7 +83,7 @@ in
       nodePackages.nodejs
       python3
       ripgrep
-      rustc
+      rustup
       sshs
       stow
       tree
@@ -89,7 +100,10 @@ in
           cocoapods
         ]
       else
-        [ ]
+        [
+          # Apple silicon is not supported. We use Instruments instead.
+          valgrind
+        ]
     );
 
   home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
@@ -102,6 +116,7 @@ in
   programs = {
     home-manager.enable = true;
     git = import ../git.nix { inherit pkgs; };
+    fish = import ../fish.nix { inherit pkgs; };
     fzf = import ../fzf.nix { inherit pkgs; };
     neovim = import ../neovim/neovim.nix { inherit pkgs; };
     # starship = import ../starship.nix { inherit pkgs; };

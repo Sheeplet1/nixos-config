@@ -48,9 +48,11 @@
             nerd-fonts.jetbrains-mono
           ];
 
+          programs.fish.enable = true;
           users.users.anthonydo = {
             name = "anthonydo";
             home = "/Users/anthonydo";
+            shell = pkgs.fish;
           };
 
           homebrew = {
