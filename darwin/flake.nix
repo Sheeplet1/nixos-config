@@ -61,6 +61,7 @@
               "xcode-build-server"
               "xcbeautify"
             ];
+            caskArgs.no_quarantine = true;
             casks = [
               "aerospace"
               "discord"
@@ -72,6 +73,7 @@
               "1password"
               "rectangle"
               "the-unarchiver"
+              "tomatobar"
               "scroll-reverser"
               "spotify"
               "zen"

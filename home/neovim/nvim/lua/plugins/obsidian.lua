@@ -24,5 +24,11 @@ return {
     attachments = { img_folder = "attachments" },
     completion = { nvim_cmp = false, blink = true, min_chars = 2 },
     picker = { name = "snacks.pick" },
+    daily_notes = {
+      folder = "periodic-notes/001-daily",
+      date_format = "%Y-%m-%d-%a",
+      default_tags = { "daily" },
+      template = "template-daily.md",
+    },
   },
 }
