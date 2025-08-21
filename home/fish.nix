@@ -36,6 +36,12 @@
     set -g theme_color_scheme dracula
   '';
 
+  functions = {
+    fish_jj_prompt = {
+      body = builtins.readFile ./fish/functions/fish_jj_prompt.fish;
+    };
+  };
+
   plugins = [
     {
       name = "z";
