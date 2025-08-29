@@ -2,6 +2,10 @@
 email = "42196548+Sheeplet1@users.noreply.github.com"
 name = "Anthony Do"
 
+[git]
+fetch = ["upstream", "origin"]
+push = "origin"
+
 [ui]
 default-command = "log"
 

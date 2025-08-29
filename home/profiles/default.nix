@@ -42,7 +42,6 @@ in
       # AI Packages
       claude-code
       codex
-      gemini-cli
 
       # Streamyfin packages
       bun
