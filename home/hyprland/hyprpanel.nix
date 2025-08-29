@@ -1,14 +1,10 @@
 { ... }:
 {
   # Hyprpanel configuration
-
   enable = true;
 
   # Automatically restart hyprpanel with systemd for configuration changes.
   systemd.enable = true;
-
-  hyprland.enable = true;
-  overwrite.enable = true;
 
   settings = {
     theme = {

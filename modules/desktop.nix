@@ -77,7 +77,6 @@
       # than pseudo lockscreen with hyprlock.
       greetd = {
         enable = true;
-        vt = 3; # use tty3
         settings = {
           default_session = {
             user = "anthonyd";

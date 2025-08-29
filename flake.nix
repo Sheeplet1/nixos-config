@@ -75,6 +75,12 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.anthonyd = import ./home/profiles/desktop.nix;
           }
+
+          {
+            nixpkgs.config.permittedInsecurePackages = [
+              "qtwebengine-5.15.19"
+            ];
+          }
         ];
       };
     };

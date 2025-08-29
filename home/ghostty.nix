@@ -6,7 +6,8 @@
     font-size = 18;
     font-family = "Iosevka Nerd Font Mono";
 
-    theme = "Kanagawa Wave";
+    # theme = "Kanagawa Wave";
+    theme = "Dracula";
     window-theme = "ghostty";
     macos-option-as-alt = true;
   };
