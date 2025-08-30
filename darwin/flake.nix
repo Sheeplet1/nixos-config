@@ -60,6 +60,7 @@
             brews = [
               "mas"
               "pngpaste"
+              "xcodes"
               "xcode-build-server"
               "xcbeautify"
             ];
