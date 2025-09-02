@@ -67,6 +67,7 @@
             caskArgs.no_quarantine = true;
             casks = [
               "aerospace"
+              "betterdisplay"
               "discord"
               "displaylink"
               "flux-app"
