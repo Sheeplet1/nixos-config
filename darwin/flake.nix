@@ -68,6 +68,7 @@
             casks = [
               "aerospace"
               "discord"
+              "displaylink"
               "flux-app"
               "ghostty"
               "iina"
