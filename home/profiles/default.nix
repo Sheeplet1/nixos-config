@@ -80,6 +80,7 @@ in
       nixd
       nixfmt-rfc-style
       nodePackages.nodejs
+      orca-slicer
       python3
       ripgrep
       rustup

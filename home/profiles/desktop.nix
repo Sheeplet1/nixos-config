@@ -25,7 +25,6 @@ in
 
   home.packages = with pkgs; [
     dconf # required for gtk.enable
-    prusa-slicer
   ];
 
   # Defining symlinks
