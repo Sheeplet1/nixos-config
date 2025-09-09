@@ -44,6 +44,7 @@
       # jellyfin-media-player
       libnotify
       obsidian
+      orca-slicer
       papirus-icon-theme
       playerctl
       pulseaudio

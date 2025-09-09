@@ -75,6 +75,7 @@
               "iina"
               "microsoft-office"
               "obsidian"
+              "orcaslicer"
               "1password"
               "rectangle"
               "the-unarchiver"
