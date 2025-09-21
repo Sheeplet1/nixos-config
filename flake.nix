@@ -18,9 +18,6 @@
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
 
-    ags.url = "github:Aylur/ags";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-
     # Having rust-overlay lets us use nightly Rust with pre-built binaries.
     rust-overlay = {
       url = "github:oxalica/rust-overlay";

@@ -8,12 +8,12 @@
       # "hyprlock"
       "swww-daemon --format xrgb"
       # "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
-      # "hyprpanel"
       "obsidian --ozone-platform-hint=auto"
       "todoist-electron --ozone-platform-hint=auto"
       "zen"
       "ghostty"
-    ] ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
+    ]
+    ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
     general = {
       gaps_in = 12;
@@ -86,7 +86,7 @@
       # "DP-3, disable"
       # Uncomment to re-enable monitors and comment out the above
       # "DP-2, 1920x1080@60, 3440x0, 1"
-      "DP-3, 1920x1080@60, -1920x0, 1"
+      "DP-2, 1920x1080@60, -1920x0, 1"
     ];
 
     workspace = [
@@ -94,9 +94,9 @@
       "2, monitor:DP-1"
       "3, monitor:DP-1"
 
-      "4, monitor:DP-3"
-      "5, monitor:DP-3"
-      "6, monitor:DP-3"
+      "4, monitor:DP-2"
+      "5, monitor:DP-2"
+      "6, monitor:DP-2"
     ];
 
     windowrulev2 = [
@@ -139,79 +139,78 @@
       "$mod, mouse:273, resizewindow"
     ];
 
-    bind =
-      [
-        "$mod, RETURN, exec, alacritty"
-        "$mod, Q, killactive"
-        "$mod, D, exec, pkill wofi || wofi --show drun"
-        # "$mod, D, exec, pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"
-        "$mod, T, exec, thunar"
-        "$mod, M, exit"
-        "$mod, F, fullscreen"
+    bind = [
+      "$mod, RETURN, exec, alacritty"
+      "$mod, Q, killactive"
+      "$mod, D, exec, pkill wofi || wofi --show drun"
+      # "$mod, D, exec, pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"
+      "$mod, T, exec, thunar"
+      "$mod, M, exit"
+      "$mod, F, fullscreen"
 
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
+      "$mod, left, movefocus, l"
+      "$mod, right, movefocus, r"
+      "$mod, up, movefocus, u"
+      "$mod, down, movefocus, d"
 
-        "$mod SHIFT, left, resizeactive, -10 0"
-        "$mod SHIFT, right, resizeactive, 10 0"
-        "$mod SHIFT, up, resizeactive, 0 -10"
-        "$mod SHIFT, down, resizeactive, 0 10"
+      "$mod SHIFT, left, resizeactive, -10 0"
+      "$mod SHIFT, right, resizeactive, 10 0"
+      "$mod SHIFT, up, resizeactive, 0 -10"
+      "$mod SHIFT, down, resizeactive, 0 10"
 
-        "$mod CTRL, left, movewindow, l"
-        "$mod CTRL, right, movewindow, r"
-        "$mod CTRL, up, movewindow, u"
-        "$mod CTRL, down, movewindow, d"
+      "$mod CTRL, left, movewindow, l"
+      "$mod CTRL, right, movewindow, r"
+      "$mod CTRL, up, movewindow, u"
+      "$mod CTRL, down, movewindow, d"
 
-        "$mod SHIFT, f, togglefloating"
-        "$mod SHIFT, Tab, workspace, m-1"
-        "$mod, Tab, workspace, m+1"
+      "$mod SHIFT, f, togglefloating"
+      "$mod SHIFT, Tab, workspace, m-1"
+      "$mod, Tab, workspace, m+1"
 
-        # wallpapers
-        "$mod, W, exec, bash $HOME/.scripts/wallpaper_select.sh"
-        "CTRL ALT, W, exec, bash $HOME/.scripts/wallpaper_random.sh"
+      # wallpapers
+      "$mod, W, exec, bash $HOME/.scripts/wallpaper_select.sh"
+      "CTRL ALT, W, exec, bash $HOME/.scripts/wallpaper_random.sh"
 
-        # hyprshot
-        ", PRINT, exec, hyprshot -m output" # whole monitor
-        "$mod, PRINT, exec, hyprshot -m window" # window
-        "$mod, S, exec, hyprshot -m region" # like Windows snipping tool
+      # hyprshot
+      ", PRINT, exec, hyprshot -m output" # whole monitor
+      "$mod, PRINT, exec, hyprshot -m window" # window
+      "$mod, S, exec, hyprshot -m region" # like Windows snipping tool
 
-        # hyprpicker
-        "$mod, p, exec, hyprpicker -a -f hex"
+      # hyprpicker
+      "$mod, p, exec, hyprpicker -a -f hex"
 
-        # Controlling media via keyboard
-        # ", xf86AudioPlayPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
-        # ", xf86AudioPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
-        # ", xf86AudioPlay, exec, bash $HOME/.scripts/media_controls.sh --pause"
-        # ", xf86AudioNext, exec, bash $HOME/.scripts/media_controls.sh --nxt"
-        # ", xf86AudioPrev, exec, bash $HOME/.scripts/media_controls.sh --prv"
-        # ", xf86Audiostop, exec, bash $HOME/.scripts/media_controls.sh --stop"
-        ",XF86AudioPlay, exec, playerctl play-pause"
-        ",XF86AudioPause, exec, playerctl play-pause"
-        ",XF86AudioNext, exec, playerctl next"
-        ",XF86AudioPrev, exec, playerctl previous"
+      # Controlling media via keyboard
+      # ", xf86AudioPlayPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
+      # ", xf86AudioPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
+      # ", xf86AudioPlay, exec, bash $HOME/.scripts/media_controls.sh --pause"
+      # ", xf86AudioNext, exec, bash $HOME/.scripts/media_controls.sh --nxt"
+      # ", xf86AudioPrev, exec, bash $HOME/.scripts/media_controls.sh --prv"
+      # ", xf86Audiostop, exec, bash $HOME/.scripts/media_controls.sh --stop"
+      ",XF86AudioPlay, exec, playerctl play-pause"
+      ",XF86AudioPause, exec, playerctl play-pause"
+      ",XF86AudioNext, exec, playerctl next"
+      ",XF86AudioPrev, exec, playerctl previous"
 
-        "$mod, L, exec, bash $HOME/.scripts/lock_screen.sh"
-        "CTRL ALT, P, exec, bash $HOME/.scripts/wlogout.sh"
-        "$mod, C, exec, bash $HOME/.scripts/change_audio_device.sh"
-      ]
-      ++ (builtins.concatLists (
-        builtins.genList (
-          i:
-          let
-            ws = i + 1;
-          in
-          [
-            "$mod, code:1${toString i}, workspace, ${toString ws}"
-            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-            "$mod CTRL, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
-          ]
-        ) 10
-      ))
-      ++ (
-        if pkgs.system == "x86_64-linux" then [ "$mod, b, exec, zen" ] else [ "$mod, b, exec, firefox" ]
-      );
+      "$mod, L, exec, bash $HOME/.scripts/lock_screen.sh"
+      "CTRL ALT, P, exec, bash $HOME/.scripts/wlogout.sh"
+      "$mod, C, exec, bash $HOME/.scripts/change_audio_device.sh"
+    ]
+    ++ (builtins.concatLists (
+      builtins.genList (
+        i:
+        let
+          ws = i + 1;
+        in
+        [
+          "$mod, code:1${toString i}, workspace, ${toString ws}"
+          "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+          "$mod CTRL, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
+        ]
+      ) 10
+    ))
+    ++ (
+      if pkgs.system == "x86_64-linux" then [ "$mod, b, exec, zen" ] else [ "$mod, b, exec, firefox" ]
+    );
   };
   extraConfig = '''';
 }

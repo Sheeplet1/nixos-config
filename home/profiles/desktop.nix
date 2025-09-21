@@ -11,7 +11,6 @@ in
 {
   imports = [
     ./default.nix
-    inputs.hyprpanel.homeManagerModules.hyprpanel
   ];
 
   home.sessionVariables = {
@@ -48,6 +47,7 @@ in
 
   # Services
   services.hypridle = (import ../hyprland/hypridle.nix { inherit pkgs; });
+  services.hyprsunset.enable = true;
 
   wayland.windowManager.hyprland = (import ../hyprland/hyprland.nix { inherit pkgs; });
 
