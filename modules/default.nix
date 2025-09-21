@@ -12,11 +12,10 @@
 
   # Other devices using grub for bootloader
   boot = {
-    # BUG: https://github.com/nixos/nixpkgs/issues/439073 - evdi build failures.
-    # extraModulePackages = [ config.boot.kernelPackages.evdi ];
-    # initrd = {
-    #   kernelModules = [ "evdi" ];
-    # };
+    extraModulePackages = [ config.boot.kernelPackages.evdi ];
+    initrd = {
+      kernelModules = [ "evdi" ];
+    };
     loader = {
       grub = {
         enable = true;
@@ -148,10 +147,10 @@
       enable = true;
       xkb.layout = "au";
       # BUG: https://github.com/nixos/nixpkgs/issues/439073 - evdi build failures.
-      # videoDrivers = [
-      #   "displaylink"
-      #   "modesetting"
-      # ];
+      videoDrivers = [
+        "displaylink"
+        "modesetting"
+      ];
     };
   };
 

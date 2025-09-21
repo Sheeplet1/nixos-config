@@ -41,7 +41,7 @@
       hyprshot
       hyprsunset
       inputs.zen-browser.packages."${pkgs.system}".default
-      jellyfin-media-player
+      # jellyfin-media-player
       libnotify
       obsidian
       papirus-icon-theme
