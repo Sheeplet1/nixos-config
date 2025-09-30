@@ -400,5 +400,7 @@
         ];
       };
     };
+
+    "hyprsunset.temperature" = "3000k";
   };
 }

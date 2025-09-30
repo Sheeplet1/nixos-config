@@ -47,7 +47,7 @@ in
 
   # Services
   services.hypridle = (import ../hyprland/hypridle.nix { inherit pkgs; });
-  services.hyprsunset.enable = true;
+  services.hyprsunset = (import ../hyprland/hyprsunset.nix { inherit pkgs; });
 
   wayland.windowManager.hyprland = (import ../hyprland/hyprland.nix { inherit pkgs; });
 
