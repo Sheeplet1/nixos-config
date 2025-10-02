@@ -68,6 +68,7 @@
             casks = [
               "aerospace"
               "betterdisplay"
+              "claude-code"
               "discord"
               "displaylink"
               "flux-app"

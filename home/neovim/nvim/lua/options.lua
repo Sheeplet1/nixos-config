@@ -1,6 +1,7 @@
 vim.g.omni_sql_default_compl_type = "syntax"
 
 -- column border of 80
+vim.opt.textwidth = 100
 vim.opt.colorcolumn = "100"
 
 vim.g.have_nerd_font = true

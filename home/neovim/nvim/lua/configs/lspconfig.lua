@@ -48,7 +48,8 @@ local servers = {
   gopls = {
     cmd = { "gopls" },
     filetypes = { "go", "gomod", "gowork", "gotmpl" },
-    root_dir = require("lspconfig").util.root_pattern("go.work", "go.mod", ".git"),
+    -- root_dir = require("lspconfig").util.root_pattern("go.work", "go.mod", ".git"),
+    root_dir = vim.fs.root(0, { "go.work", "go.mod", ".git" }),
     settings = {
       gopls = {
         completeUnimported = true,
@@ -103,5 +104,7 @@ for name, opts in pairs(servers) do
   -- opts.capabilities =
   --   vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities(opts.capabilities))
 
-  require("lspconfig")[name].setup(opts)
+  -- require("lspconfig")[name].setup(opts)
+  vim.lsp.config(name, opts)
+  vim.lsp.enable(name)
 end
