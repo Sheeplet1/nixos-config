@@ -389,7 +389,7 @@
           "dashboard"
           "workspaces"
           "windowtitle"
-          "hyprsunset"
+          # "hyprsunset"
         ];
         middle = [ "media" ];
         right = [

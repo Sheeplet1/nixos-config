@@ -13,6 +13,14 @@
         temperature = 4000;
         # gamma = 0.8;
       }
+      {
+        time = "19:30";
+        temperature = 3500;
+      }
+      {
+        time = "20:00";
+        temperature = 3000;
+      }
     ];
   };
 }

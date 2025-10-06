@@ -3,10 +3,10 @@
   enable = true;
   enableZshIntegration = true;
   settings = {
-    font-size = 18;
-    font-family = "Iosevka Nerd Font Mono";
-
-    # theme = "Kanagawa Wave";
+    font-size = 12;
+    font-family = "JetBrains Mono";
+    # backgroud-opacity = 0.95;
+    # background-blur-radius = 20;
     theme = "Dracula";
     window-theme = "ghostty";
     macos-option-as-alt = true;
