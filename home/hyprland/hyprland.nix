@@ -191,6 +191,11 @@
       ",XF86AudioNext, exec, playerctl next"
       ",XF86AudioPrev, exec, playerctl previous"
 
+      # Media Volume Controls
+      ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+      ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
       "$mod, L, exec, bash $HOME/.scripts/lock_screen.sh"
       "CTRL ALT, P, exec, bash $HOME/.scripts/wlogout.sh"
       "$mod, C, exec, bash $HOME/.scripts/change_audio_device.sh"
