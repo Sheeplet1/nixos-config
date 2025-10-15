@@ -52,7 +52,7 @@ vim.o.laststatus = 3
 vim.o.showmode = false
 
 -- enable sign column
-vim.o.signcolumn = "no"
+vim.o.signcolumn = "yes"
 
 -- split columns
 vim.o.splitright = true
