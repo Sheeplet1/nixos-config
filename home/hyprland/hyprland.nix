@@ -8,10 +8,11 @@
       # "hyprlock"
       "swww-daemon --format xrgb"
       # "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
-      "obsidian --ozone-platform-hint=auto"
       "todoist-electron --ozone-platform-hint=auto"
       "zen"
       "ghostty"
+      "discord"
+      "spotify"
     ]
     ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
@@ -93,10 +94,11 @@
       "1, monitor:DP-1"
       "2, monitor:DP-1"
       "3, monitor:DP-1"
+      "8, monitor:DP-1"
 
       "4, monitor:DP-2"
       "5, monitor:DP-2"
-      "6, monitor:DP-2"
+      "7, monitor:DP-2"
     ];
 
     windowrulev2 = [
@@ -112,13 +114,14 @@
 
       "workspace 4, initialTitle:^([Ss]potify)$"
       "workspace 4, initialTitle:^([Ss]potify Premium)$"
-      "workspace 4, title:^([Jj]ellyfin Media Player)$"
 
       "workspace 5, class:^([Dd]iscord)$"
       "workspace 5, class:^([Ww]ebCord)$"
       "workspace 5, class:^([Vv]esktop)$"
 
-      "workspace 6, class:^([Tt]odoist)$"
+      "workspace 7, class:^([Tt]odoist)$"
+
+      "workspace 8, title:^([Jj]ellyfin Media Player)$"
 
       # Floats
       "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"

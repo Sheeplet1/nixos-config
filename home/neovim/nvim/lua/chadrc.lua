@@ -6,7 +6,7 @@ local stbufnr = function() return vim.api.nvim_win_get_buf(vim.g.statusline_wini
 ---@type ChadrcConfig
 local M = {
   base46 = {
-    theme = "onenord",
+    theme = "everforest",
     integrations = {
       "cmp",
       "todo",

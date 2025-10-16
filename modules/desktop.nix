@@ -52,6 +52,7 @@
       spotify
       swappy # image viewer
       swww # wallpapers
+      todoist-electron
       wl-clipboard
       wlogout
       wofi
@@ -73,15 +74,11 @@
     };
 
     services = {
-      # TODO: Need to figure out how to maximise resolution for tuigreet rather
-      # than pseudo lockscreen with hyprlock.
       greetd = {
         enable = true;
         settings = {
           default_session = {
             user = "anthonyd";
-            # Starting "Hyprland" with TUI login manager
-            # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
             command = "Hyprland";
           };
         };
