@@ -25,5 +25,16 @@ return {
       },
     },
   },
-  -- { "echasnovski/mini.pairs", event = "InsertEnter", version = false, opts = {} },
+  { "echasnovski/mini.pairs", event = "InsertEnter", version = false, opts = {} },
+  {
+    "nvim-mini/mini.indentscope",
+    lazy = false,
+    version = false,
+    config = function()
+      require("mini.indentscope").setup {
+        symbol = "│",
+        options = { try_as_border = true },
+      }
+    end,
+  },
 }
