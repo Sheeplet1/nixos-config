@@ -175,20 +175,14 @@
       "CTRL ALT, W, exec, bash $HOME/.scripts/wallpaper_random.sh"
 
       # hyprshot
-      ", PRINT, exec, hyprshot -m output" # whole monitor
-      "$mod, PRINT, exec, hyprshot -m window" # window
-      "$mod, S, exec, hyprshot -m region" # like Windows snipping tool
+      ", PRINT, exec, hyprshot -m output --clipboard-only --freeze" # whole monitor
+      "$mod, PRINT, exec, hyprshot -m window --clipboard-only --freeze" # window
+      "$mod, S, exec, hyprshot -m region --clipboard-only --freeze" # like Windows snipping tool
 
       # hyprpicker
       "$mod, p, exec, hyprpicker -a -f hex"
 
       # Controlling media via keyboard
-      # ", xf86AudioPlayPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
-      # ", xf86AudioPause, exec, bash $HOME/.scripts/media_controls.sh --pause"
-      # ", xf86AudioPlay, exec, bash $HOME/.scripts/media_controls.sh --pause"
-      # ", xf86AudioNext, exec, bash $HOME/.scripts/media_controls.sh --nxt"
-      # ", xf86AudioPrev, exec, bash $HOME/.scripts/media_controls.sh --prv"
-      # ", xf86Audiostop, exec, bash $HOME/.scripts/media_controls.sh --stop"
       ",XF86AudioPlay, exec, playerctl play-pause"
       ",XF86AudioPause, exec, playerctl play-pause"
       ",XF86AudioNext, exec, playerctl next"
