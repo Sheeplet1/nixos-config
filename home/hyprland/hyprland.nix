@@ -17,8 +17,8 @@
     ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
     general = {
-      gaps_in = 12;
-      gaps_out = 28;
+      gaps_in = 8;
+      gaps_out = 16;
       border_size = 2;
       resize_on_border = true;
       layout = "master";

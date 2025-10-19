@@ -12,7 +12,7 @@
 
     background = [
       {
-        path = "/home/anthonyd/nix/home/hyprland/wallpapers/Fantasy-Japanese-Street.png";
+        path = "/home/anthonyd/nix/home/hyprland/wallpapers/mist_forest_1.png";
         blur_size = 8;
         blur_passes = 3;
       }
@@ -53,7 +53,7 @@
         valign = "center";
       }
       {
-        # Time 
+        # Time
         monitor = "";
         text = "cmd[update:1000] echo \"$(date +\"%-I:%M\")\"";
         color = "rgba(242, 243, 244, 0.75)";
