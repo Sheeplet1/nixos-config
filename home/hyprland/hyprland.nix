@@ -5,14 +5,14 @@
     "$mod" = "SUPER";
 
     exec-once = [
-      # "hyprlock"
       "swww-daemon --format xrgb"
       # "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
-      "todoist-electron --ozone-platform-hint=auto"
       "zen"
       "ghostty"
       "discord"
       "spotify"
+      "1password"
+      "ticktick"
     ]
     ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
@@ -120,8 +120,11 @@
       "workspace 5, class:^([Vv]esktop)$"
 
       "workspace 7, class:^([Tt]odoist)$"
+      "workspace 7, class:^([Tt]icktick)$"
 
       "workspace 8, title:^([Jj]ellyfin Media Player)$"
+
+      "workspace 9, class:^(1[Pp]assword)$"
 
       # Floats
       "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"

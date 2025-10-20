@@ -25,6 +25,7 @@
     virtualisation.docker.enable = true;
 
     environment.systemPackages = with pkgs; [
+      _1password-gui-beta
       adwaita-icon-theme
       ags
       chromium
@@ -53,7 +54,8 @@
       spotify
       swappy # image viewer
       swww # wallpapers
-      todoist-electron
+      # todoist-electron
+      ticktick
       wl-clipboard
       wlogout
       wofi

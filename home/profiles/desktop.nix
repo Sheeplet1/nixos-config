@@ -33,8 +33,8 @@ in
   gtk = {
     enable = true;
     theme = {
-      name = "Tokyonight-Dark";
-      package = pkgs.tokyonight-gtk-theme;
+      name = "Everforest-Dark-BL";
+      package = pkgs.everforest-gtk-theme;
     };
   };
 
