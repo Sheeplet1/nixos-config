@@ -34,7 +34,7 @@
         check_color = "rgb(204, 136, 34)";
         placeholder_text = "<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
         hide_input = false;
-        position = "0, -50";
+        position = "0, -60";
         halign = "center";
         valign = "center";
       }
@@ -47,7 +47,7 @@
         text = "cmd[update:1000] echo \"$(date +\"%A, %B %d\")\"";
         color = "rgba(242, 243, 244, 0.75)";
         font_size = 22;
-        font_family = "Iosevka Nerd Font";
+        font_family = "JetBrains Mono";
         position = "0, 300";
         halign = "center";
         valign = "center";
@@ -58,7 +58,7 @@
         text = "cmd[update:1000] echo \"$(date +\"%-I:%M\")\"";
         color = "rgba(242, 243, 244, 0.75)";
         font_size = 95;
-        font_family = "Iosevka";
+        font_family = "JetBrains Mono";
         position = "0, 200";
         halign = "center";
         valign = "center";
@@ -69,7 +69,7 @@
         text = "cmd[update:1000] echo Hi there, $USER";
         color = "rgba(242, 243, 244, 0.75)";
         font_size = 20;
-        font_family = "Iosevka Nerd Font";
+        font_family = "JetBrains Mono";
         position = "0, 0";
         halign = "center";
         valign = "center";
