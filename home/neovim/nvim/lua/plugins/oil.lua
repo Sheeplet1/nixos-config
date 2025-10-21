@@ -3,7 +3,17 @@ return {
   "stevearc/oil.nvim",
   event = "VeryLazy",
   cmd = "Oil",
-  opts = {},
+  opts = {
+    columns = {
+      "icon",
+      "permissions",
+      "size",
+      "mtime",
+    },
+    float = {
+      border = "rounded",
+    },
+  },
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
     {
