@@ -6,9 +6,6 @@ return {
   opts = {
     columns = {
       "icon",
-      "permissions",
-      "size",
-      "mtime",
     },
     float = {
       border = "rounded",
