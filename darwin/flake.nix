@@ -79,6 +79,7 @@
               "orcaslicer"
               "1password"
               "rectangle"
+              "ticktick"
               "the-unarchiver"
               "tomatobar"
               "scroll-reverser"

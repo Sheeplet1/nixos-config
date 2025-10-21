@@ -60,6 +60,8 @@
     };
 
     on-window-detected = [
+      # To get the bundle ID of an app, run: osascript -e 'id of app "SomeApp"'
+
       #  Workspace 1 - Terminals/Coding
       {
         "if".app-id = "com.mitchellh.ghostty";
@@ -106,7 +108,6 @@
         run = [ "move-node-to-workspace 5" ];
       }
 
-      #
       {
         "if".app-id = "com.hnc.Discord";
         run = [ "move-node-to-workspace 6" ];
@@ -114,6 +115,11 @@
       {
         "if".app-id = "com.1password.1password";
         run = [ "move-node-to-workspace 7" ];
+      }
+
+      {
+        "if".app-id = "com.TickTick.task.mac";
+        run = [ "move-node-to-workspace 8" ];
       }
     ];
   };
