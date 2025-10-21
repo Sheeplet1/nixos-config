@@ -95,10 +95,11 @@
       "2, monitor:DP-1"
       "3, monitor:DP-1"
       "8, monitor:DP-1"
+      "9, monitor:DP-1"
+      "0, monitor:DP-1"
 
       "4, monitor:DP-2"
       "5, monitor:DP-2"
-      "7, monitor:DP-2"
     ];
 
     windowrulev2 = [
@@ -119,12 +120,12 @@
       "workspace 5, class:^([Ww]ebCord)$"
       "workspace 5, class:^([Vv]esktop)$"
 
-      "workspace 7, class:^([Tt]odoist)$"
-      "workspace 7, class:^([Tt]icktick)$"
+      "workspace 8, class:^(1[Pp]assword)$"
 
-      "workspace 8, title:^([Jj]ellyfin Media Player)$"
+      "workspace 9, title:^([Jj]ellyfin Media Player)$"
 
-      "workspace 9, class:^(1[Pp]assword)$"
+      "workspace 0, class:^([Tt]odoist)$"
+      "workspace 0, initialClass:^([Tt]icktick)$"
 
       # Floats
       "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"
