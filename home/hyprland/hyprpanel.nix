@@ -403,6 +403,7 @@
           "network"
           "systray"
           "clock"
+          "notifications"
         ];
       };
     };

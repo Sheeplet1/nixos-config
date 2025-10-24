@@ -7,7 +7,7 @@
     font-family = "JetBrains Mono";
     # backgroud-opacity = 0.95;
     # background-blur-radius = 20;
-    theme = "Dracula";
+    # theme = "Dracula";
     window-theme = "ghostty";
     macos-option-as-alt = true;
   };
