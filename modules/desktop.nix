@@ -6,7 +6,6 @@
   ...
 }:
 {
-
   options = {
     desktop.enable = lib.mkEnableOption "enables desktop settings";
   };

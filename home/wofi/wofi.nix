@@ -2,44 +2,99 @@
 {
   enable = true;
   style = ''
-      window {
-    margin: 0px;
-    border: 1px solid #928374;
-    background-color: #282828;
+    /* Everforest */
+    @define-color accent #A7C080;
+    @define-color txt #D3C6AA;
+    @define-color bg #2B3339;
+    @define-color bg2 #333C43;
+
+    * {
+      font-family: "CaskaydiaCove Nerd Font mono";
+      font-size: 14px;
     }
 
-    #input {
-    margin: 5px;
-    border: none;
-    color: #ebdbb2;
-    background-color: #1d2021;
+    /* Window */
+    window {
+      margin: 0px;
+      padding: 10px;
+      border: 3px solid @accent;
+      border-radius: 7px;
+      background-color: @bg;
+      animation: slideIn 0.5s ease-in-out both;
     }
 
+    /* Slide In */
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Inner Box */
     #inner-box {
-    margin: 5px;
-    border: none;
-    background-color: #282828;
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      background-color: @bg;
+      animation: fadeIn 0.5s ease-in-out both;
     }
 
+    /* Fade In */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Outer Box */
     #outer-box {
-    margin: 5px;
-    border: none;
-    background-color: #282828;
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      background-color: @bg;
     }
 
+    /* Scroll */
     #scroll {
-    margin: 0px;
-    border: none;
+      margin: 0px;
+      padding: 10px;
+      border: none;
     }
 
+    /* Input */
+    #input {
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      color: @accent;
+      background-color: @bg2;
+      animation: fadeIn 0.5s ease-in-out both;
+    }
+
+    /* Text */
     #text {
-    margin: 5px;
-    border: none;
-    color: #ebdbb2;
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      color: @txt;
+      animation: fadeIn 0.5s ease-in-out both;
     }
 
+    /* Selected Entry */
     #entry:selected {
-    background-color: #1d2021;
+      background-color: @accent;
+    }
+
+    #entry:selected #text {
+      color: @bg;
     }
   '';
 }

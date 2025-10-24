@@ -28,8 +28,8 @@
     decoration = {
       rounding = 10;
 
-      active_opacity = 1;
-      inactive_opacity = 0.9;
+      active_opacity = 0.9;
+      inactive_opacity = 0.8;
       fullscreen_opacity = 1;
 
       dim_inactive = true;
@@ -94,12 +94,13 @@
       "1, monitor:DP-1"
       "2, monitor:DP-1"
       "3, monitor:DP-1"
+      "7, monitor:DP-1"
       "8, monitor:DP-1"
       "9, monitor:DP-1"
-      "0, monitor:DP-1"
 
       "4, monitor:DP-2"
       "5, monitor:DP-2"
+      "6, monitor:DP-2"
     ];
 
     windowrulev2 = [
@@ -120,12 +121,12 @@
       "workspace 5, class:^([Ww]ebCord)$"
       "workspace 5, class:^([Vv]esktop)$"
 
+      "workspace 7, title:^([Jj]ellyfin Media Player)$"
+
       "workspace 8, class:^(1[Pp]assword)$"
 
-      "workspace 9, title:^([Jj]ellyfin Media Player)$"
-
-      "workspace 0, class:^([Tt]odoist)$"
-      "workspace 0, initialClass:^([Tt]icktick)$"
+      "workspace 9, class:^([Tt]odoist)$"
+      "workspace 9, initialClass:^([Tt]icktick)$"
 
       # Floats
       "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"

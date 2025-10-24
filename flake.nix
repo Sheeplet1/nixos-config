@@ -71,6 +71,7 @@
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.users.anthonyd = import ./home/profiles/desktop.nix;
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
 
           {
