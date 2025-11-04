@@ -24,7 +24,6 @@
     virtualisation.docker.enable = true;
 
     environment.systemPackages = with pkgs; [
-      _1password-gui-beta
       adwaita-icon-theme
       ags
       chromium
@@ -73,6 +72,12 @@
         thunar-volman
         tumbler
       ];
+
+      _1password.enable = true;
+      _1password-gui = {
+        enable = true;
+        polkitPolicyOwners = [ "anthonyd" ];
+      };
     };
 
     services = {

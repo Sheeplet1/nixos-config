@@ -1,9 +1,11 @@
 { ... }:
 {
   enable = true;
-  userName = "Anthony";
-  userEmail = "42196548+Sheeplet1@users.noreply.github.com";
-  extraConfig = {
+  settings = {
+    user = {
+      name = "Anthony";
+      email = "42196548+Sheeplet1@users.noreply.github.com";
+    };
     init.defaultBranch = "main";
     push.default = "tracking";
     push.autoSetupRemote = true;

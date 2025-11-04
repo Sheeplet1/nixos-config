@@ -7,12 +7,14 @@
     exec-once = [
       "swww-daemon --format xrgb"
       # "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
-      "zen"
+      # "zen"
+      "firefox"
       "ghostty"
       "discord"
       "spotify"
       "1password"
       "ticktick"
+      "obsidian"
     ]
     ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
@@ -76,8 +78,9 @@
         "windowsOut, 1, 5, winOut, slide"
         "windowsMove, 1, 5, wind, slide"
         "border, 1, 1, liner"
-        "fade, 1, 8, default"
-        "workspaces, 1, 10, wind"
+        "borderangle, 1, 30, liner, loop"
+        "fade, 1, 10, default"
+        "workspaces, 1, 5, wind"
       ];
     };
 
