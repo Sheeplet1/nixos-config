@@ -89,6 +89,7 @@ in
       unzip
       uv
       wget
+      yazi
       zig
       zip
       zsh-powerlevel10k

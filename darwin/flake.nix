@@ -58,6 +58,8 @@
           homebrew = {
             enable = true;
             brews = [
+              "amp"
+              "docker"
               "mas"
               "pngpaste"
               "xcodes"
@@ -81,7 +83,6 @@
               "rectangle"
               "ticktick"
               "the-unarchiver"
-              "tomatobar"
               "scroll-reverser"
               "spotify"
               "zen"
@@ -93,38 +94,9 @@
 
           system.primaryUser = "anthonydo";
 
-          # Activation Script to fix Spotlight
-          system.activationScripts.applications.text =
-            let
-              env = pkgs.buildEnv {
-                name = "system-applications";
-                paths = config.environment.systemPackages;
-                pathsToLink = "/Applications";
-              };
-            in
-            pkgs.lib.mkForce ''
-              # Set up applications.
-              echo "setting up /Applications..." >&2
-              rm -rf /Applications/Nix\ Apps
-              mkdir -p /Applications/Nix\ Apps
-              find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-              while read -r src; do
-                  app_name=$(basename "$src")
-                  echo "copying $src" >&2
-                  ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
-              done
-            '';
-
           system.defaults = {
             dock.autohide = true;
             dock.show-recents = false;
-            dock.persistent-apps = [
-              "/System/Applications/Messages.app"
-              "/Applications/Zen.app"
-              "${pkgs.spotify}/Applications/Spotify.app"
-              "/Applications/Ghostty.app"
-              "/Applications/Obsidian.app"
-            ];
             loginwindow.GuestEnabled = false;
             NSGlobalDomain.AppleInterfaceStyle = "Dark";
             NSGlobalDomain.KeyRepeat = 2;
