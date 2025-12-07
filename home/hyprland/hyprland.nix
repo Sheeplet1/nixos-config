@@ -13,7 +13,6 @@
       "discord"
       "spotify"
       "1password"
-      "ticktick"
       "obsidian"
     ]
     ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);

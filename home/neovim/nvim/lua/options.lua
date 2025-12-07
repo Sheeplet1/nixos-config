@@ -81,8 +81,8 @@ vim.o.numberwidth = 2
 vim.opt.shortmess:append "sI"
 
 -- using treesitter for native nvim folds
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldmethod = "indent"
+-- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevelstart = 99
 
 --------------------------------------------------------------------------------

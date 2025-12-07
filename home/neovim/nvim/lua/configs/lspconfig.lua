@@ -81,6 +81,7 @@ local servers = {
   },
 
   svelte = {},
+
   zls = {
     settings = {
       zls = {
@@ -95,16 +96,32 @@ local servers = {
   },
 }
 
+local custom_on_attaches = {
+  svelte = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      pattern = { "*.js", "*.ts" },
+      group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
+      callback = function(ctx)
+        -- Here use ctx.match instead of ctx.file
+        client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+      end,
+    })
+  end,
+}
+
 for name, opts in pairs(servers) do
   opts.on_init = on_init
-  opts.on_attach = on_attach
   opts.capabilities = capabilities
 
-  -- NOTE: No idea if I did this correct below
-  -- opts.capabilities =
-  --   vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities(opts.capabilities))
+  if custom_on_attaches[name] then
+    opts.on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      custom_on_attaches[name](client, bufnr)
+    end
+  else
+    opts.on_attach = on_attach
+  end
 
-  -- require("lspconfig")[name].setup(opts)
   vim.lsp.config(name, opts)
   vim.lsp.enable(name)
 end
