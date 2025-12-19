@@ -1,11 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   enable = true;
   defaultEditor = true;
-  # viAlias = true;
-  # vimAlias = true;
   extraPackages = with pkgs; [
-    # Adding LSP servers here since Mason binaries do not work on NixOS.
+    # LSPs added here are added globally. Preferably, we install required LSPs per project via
+    # flake.nix
     prettierd
 
     shfmt

@@ -118,7 +118,7 @@ in
     git = import ../git.nix { inherit pkgs; };
     fish = import ../fish.nix { inherit pkgs; };
     fzf = import ../fzf.nix { inherit pkgs; };
-    neovim = import ../neovim/neovim.nix { inherit pkgs; };
+    neovim = import ../neovim/neovim.nix { inherit inputs pkgs; };
     # starship = import ../starship.nix { inherit pkgs; };
     tmux = import ../tmux.nix { inherit inputs pkgs; };
     zoxide = import ../zoxide.nix { inherit pkgs; };

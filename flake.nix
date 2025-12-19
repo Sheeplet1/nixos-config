@@ -23,6 +23,10 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+    };
   };
 
   outputs =
@@ -42,6 +46,7 @@
         modules = [
           ./machines/vm-aarch64.nix
 
+          # Import all overlays
           (import ./overlays)
 
           home-manager.nixosModules.default
@@ -54,6 +59,7 @@
           }
         ];
       };
+
       nixosConfigurations.linux = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
@@ -62,6 +68,7 @@
         modules = [
           ./machines/desktop.nix
 
+          # Import all overlays
           (import ./overlays)
 
           home-manager.nixosModules.default
