@@ -13,10 +13,12 @@
   config = lib.mkIf config.homelab.enable {
     environment.systemPackages = with pkgs; [
       argocd
+      helmfile
       k3s
       kubernetes-helm
-      helmfile
       kubeseal
+      qrencode
+      wireguard-tools
     ];
   };
 }
