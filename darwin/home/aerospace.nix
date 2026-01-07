@@ -47,6 +47,9 @@
 
       alt-tab = "workspace-back-and-forth";
       alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
+
+      alt-n = "focus --boundaries-action wrap-around-the-workspace dfs-next";
+      alt-shift-n = "focus --boundaries-action wrap-around-the-workspace dfs-prev";
     };
 
     workspace-to-monitor-force-assignment = {
@@ -90,16 +93,69 @@
       #   run = [ "move-node-to-workspace 3" ];
       # }
 
-      # Workspace 3 - Messages
+      # Workspace 3 - Apple
       {
         "if".app-id = "md.obsidian";
-        run = [ "move-node-to-workspace 3" ];
+        run = [
+          "move-node-to-workspace 3"
+          "layout floating"
+        ];
       }
+      {
+        "if".app-id = "com.apple.Notes";
+        run = [
+          "move-node-to-workspace 3"
+          "layout floating"
+        ];
+      }
+      {
+        "if".app-id = "com.apple.iCal";
+        run = [
+          "move-node-to-workspace 3"
+          "layout floating"
+        ];
+      }
+      {
+        "if".app-id = "com.apple.reminders";
+        run = [
+          "move-node-to-workspace 3"
+          "layout floating"
+        ];
+      }
+      {
+        "if".app-id = "com.apple.mail";
+        run = [
+          "move-node-to-workspace 3"
+          "layout floating"
+
+        ];
+      }
+
+      #
+      # Workspace 4 - Messages
+      #
 
       # Messages
       {
         "if".app-id = "com.apple.MobileSMS";
-        run = [ "move-node-to-workspace 4" ];
+        run = [
+          "move-node-to-workspace 4"
+          "layout floating"
+        ];
+      }
+      {
+        "if".app-id = "net.whatsapp.WhatsApp";
+        run = [
+          "move-node-to-workspace 4"
+          "layout floating"
+        ];
+      }
+      {
+        "if".app-id = "com.hnc.Discord";
+        run = [
+          "move-node-to-workspace 4"
+          "layout floating"
+        ];
       }
 
       # Spotify
@@ -109,17 +165,8 @@
       }
 
       {
-        "if".app-id = "com.hnc.Discord";
-        run = [ "move-node-to-workspace 6" ];
-      }
-      {
         "if".app-id = "com.1password.1password";
-        run = [ "move-node-to-workspace 7" ];
-      }
-
-      {
-        "if".app-id = "com.TickTick.task.mac";
-        run = [ "move-node-to-workspace 8" ];
+        run = [ "move-node-to-workspace 6" ];
       }
     ];
   };

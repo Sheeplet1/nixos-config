@@ -38,6 +38,8 @@ in
       helmfile
       kubeseal
       kubectl
+      qrencode
+      wireguard-tools
 
       # AI Packages
       claude-code

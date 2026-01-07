@@ -75,6 +75,7 @@
               "displaylink"
               "flux-app"
               "ghostty"
+              "google-chrome"
               "iina"
               "microsoft-office"
               "obsidian"
@@ -85,6 +86,7 @@
               "the-unarchiver"
               "scroll-reverser"
               "spotify"
+              "whatsapp"
               "zen"
             ];
             onActivation.cleanup = "zap";
