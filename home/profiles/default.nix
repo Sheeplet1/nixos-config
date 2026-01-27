@@ -44,6 +44,7 @@ in
       # AI Packages
       claude-code
       codex
+      opencode
 
       # Streamyfin packages
       bun
@@ -80,7 +81,7 @@ in
       lazygit
       meslo-lgs-nf
       nixd
-      nixfmt-rfc-style
+      nixfmt
       nodePackages.nodejs
       python3
       ripgrep

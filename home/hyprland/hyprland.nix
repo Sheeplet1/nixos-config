@@ -105,42 +105,28 @@
       "6, monitor:DP-2"
     ];
 
-    windowrulev2 = [
-      # Workspaces
-      "workspace 1, class:^([Aa]lacritty)$"
-      "workspace 1, class:^(com.mitchellh.ghostty)$"
-
-      "workspace 2, class:^([Vv]ivaldi-stable)$"
-      "workspace 2, class:^([Ff]irefox)$"
-      "workspace 2, initialTitle:^([Zz]en Browser)$"
-
-      "workspace 3, class:^([Oo]bsidian)$"
-
-      "workspace 4, initialTitle:^([Ss]potify)$"
-      "workspace 4, initialTitle:^([Ss]potify Premium)$"
-
-      "workspace 5, class:^([Dd]iscord)$"
-      "workspace 5, class:^([Ww]ebCord)$"
-      "workspace 5, class:^([Vv]esktop)$"
-
-      "workspace 7, title:^([Jj]ellyfin Media Player)$"
-
-      "workspace 8, class:^(1[Pp]assword)$"
-
-      "workspace 9, class:^([Tt]odoist)$"
-      "workspace 9, initialClass:^([Tt]icktick)$"
-
-      # Floats
-      "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"
-      "float, class:([Zz]oom|onedriver|onedriver-launcher)$"
-      "float, class:([Tt]hunar), title:(File Operation Progress)"
-      "float, class:([Tt]hunar), title:(Confirm to replace files)"
-      "float, class:(xdg-desktop-portal-gtk)"
-      "float, class:(org.gnome.Calculator), title:(Calculator)"
-
-      # Positions
-      "center, class:([Tt]hunar), title:(File Operation Progress)"
-      "center, class:([Tt]hunar), title:(Confirm to replace files)"
+    windowrule = [
+      "workspace 1, match:class ^([Aa]lacritty)$"
+      "workspace 1, match:class ^(com.mitchellh.ghostty)$"
+      "workspace 2, match:class ^([Vv]ivaldi-stable)$"
+      "workspace 2, match:class ^([Ff]irefox)$"
+      "workspace 2, match:initial_title ^([Zz]en Browser)$"
+      "workspace 3, match:class ^([Oo]bsidian)$"
+      "workspace 4, match:initial_title ^([Ss]potify)$"
+      "workspace 4, match:initial_title ^([Ss]potify Premium)$"
+      "workspace 5, match:class ^([Dd]iscord)$"
+      "workspace 5, match:class ^([Ww]ebCord)$"
+      "workspace 5, match:class ^([Vv]esktop)$"
+      "workspace 7, match:title ^([Jj]ellyfin Media Player)$"
+      "workspace 8, match:class ^(1[Pp]assword)$"
+      "workspace 9, match:class ^([Tt]odoist)$"
+      "workspace 9, match:initial_class ^([Tt]icktick)$"
+      "float on, match:class ^(org.kde.polkit-kde-authentication-agent-1)$"
+      "float on, match:class ([Zz]oom|onedriver|onedriver-launcher)$"
+      "float on, center on, match:class ([Tt]hunar), match:title (File Operation Progress)"
+      "float on, center on, match:class ([Tt]hunar), match:title (Confirm to replace files)"
+      "float on, match:class (xdg-desktop-portal-gtk)"
+      "float on, match:class (org.gnome.Calculator), match:title (Calculator)"
     ];
 
     # Move/resize windows with $mod + LMB/RMB
@@ -221,5 +207,5 @@
       if pkgs.system == "x86_64-linux" then [ "$mod, b, exec, zen" ] else [ "$mod, b, exec, firefox" ]
     );
   };
-  extraConfig = '''';
+  extraConfig = "";
 }
