@@ -20,7 +20,7 @@
       grub = {
         enable = true;
         device = "nodev";
-        useOSProber = (if pkgs.system == "x86_64-linux" then true else false);
+        useOSProber = if pkgs.stdenv.hostPlatform.system == "x86_64-linux" then true else false;
         efiSupport = true;
 
       };

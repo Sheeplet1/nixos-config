@@ -15,7 +15,7 @@
       "1password"
       "obsidian"
     ]
-    ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
+    ++ (if pkgs.stdenv.hostPlatform.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
     general = {
       gaps_in = 8;
@@ -204,7 +204,10 @@
       ) 10
     ))
     ++ (
-      if pkgs.system == "x86_64-linux" then [ "$mod, b, exec, zen" ] else [ "$mod, b, exec, firefox" ]
+      if pkgs.stdenv.hostPlatform.system == "x86_64-linux" then
+        [ "$mod, b, exec, zen" ]
+      else
+        [ "$mod, b, exec, firefox" ]
     );
   };
   extraConfig = "";

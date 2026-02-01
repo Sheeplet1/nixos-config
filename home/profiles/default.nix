@@ -81,7 +81,7 @@ in
       meslo-lgs-nf
       nixd
       nixfmt
-      nodePackages.nodejs
+      nodejs
       python3
       ripgrep
       rustup
@@ -124,7 +124,9 @@ in
     # starship = import ../starship.nix { inherit pkgs; };
     tmux = import ../tmux.nix { inherit inputs pkgs; };
     zoxide = import ../zoxide.nix { inherit pkgs; };
-    zsh = import ../zsh.nix { inherit pkgs config; };
+    zsh = import ../zsh.nix { inherit pkgs; };
+    vim = import ../vim.nix { inherit pkgs; };
+    zsh = import ../zsh.nix { inherit pkgs; };
     # vim = import ../vim.nix { inherit pkgs; };
     direnv = {
       enable = true;

@@ -37,6 +37,9 @@ in
       name = "Everforest-Dark-BL";
       package = pkgs.everforest-gtk-theme;
     };
+    gtk4 = {
+      theme = config.gtk.theme;
+    };
   };
 
   programs = {

@@ -39,7 +39,7 @@
       hyprpicker
       hyprshot
       hyprsunset
-      inputs.zen-browser.packages."${pkgs.system}".default
+      inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
       # jellyfin-media-player
       libnotify
       obsidian
@@ -51,7 +51,7 @@
       qt6.qtwayland
       spotify
       swappy # image viewer
-      swww # wallpapers
+      awww # wallpapers
       # todoist-electron
       ticktick
       wl-clipboard
