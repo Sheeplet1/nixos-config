@@ -24,7 +24,6 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
   outputs =
     {
@@ -37,11 +36,21 @@
     }@inputs:
     let
       configuration =
-        { pkgs, config, ... }:
+        { pkgs, ... }:
         {
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           nixpkgs.config.allowUnfree = true;
+
+          # BUG: GDB Build error on Darwin
+          # https://github.com/nixos/nixpkgs/issues/483562
+          nixpkgs.overlays = [
+            (import ../overlays/gdb-disable-werror.nix)
+          ];
+
+          environment.systemPackages = with pkgs; [
+            gdb
+          ];
 
           fonts.packages = with pkgs; [
             nerd-fonts.iosevka
@@ -61,10 +70,13 @@
               "amp"
               "docker"
               "mas"
+              "opencode"
               "pngpaste"
-              "xcodes"
-              "xcode-build-server"
+              "swiftformat"
+              "swiftlint"
               "xcbeautify"
+              "xcode-build-server"
+              "xcodes"
             ];
             caskArgs.no_quarantine = true;
             casks = [
@@ -78,10 +90,11 @@
               "google-chrome"
               "iina"
               "microsoft-office"
+              "1password"
               "obsidian"
               "orcaslicer"
-              "1password"
               "rectangle"
+              "sublime-text"
               "ticktick"
               "the-unarchiver"
               "scroll-reverser"

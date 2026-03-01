@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
-  enable = true;
+  enable = false;
 
-  userSettings = {
+  settings = {
     start-at-login = true;
 
     on-focus-changed = [ "move-mouse monitor-lazy-center" ];
