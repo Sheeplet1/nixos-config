@@ -1,0 +1,211 @@
+{ pkgs, ... }:
+{
+  enable = true;
+  settings = {
+    "$mod" = "SUPER";
+
+    exec-once = [
+      "swww-daemon --format xrgb"
+      # "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
+      # "zen"
+      "firefox"
+      "ghostty"
+      "discord"
+      "spotify"
+      "1password"
+      "obsidian"
+    ]
+    ++ (if pkgs.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
+
+    general = {
+      gaps_in = 8;
+      gaps_out = 16;
+      border_size = 2;
+      resize_on_border = true;
+      layout = "master";
+      "col.active_border" = "rgb(d3869b) rgb(d3869b)";
+    };
+
+    decoration = {
+      rounding = 10;
+
+      active_opacity = 0.9;
+      inactive_opacity = 0.8;
+      fullscreen_opacity = 1;
+
+      dim_inactive = true;
+      dim_strength = 0.1;
+      dim_special = 0.8;
+
+      shadow = {
+        enabled = true;
+        color = "rgb(211, 134, 155)";
+        range = 6;
+        render_power = 1;
+      };
+
+      blur = {
+        enabled = true;
+        size = 6;
+        passes = 2;
+        ignore_opacity = true;
+        new_optimizations = true;
+        special = true;
+      };
+    };
+
+    cursor = {
+      no_hardware_cursors = true;
+    };
+
+    input = {
+      repeat_rate = 33;
+      repeat_delay = 225;
+    };
+
+    animations = {
+      enabled = "yes";
+      bezier = [
+        "wind, 0.05, 0.9, 0.1, 1.05"
+        "winIn, 0.1, 1.1, 0.1, 1.1"
+        "winOut, 0.3, -0.3, 0, 1"
+        "liner, 1, 1, 1, 1"
+      ];
+      animation = [
+        "windows, 1, 6, wind, slide"
+        "windowsIn, 1, 6, winIn, slide"
+        "windowsOut, 1, 5, winOut, slide"
+        "windowsMove, 1, 5, wind, slide"
+        "border, 1, 1, liner"
+        "borderangle, 1, 30, liner, loop"
+        "fade, 1, 10, default"
+        "workspaces, 1, 5, wind"
+      ];
+    };
+
+    monitor = [
+      "DP-1, 3440x1440@175, 0x0, 1"
+      # "DP-2, disable"
+      # "DP-3, disable"
+      # Uncomment to re-enable monitors and comment out the above
+      # "DP-2, 1920x1080@60, 3440x0, 1"
+      "DP-2, 1920x1080@60, -1920x0, 1"
+    ];
+
+    workspace = [
+      "1, monitor:DP-1"
+      "2, monitor:DP-1"
+      "3, monitor:DP-1"
+      "7, monitor:DP-1"
+      "8, monitor:DP-1"
+      "9, monitor:DP-1"
+
+      "4, monitor:DP-2"
+      "5, monitor:DP-2"
+      "6, monitor:DP-2"
+    ];
+
+    windowrule = [
+      "workspace 1, match:class ^([Aa]lacritty)$"
+      "workspace 1, match:class ^(com.mitchellh.ghostty)$"
+      "workspace 2, match:class ^([Vv]ivaldi-stable)$"
+      "workspace 2, match:class ^([Ff]irefox)$"
+      "workspace 2, match:initial_title ^([Zz]en Browser)$"
+      "workspace 3, match:class ^([Oo]bsidian)$"
+      "workspace 4, match:initial_title ^([Ss]potify)$"
+      "workspace 4, match:initial_title ^([Ss]potify Premium)$"
+      "workspace 5, match:class ^([Dd]iscord)$"
+      "workspace 5, match:class ^([Ww]ebCord)$"
+      "workspace 5, match:class ^([Vv]esktop)$"
+      "workspace 7, match:title ^([Jj]ellyfin Media Player)$"
+      "workspace 8, match:class ^(1[Pp]assword)$"
+      "workspace 9, match:class ^([Tt]odoist)$"
+      "workspace 9, match:initial_class ^([Tt]icktick)$"
+      "float on, match:class ^(org.kde.polkit-kde-authentication-agent-1)$"
+      "float on, match:class ([Zz]oom|onedriver|onedriver-launcher)$"
+      "float on, center on, match:class ([Tt]hunar), match:title (File Operation Progress)"
+      "float on, center on, match:class ([Tt]hunar), match:title (Confirm to replace files)"
+      "float on, match:class (xdg-desktop-portal-gtk)"
+      "float on, match:class (org.gnome.Calculator), match:title (Calculator)"
+    ];
+
+    # Move/resize windows with $mod + LMB/RMB
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
+
+    bind = [
+      "$mod, RETURN, exec, alacritty"
+      "$mod, Q, killactive"
+      "$mod, D, exec, pkill wofi || wofi --show drun"
+      # "$mod, D, exec, pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"
+      "$mod, T, exec, thunar"
+      "$mod, M, exit"
+      "$mod, F, fullscreen"
+
+      "$mod, left, movefocus, l"
+      "$mod, right, movefocus, r"
+      "$mod, up, movefocus, u"
+      "$mod, down, movefocus, d"
+
+      "$mod SHIFT, left, resizeactive, -10 0"
+      "$mod SHIFT, right, resizeactive, 10 0"
+      "$mod SHIFT, up, resizeactive, 0 -10"
+      "$mod SHIFT, down, resizeactive, 0 10"
+
+      "$mod CTRL, left, movewindow, l"
+      "$mod CTRL, right, movewindow, r"
+      "$mod CTRL, up, movewindow, u"
+      "$mod CTRL, down, movewindow, d"
+
+      "$mod SHIFT, f, togglefloating"
+      "$mod SHIFT, Tab, workspace, m-1"
+      "$mod, Tab, workspace, m+1"
+
+      # wallpapers
+      "$mod, W, exec, bash $HOME/.scripts/wallpaper_select.sh"
+      "CTRL ALT, W, exec, bash $HOME/.scripts/wallpaper_random.sh"
+
+      # hyprshot
+      ", PRINT, exec, hyprshot -m output --clipboard-only --freeze" # whole monitor
+      "$mod, PRINT, exec, hyprshot -m window --clipboard-only --freeze" # window
+      "$mod, S, exec, hyprshot -m region --clipboard-only --freeze" # like Windows snipping tool
+
+      # hyprpicker
+      "$mod, p, exec, hyprpicker -a -f hex"
+
+      # Controlling media via keyboard
+      ",XF86AudioPlay, exec, playerctl play-pause"
+      ",XF86AudioPause, exec, playerctl play-pause"
+      ",XF86AudioNext, exec, playerctl next"
+      ",XF86AudioPrev, exec, playerctl previous"
+
+      # Media Volume Controls
+      ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+      ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+      "$mod, L, exec, bash $HOME/.scripts/lock_screen.sh"
+      "CTRL ALT, P, exec, bash $HOME/.scripts/wlogout.sh"
+      "$mod, C, exec, bash $HOME/.scripts/change_audio_device.sh"
+    ]
+    ++ (builtins.concatLists (
+      builtins.genList (
+        i:
+        let
+          ws = i + 1;
+        in
+        [
+          "$mod, code:1${toString i}, workspace, ${toString ws}"
+          "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+          "$mod CTRL, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
+        ]
+      ) 10
+    ))
+    ++ (
+      if pkgs.system == "x86_64-linux" then [ "$mod, b, exec, zen" ] else [ "$mod, b, exec, firefox" ]
+    );
+  };
+  extraConfig = "";
+}

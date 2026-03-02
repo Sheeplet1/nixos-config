@@ -68,15 +68,20 @@
             enable = true;
             brews = [
               "amp"
+              "coreutils"
               "docker"
+              "jq"
               "mas"
               "opencode"
+              "pipx"
               "pngpaste"
+              "rg"
               "swiftformat"
               "swiftlint"
               "xcbeautify"
               "xcode-build-server"
               "xcodes"
+              "xcp"
             ];
             caskArgs.no_quarantine = true;
             casks = [
