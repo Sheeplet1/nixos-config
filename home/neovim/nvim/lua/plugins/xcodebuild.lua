@@ -1,7 +1,8 @@
 return {
   "wojciech-kulik/xcodebuild.nvim",
+  lazy = false,
   dependencies = {
-    -- Uncomment a picker that you want to use, snacks.nvim might be additionally 
+    -- Uncomment a picker that you want to use, snacks.nvim might be additionally
     -- useful to show previews and failing snapshots.
 
     -- You must select at least one:
@@ -15,8 +16,15 @@ return {
     "nvim-treesitter/nvim-treesitter", -- (optional) for Quick tests support (required Swift parser)
   },
   config = function()
-    require("xcodebuild").setup({
-        -- put some options here or leave it empty to use default settings
-    })
+    require("xcodebuild").setup {
+      integrations = {
+        pymobiledevice = {
+          enabled = true,
+        },
+      },
+      code_coverage = {
+        enabled = true,
+      },
+    }
   end,
 }

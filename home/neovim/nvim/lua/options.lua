@@ -1,5 +1,8 @@
 vim.g.omni_sql_default_compl_type = "syntax"
 
+-- automatically refresh buffer
+vim.opt.autoread = true
+
 -- column border of 80
 vim.opt.textwidth = 100
 vim.opt.colorcolumn = "100"

@@ -67,11 +67,11 @@
           homebrew = {
             enable = true;
             brews = [
-              "amp"
               "coreutils"
               "docker"
               "jq"
               "mas"
+              "node"
               "opencode"
               "pipx"
               "pngpaste"
@@ -105,7 +105,6 @@
               "scroll-reverser"
               "spotify"
               "whatsapp"
-              "zen"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
