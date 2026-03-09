@@ -87,6 +87,7 @@
             casks = [
               "aerospace"
               "betterdisplay"
+              "codex"
               "claude-code"
               "discord"
               "displaylink"

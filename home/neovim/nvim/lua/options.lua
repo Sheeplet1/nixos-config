@@ -87,6 +87,7 @@ vim.opt.shortmess:append "sI"
 vim.o.foldmethod = "indent"
 -- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevelstart = 99
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
 --------------------------------------------------------------------------------
 -- Keybindings for saving and quitting (typos)
