@@ -88,6 +88,7 @@ in
       sshs
       stow
       tree
+      tree-sitter
       unzip
       uv
       wget
@@ -118,15 +119,13 @@ in
   programs = {
     home-manager.enable = true;
     git = import ../git.nix { inherit pkgs; };
-    fish = import ../fish.nix { inherit pkgs; };
+    # fish = import ../fish.nix { inherit pkgs; };
     fzf = import ../fzf.nix { inherit pkgs; };
     neovim = import ../neovim/neovim.nix { inherit inputs pkgs; };
     # starship = import ../starship.nix { inherit pkgs; };
     tmux = import ../tmux.nix { inherit inputs pkgs; };
     zoxide = import ../zoxide.nix { inherit pkgs; };
-    zsh = import ../zsh.nix { inherit pkgs; };
-    vim = import ../vim.nix { inherit pkgs; };
-    zsh = import ../zsh.nix { inherit pkgs; };
+    zsh = import ../zsh.nix { inherit pkgs config; };
     # vim = import ../vim.nix { inherit pkgs; };
     direnv = {
       enable = true;

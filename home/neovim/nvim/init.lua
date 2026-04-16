@@ -1,30 +1,28 @@
--- vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
+-- Bootstrap entrypoint
+-- The structure is intentionally split so manager/runtime concerns are isolated
+-- from editor behavior (options/keymaps/autocmds) and language features.
+
+-- Make this config self-contained even when launched via `-u <path>/init.lua`.
+-- Without this, Lua `require("core.*")` resolution depends on APPNAME/runtimepath.
+local init_file = debug.getinfo(1, "S").source:sub(2)
+local config_dir = vim.fs.dirname(vim.fn.fnamemodify(init_file, ":p"))
+vim.opt.rtp:prepend(config_dir)
+package.path = table.concat({
+	config_dir .. "/lua/?.lua",
+	config_dir .. "/lua/?/init.lua",
+	package.path,
+}, ";")
+
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-require "options"
+-- Default to Nix/system-managed tools. Mason remains opt-in.
+vim.g.use_mason = false
 
--- bootstrap lazy and all plugins
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-
-if not vim.loop.fs_stat(lazypath) then
-  local repo = "https://github.com/folke/lazy.nvim.git"
-  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
-end
-
-vim.opt.rtp:prepend(lazypath)
-
-local lazy_config = require "configs.lazy"
-
--- load plugins
-require("lazy").setup({
-  { import = "plugins" },
-}, lazy_config)
-
--- load theme
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
-
-require "autocmds"
-
-vim.schedule(function() require "mappings" end)
+require("core.options")
+require("core.autocmds")
+require("plugins")
+require("features.diagnostics")
+require("features.lsp")
+require("features.ui")
+require("core.keymaps")

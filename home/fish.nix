@@ -27,8 +27,6 @@
     c = "clear";
     cd = "z";
     k = "kubectl";
-    # codex = "op run -- codex";
-    # gemini = "op run -- gemini";
   };
 
   shellInit = ''
