@@ -59,7 +59,7 @@ in
       # C++ Development
       cppcheck
       clang-tools
-      clang-analyzer
+      # clang-analyzer
       gtest
       # Profiling tools
       gdb
