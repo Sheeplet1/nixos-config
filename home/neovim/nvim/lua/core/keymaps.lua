@@ -23,6 +23,7 @@ map("n", "H", "0", { desc = "Start of line" })
 map("n", "L", "$", { desc = "End of line" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear search highlight" })
 
+-- Centered comment header mappings
 map(
 	"n",
 	"<leader>cb",
@@ -36,22 +37,30 @@ map(
 	{ desc = "Create centered comment header line" }
 )
 
+-- Window resizing
 map("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
 map("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
 
+-- Open floating diagnostics
 map("n", "<leader>lf", function()
 	vim.diagnostic.open_float(nil, { border = "rounded" })
 end, { desc = "Open diagnostics float" })
 
--- Replace NvChad tabufline actions with native buffer actions.
+-- Split navigation
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
+
+-- Buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
 map("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "New buffer" })
 map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close buffer" })
 
--- Remap commenting buttons to match your previous workflow.
+-- Comment mapping
 map("n", "<leader>/", "gcc", { desc = "Toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 
