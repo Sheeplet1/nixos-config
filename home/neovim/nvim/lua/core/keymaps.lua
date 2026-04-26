@@ -38,10 +38,10 @@ map(
 )
 
 -- Window resizing
-map("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
-map("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
-map("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
-map("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
+map("n", "<A-h>", require("smart-splits").resize_left)
+map("n", "<A-j>", require("smart-splits").resize_down)
+map("n", "<A-k>", require("smart-splits").resize_up)
+map("n", "<A-l>", require("smart-splits").resize_right)
 
 -- Open floating diagnostics
 map("n", "<leader>lf", function()
@@ -49,10 +49,10 @@ map("n", "<leader>lf", function()
 end, { desc = "Open diagnostics float" })
 
 -- Split navigation
-map("n", "<C-h>", "<C-w>h")
-map("n", "<C-j>", "<C-w>j")
-map("n", "<C-k>", "<C-w>k")
-map("n", "<C-l>", "<C-w>l")
+map("n", "<C-h>", require("smart-splits").move_cursor_left)
+map("n", "<C-j>", require("smart-splits").move_cursor_down)
+map("n", "<C-k>", require("smart-splits").move_cursor_up)
+map("n", "<C-l>", require("smart-splits").move_cursor_right)
 
 -- Buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })

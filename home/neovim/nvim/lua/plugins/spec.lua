@@ -44,6 +44,7 @@ function M.list()
 		gh("christoomey/vim-tmux-navigator"),
 		gh("tpope/vim-sleuth"),
 		gh("neovim/nvim-lspconfig"),
+		gh("mrjones2014/smart-splits.nvim"),
 	}
 
 	if vim.g.use_mason then
