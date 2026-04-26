@@ -24,6 +24,7 @@ function M.list()
 		gh("nvim-tree/nvim-web-devicons"),
 		gh("echasnovski/mini.move"),
 		gh("echasnovski/mini.pairs"),
+		gh("echasnovski/mini.tabline"),
 		gh("nvim-mini/mini.indentscope"),
 		gh("echasnovski/mini.statusline"),
 		gh("kylechui/nvim-surround"),

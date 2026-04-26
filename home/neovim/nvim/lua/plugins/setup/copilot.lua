@@ -15,7 +15,7 @@ copilot.setup({
 		accept = false,
 		auto_trigger = true,
 		keymap = {
-			accept = "<C-l>",
+			accept = "<C-Enter>",
 			prev = "<M-[>",
 			next = "<M-]>",
 			dismiss = "<C-e>",
