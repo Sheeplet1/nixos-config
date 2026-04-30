@@ -44,6 +44,7 @@ in
       # AI Packages
       claude-code
       codex
+      code-cursor
 
       # Streamyfin packages
       bun
