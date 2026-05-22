@@ -8,7 +8,7 @@ copilot.setup({
 		accept = false,
 		auto_trigger = true,
 		keymap = {
-			accept = "<Tab>",
+			accept = "<C-l>",
 			prev = "<M-[>",
 			next = "<M-]>",
 			dismiss = "<C-e>",

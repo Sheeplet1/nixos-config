@@ -49,6 +49,18 @@
       "rev": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee",
       "src": "https://github.com/iamcco/markdown-preview.nvim"
     },
+    "mini.animate": {
+      "rev": "a133965b027a6377fddca43f11659af357c12758",
+      "src": "https://github.com/nvim-mini/mini.animate"
+    },
+    "mini.cmdline": {
+      "rev": "0afaf26d4d12030b0f75c7c4584dae883a195ef3",
+      "src": "https://github.com/nvim-mini/mini.cmdline"
+    },
+    "mini.cursorword": {
+      "rev": "a01471856e462144ea53972f22a67e790be68ee6",
+      "src": "https://github.com/nvim-mini/mini.cursorword"
+    },
     "mini.indentscope": {
       "rev": "e0601f75aa5137a5a13bb92a988c9a300f5bd3de",
       "src": "https://github.com/nvim-mini/mini.indentscope"

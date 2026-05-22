@@ -5,9 +5,13 @@ local oil = require("oil")
 
 oil.setup({
 	columns = { "icon" },
-	float = { border = "rounded" },
+	float = { border = "rounded", preview_split = "right" },
 })
 
 vim.keymap.set("n", "<C-n>", function()
-	oil.open_float()
+	oil.open_float(nil, {
+		preview = {
+			update = true,
+		},
+	})
 end, { desc = "Open Oil in float" })

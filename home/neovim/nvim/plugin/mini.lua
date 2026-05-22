@@ -1,11 +1,5 @@
--- Load all mini.nvim modules
+-- mini.move
 vim.pack.add({ "https://github.com/echasnovski/mini.move" })
-vim.pack.add({ "https://github.com/echasnovski/mini.pairs" })
-vim.pack.add({ "https://github.com/echasnovski/mini.indentscope" })
-vim.pack.add({ "https://github.com/echasnovski/mini.statusline" })
-vim.pack.add({ "https://github.com/echasnovski/mini.tabline" })
-
--- Configure mini.move for moving lines/blocks of text
 require("mini.move").setup({
 	mappings = {
 		left = "<M-h>",
@@ -22,17 +16,33 @@ require("mini.move").setup({
 	},
 })
 
--- Configure mini.pairs for auto-pairing brackets
+-- mini.pairs
+vim.pack.add({ "https://github.com/echasnovski/mini.pairs" })
 require("mini.pairs").setup({})
 
--- Configure mini.indentscope for indent guides
+-- mini.indentscope
+vim.pack.add({ "https://github.com/echasnovski/mini.indentscope" })
 require("mini.indentscope").setup({
 	symbol = "│",
 	options = { try_as_border = true },
 })
 
--- Configure mini.statusline
+-- mini.statusline
+vim.pack.add({ "https://github.com/echasnovski/mini.statusline" })
 require("mini.statusline").setup()
 
--- Configure mini.tabline
+-- mini.tabline
+vim.pack.add({ "https://github.com/echasnovski/mini.tabline" })
 require("mini.tabline").setup()
+
+-- mini.cmdline
+vim.pack.add({ "https://github.com/nvim-mini/mini.cmdline" })
+require("mini.cmdline").setup()
+
+-- mini.cursorword: highlight word under cursor
+vim.pack.add({ "https://github.com/nvim-mini/mini.cursorword" })
+require("mini.cursorword").setup()
+
+-- mini.animate
+vim.pack.add({ "https://github.com/nvim-mini/mini.animate" })
+require("mini.animate").setup()

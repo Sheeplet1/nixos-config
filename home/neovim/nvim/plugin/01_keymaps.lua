@@ -15,8 +15,8 @@ map("n", "<leader>q", "<cmd>q!<CR>", { desc = "Quit without saving" })
 
 map("n", "n", "nzzzv", { desc = "Next search result centered" })
 map("n", "N", "Nzzzv", { desc = "Previous search result centered" })
-map("n", "<C-d>", "<C-d>zz", { desc = "Half-page down centered" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Half-page up centered" })
+-- map("n", "<C-d>", "<C-d>zz", { desc = "Half-page down centered" })
+-- map("n", "<C-u>", "<C-u>zz", { desc = "Half-page up centered" })
 map("n", "<S-}>", "<S-}>zzzv", { desc = "Next paragraph centered" })
 map("n", "<S-{", "<S-{>zzzv", { desc = "Previous paragraph centered" })
 
