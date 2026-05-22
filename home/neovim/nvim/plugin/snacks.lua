@@ -1,3 +1,6 @@
+-- Load snacks.nvim for various utilities (picker, zen mode, etc.)
+vim.pack.add({ "https://github.com/folke/snacks.nvim" })
+
 local snacks = require("snacks")
 
 snacks.setup({

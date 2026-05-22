@@ -1,8 +1,14 @@
+-- Load conform.nvim formatting plugin
+vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
+
 local conform = require("conform")
 
+-- Helper to check if binary exists
 local has = function(bin)
 	return vim.fn.executable(bin) == 1
 end
+
+-- Helper to find first available formatter from a list
 local first_available = function(...)
 	local selected = {}
 	for _, bin in ipairs({ ... }) do

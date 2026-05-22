@@ -71,10 +71,10 @@
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
     # Tmux attach session or start new
-    #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; 
-    #then
-    #  tmux attach 2>/dev/null || tmux
-    #fi
+    if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; 
+    then
+      tmux attach 2>/dev/null || tmux
+    fi
 
     eval "$(direnv hook zsh)"
 

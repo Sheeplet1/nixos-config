@@ -1,3 +1,7 @@
+--
+-- Key Mappings
+--
+
 local map = vim.keymap.set
 
 map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
@@ -37,22 +41,10 @@ map(
 	{ desc = "Create centered comment header line" }
 )
 
--- Window resizing
-map("n", "<A-h>", require("smart-splits").resize_left)
-map("n", "<A-j>", require("smart-splits").resize_down)
-map("n", "<A-k>", require("smart-splits").resize_up)
-map("n", "<A-l>", require("smart-splits").resize_right)
-
 -- Open floating diagnostics
 map("n", "<leader>lf", function()
 	vim.diagnostic.open_float(nil, { border = "rounded" })
 end, { desc = "Open diagnostics float" })
-
--- Split navigation
-map("n", "<C-h>", require("smart-splits").move_cursor_left)
-map("n", "<C-j>", require("smart-splits").move_cursor_down)
-map("n", "<C-k>", require("smart-splits").move_cursor_up)
-map("n", "<C-l>", require("smart-splits").move_cursor_right)
 
 -- Buffer navigation
 map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })

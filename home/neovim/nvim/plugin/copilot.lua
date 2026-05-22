@@ -1,21 +1,14 @@
+-- Load GitHub Copilot plugin
+vim.pack.add({ "https://github.com/zbirenbaum/copilot.lua" })
+
 local copilot = require("copilot")
 
 copilot.setup({
-	panel = {
-		auto_refresh = false,
-		keymap = {
-			accept = "<M-l>",
-			jump_prev = "[[",
-			jump_next = "]]",
-			refresh = "gr",
-			open = "<M-CR>",
-		},
-	},
 	suggestion = {
 		accept = false,
 		auto_trigger = true,
 		keymap = {
-			accept = "<C-Enter>",
+			accept = "<Tab>",
 			prev = "<M-[>",
 			next = "<M-]>",
 			dismiss = "<C-e>",

@@ -1,3 +1,8 @@
+-- Load treesitter and related plugins
+vim.pack.add({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" } })
+vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter-context" })
+vim.pack.add({ "https://github.com/windwp/nvim-ts-autotag" })
+
 local ts = require("nvim-treesitter")
 
 local parsers = {
@@ -36,6 +41,7 @@ else
 	end)
 end
 
+-- Enable treesitter for all filetypes
 vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("UserTreesitterStart", { clear = true }),
 	callback = function()
@@ -43,6 +49,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Configure treesitter-context to show current context
 require("treesitter-context").setup({
 	enable = true,
 	multiwindow = false,

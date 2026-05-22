@@ -64,7 +64,7 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.fish;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.anthonyd = {
     isNormalUser = true;
@@ -74,7 +74,7 @@
       "input"
       "docker"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   home-manager = {
@@ -132,7 +132,8 @@
   programs = {
     ssh.startAgent = true;
     lazygit.enable = true;
-    zsh.enable = true;
+    # zsh.enable = true;
+    fish.enable = true;
   };
 
   services = {

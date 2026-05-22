@@ -1,6 +1,9 @@
+-- Only load Mason if explicitly enabled (disabled for Nix by default)
 if not vim.g.use_mason then
 	return
 end
+
+vim.pack.add({ "https://github.com/williamboman/mason.nvim" })
 
 local mason = require("mason")
 
@@ -33,9 +36,9 @@ mason.setup({
 	ui = {
 		border = "rounded",
 		icons = {
-			package_pending = " ",
-			package_installed = " ",
-			package_uninstalled = " ",
+			package_pending = " ",
+			package_installed = " ",
+			package_uninstalled = " ",
 		},
 	},
 	max_concurrent_installers = 10,

@@ -1,3 +1,7 @@
+--
+-- Options
+--
+
 vim.g.omni_sql_default_compl_type = "syntax"
 vim.g.have_nerd_font = true
 vim.g.zig_fmt_parse_errors = 0
@@ -41,6 +45,9 @@ vim.opt.tabstop = spaces
 vim.opt.softtabstop = spaces
 vim.opt.shiftwidth = spaces
 vim.opt.expandtab = true
+
+vim.opt.termguicolors = true
+vim.opt.winborder = "rounded"
 
 -- Fix typos
 vim.cmd([[command! W w]])

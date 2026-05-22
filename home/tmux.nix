@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 let
 in
 {
@@ -10,7 +10,7 @@ in
   escapeTime = 10;
   newSession = true;
   prefix = "C-a";
-  shell = "${pkgs.zsh}/bin/zsh";
+  shell = "${pkgs.fish}/bin/fish";
 
   plugins = with pkgs.tmuxPlugins; [
     vim-tmux-navigator
