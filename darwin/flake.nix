@@ -83,6 +83,23 @@
               "xcode-build-server"
               "xcodes"
               "xcp"
+
+              # TECH DEBT: jellyfin-desktop build dependencies
+              "cmake"
+              "ninja"
+              "meson"
+              "pkgconf"
+              "ffmpeg"
+              "libplacebo"
+              "libass"
+              "luajit"
+              "vulkan-loader"
+              "vulkan-headers"
+              "molten-vk"
+              "little-cms2"
+              "libunibreak"
+              "zimg"
+              "create-dmg"
             ];
             caskArgs.no_quarantine = true;
             casks = [

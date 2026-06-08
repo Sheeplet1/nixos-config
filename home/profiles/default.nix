@@ -60,7 +60,6 @@ in
         curl
         eza
         fd
-        gcc
         gh
         jq
         jujutsu
@@ -87,6 +86,7 @@ in
         else
           [
             # Apple silicon is not supported. We use Instruments instead.
+            gcc
             valgrind
           ]
       )
