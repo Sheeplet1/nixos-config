@@ -64,6 +64,7 @@ in
         gh
         jq
         jujutsu
+        just
         lazygit
         meslo-lgs-nf
         python3
