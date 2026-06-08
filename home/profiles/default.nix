@@ -61,6 +61,7 @@ in
         eza
         fd
         gcc
+        gh
         jq
         jujutsu
         lazygit
