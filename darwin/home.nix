@@ -12,9 +12,12 @@
 
   xdg.enable = true;
 
+  enablePackages.shellDevelopment.enable = true;
+  enablePackages.rustDevelopment.enable = true;
+  enablePackages.typescriptDevelopment.enable = true;
+
   home.packages = with pkgs; [
     mkalias
-    zls
   ];
 
   programs.aerospace = (import ./home/aerospace.nix { inherit pkgs; });

@@ -4,6 +4,7 @@
   defaultEditor = true;
   withRuby = true;
   withPython3 = true;
+  sideloadInitLua = true;
   extraPackages = with pkgs; [
     # LSPs added here are added globally. Preferably, we install required LSPs per project via
     # flake.nix

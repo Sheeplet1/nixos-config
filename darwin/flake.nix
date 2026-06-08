@@ -20,10 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # rust-overlay = {
+    #   url = "github:oxalica/rust-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
   outputs =
     {
@@ -69,12 +69,14 @@
             brews = [
               "coreutils"
               "docker"
-              "jq"
+              # "jq"
               "mas"
-              "node"
+              # "node"
               "pipx"
               "pngpaste"
-              "rg"
+              # "rg"
+
+              # Swift Development Tools
               "swiftformat"
               "swiftlint"
               "xcbeautify"
@@ -84,28 +86,31 @@
             ];
             caskArgs.no_quarantine = true;
             casks = [
-              "aerospace"
-              "betterdisplay"
-              "codex"
-              "codex-app"
+              # "aerospace"
+              # "betterdisplay"
               "claude-code"
               "discord"
-              "displaylink"
-              "flux-app"
+              # "displaylink"
+              # "flux-app"
               "ghostty"
-              "google-chrome"
+              # "google-chrome"
+              # "firefox"
+              # "microsoft-edge"
+              # "zen"
+              # "brave-browser"
               "iina"
               "microsoft-office"
               "1password"
               "obsidian"
               "orcaslicer"
               "rectangle"
-              "sublime-text"
-              "ticktick"
+              # "sublime-text"
+              # "ticktick"
               "the-unarchiver"
               "scroll-reverser"
               "spotify"
-              "whatsapp"
+              # "whatsapp"
+              # "zed"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;

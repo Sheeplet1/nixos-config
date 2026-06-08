@@ -44,5 +44,5 @@ vim.pack.add({ "https://github.com/nvim-mini/mini.cursorword" })
 require("mini.cursorword").setup()
 
 -- mini.animate
-vim.pack.add({ "https://github.com/nvim-mini/mini.animate" })
-require("mini.animate").setup()
+-- vim.pack.add({ "https://github.com/nvim-mini/mini.animate" })
+-- require("mini.animate").setup()
