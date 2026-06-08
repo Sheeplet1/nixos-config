@@ -122,6 +122,7 @@ in
       ]
       ++ lib.optionals cfg.rustDevelopment.enable [
         clippy
+        cargo
         rust-analyzer
         rustc
         rustfmt

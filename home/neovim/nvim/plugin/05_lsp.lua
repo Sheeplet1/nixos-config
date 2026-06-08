@@ -35,25 +35,6 @@ if ok_blink and blink.get_lsp_capabilities then
 	capabilities = blink.get_lsp_capabilities(capabilities)
 end
 
--- Mapping of server names to their CLI commands.
-local server_cmd = {
-	bashls = "bash-language-server",
-	lua_ls = "lua-language-server",
-	pyright = "pyright-langserver",
-	ruff = "ruff",
-	html = "vscode-html-language-server",
-	cssls = "vscode-css-language-server",
-	tailwindcss = "tailwindcss-language-server",
-	ts_ls = "typescript-language-server",
-	svelte = "svelteserver",
-	rust_analyzer = "rust-analyzer",
-	gopls = "gopls",
-	clangd = "clangd",
-	nixd = "nixd",
-	sourcekit = "sourcekit-lsp",
-	zls = "zls",
-}
-
 -- Define the servers to be setup.
 local servers = {
 	bashls = {},
@@ -76,21 +57,48 @@ local servers = {
 			},
 		},
 	},
-	pyright = {},
-	ruff = {},
 	html = {},
 	cssls = {},
 	tailwindcss = {},
-	ts_ls = {
+	nixd = {
+		cmd = { "nixd" },
 		settings = {
-			separate_diagnostic_server = true,
-			public_diagnostic_on = "insert_leave",
-			tsserver_plugins = {},
+			nixpkgs = { expr = "import <nixpkgs> { }" },
+			formatting = { command = { "nixfmt" } },
 		},
 	},
-	-- svelte = {},
-	-- rust_analyzer = {},
-	gopls = {
+}
+
+if vim.g.enable_zig_development ~= false then
+	servers.zls = {
+		settings = {
+			zls = {
+				inlay_hints_show_variable_type_hints = false,
+				inlay_hints_show_struct_literal_field_type = false,
+				inlay_hints_show_parameter_name = false,
+				inlay_hints_show_builtin = false,
+				inlay_hints_hide_redundant_param_names = true,
+				inlay_hints_hide_redundant_param_names_last_token = true,
+			},
+		},
+	}
+end
+
+if vim.g.enable_cpp_development ~= false then
+	servers.clangd = {
+		cmd = {
+			"clangd",
+			"--fallback-style=webkit",
+		},
+	}
+end
+
+if vim.g.enable_rust_development ~= false then
+	servers.rust_analyzer = {}
+end
+
+if vim.g.enable_go_development ~= false then
+	servers.gopls = {
 		cmd = { "gopls" },
 		filetypes = { "go", "gomod", "gowork", "gotmpl" },
 		root_dir = vim.fs.root(0, { "go.work", "go.mod", ".git" }),
@@ -101,71 +109,51 @@ local servers = {
 				analyses = { unusedparams = true },
 			},
 		},
-	},
-	-- clangd = {
-	-- 	cmd = {
-	-- 		"clangd",
-	-- 		"--fallback-style=webkit",
-	-- 	},
-	-- },
-	nixd = {
-		cmd = { "nixd" },
-		settings = {
-			nixpkgs = { expr = "import <nixpkgs> { }" },
-			formatting = { command = { "nixfmt" } },
-		},
-	},
-	-- zls = {
-	-- 	settings = {
-	-- 		zls = {
-	-- 			inlay_hints_show_variable_type_hints = false,
-	-- 			inlay_hints_show_struct_literal_field_type = false,
-	-- 			inlay_hints_show_parameter_name = false,
-	-- 			inlay_hints_show_builtin = false,
-	-- 			inlay_hints_hide_redundant_param_names = true,
-	-- 			inlay_hints_hide_redundant_param_names_last_token = true,
-	-- 		},
-	-- 	},
-	-- },
-}
+	}
+end
 
--- Svelte LSP doesn't watch for changes in .ts or .js files. This autocmd notifies the LSP when those
--- files are updated.
+if vim.g.enable_python_development ~= false then
+	servers.pyright = {}
+	servers.ruff = {}
+end
+
+if vim.g.enable_typescript_development ~= false then
+	servers.ts_ls = {
+		settings = {
+			separate_diagnostic_server = true,
+			public_diagnostic_on = "insert_leave",
+			tsserver_plugins = {},
+		},
+	}
+end
+
+-- Svelte LSP doesn't watch for changes in .ts or .js files.
+-- This autocmd notifies the LSP when those files are updated.
 local custom_on_attach = {
-	svelte = function(client)
-		vim.api.nvim_create_autocmd("BufWritePost", {
-			pattern = { "*.js", "*.ts" },
-			group = vim.api.nvim_create_augroup("UserSvelteTsJsNotify", { clear = true }),
-			callback = function(ctx)
-				client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-			end,
-		})
-	end,
+	-- svelte = function(client)
+	-- 	vim.api.nvim_create_autocmd("BufWritePost", {
+	-- 		pattern = { "*.js", "*.ts" },
+	-- 		group = vim.api.nvim_create_augroup("UserSvelteTsJsNotify", { clear = true }),
+	-- 		callback = function(ctx)
+	-- 			client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+	-- 		end,
+	-- 	})
+	-- end,
 }
 
 -- Set up each server.
 for name, opts in pairs(servers) do
-	-- Check that the server is installed.
-	local cmd = server_cmd[name]
-	if cmd and vim.fn.executable(cmd) ~= 1 then
-		goto continue
-	end
-
-	-- Set up the server
 	opts.on_init = on_init
 	opts.capabilities = opts.capabilities or capabilities
 	opts.on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
+
+		-- If there is a custom on_attach for this server, then call it after the default.
 		if custom_on_attach[name] then
 			custom_on_attach[name](client, bufnr)
 		end
 	end
 
-	-- Enable the server
-	local ok = pcall(vim.lsp.config, name, opts)
-	if ok then
-		pcall(vim.lsp.enable, name)
-	end
-
-	::continue::
+	pcall(vim.lsp.config, name, opts)
+	pcall(vim.lsp.enable, name)
 end
