@@ -18,6 +18,7 @@
 
     # jj aliases
     jd = "jj desc";
+    jdf = "hunk diff";
     jf = "jj git fetch";
     jn = "jj new";
     jp = "jj git push";

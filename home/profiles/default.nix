@@ -123,11 +123,8 @@ in
         ninja
       ]
       ++ lib.optionals cfg.rustDevelopment.enable [
-        clippy
-        cargo
-        rust-analyzer
-        rustc
-        rustfmt
+        rustup
+        jetbrains.rust-rover
       ]
       ++ lib.optionals cfg.typescriptDevelopment.enable [
         biome

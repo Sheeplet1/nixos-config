@@ -15,10 +15,10 @@
     background-opacity = 0.95;
     background-blur-radius = 20;
     keybind = [
-      "cmd+h=goto_split:left"
-      "cmd+l=goto_split:right"
-      "cmd+j=goto_split:down"
-      "cmd+k=goto_split:up"
+      "ctrl+h=goto_split:left"
+      "ctrl+l=goto_split:right"
+      "ctrl+j=goto_split:down"
+      "ctrl+k=goto_split:up"
     ];
   };
 }

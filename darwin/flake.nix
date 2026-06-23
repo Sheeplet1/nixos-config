@@ -13,6 +13,7 @@
 
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
+      # inputs.brew-src.url = "github:Homebrew/brew/6.0.1";
     };
 
     home-manager = {
@@ -110,7 +111,7 @@
               # "displaylink"
               # "flux-app"
               "ghostty"
-              # "google-chrome"
+              "google-chrome"
               # "firefox"
               # "microsoft-edge"
               # "zen"
