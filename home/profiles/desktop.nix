@@ -13,6 +13,10 @@ in
     ./default.nix
   ];
 
+  enablePackages.shellDevelopment.enable = true;
+  enablePackages.rustDevelopment.enable = true;
+  enablePackages.typescriptDevelopment.enable = true;
+
   home.sessionVariables = {
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_PICTURES_DIR = "$HOME/Pictures";

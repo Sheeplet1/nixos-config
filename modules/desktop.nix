@@ -40,7 +40,6 @@
       hyprshot
       hyprsunset
       inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
-      # jellyfin-media-player
       libnotify
       obsidian
       orca-slicer
