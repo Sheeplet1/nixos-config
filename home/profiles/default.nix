@@ -60,7 +60,6 @@ in
         curl
         eza
         fd
-        gh
         jq
         jujutsu
         just
@@ -157,6 +156,10 @@ in
     programs = {
       home-manager.enable = true;
       git = import ../git.nix { inherit pkgs; };
+      gh = {
+          enable = true;
+          gitCredentialHelper.enable = true;
+      };
       fish = import ../fish.nix { inherit pkgs; };
       fzf = import ../fzf.nix { inherit pkgs; };
       ghostty = import ../ghostty.nix { inherit pkgs; };
