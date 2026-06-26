@@ -150,6 +150,8 @@ in
     home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
     home.file.".config/jj/config.toml".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix/home/jujutsu.toml";
+    home.file.".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/nix/home/ideavimrc";
 
     xdg.configFile."electron-flags.conf".source = ./electron-flags.conf;
 

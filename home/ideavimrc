@@ -1,0 +1,84 @@
+set scrolloff=10
+set linenumber
+set showmode
+set showcmd
+set visualbell
+set clipboard+=unnamedplus
+set clipboard+=ideaput
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+let mapleader = " "
+
+set commentary
+set surround
+set highlightedyank
+set sneak
+set nerdtree
+set easymotion
+set notimeout
+set which-key
+
+" Tab Navigation
+map <Tab> <Action>(NextTab)
+map <S-Tab> <Action>(PreviousTab)
+
+" Pane navigations
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+" Popup navigation
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+map <leader>j <Plug>(easymotion-s)
+map <leader>x :NERDTreeToggle<CR>
+
+" Folds
+" TODO: Improve these keybinds...
+map <leader>fc :action CollapseAllRegions<CR>
+map <leader>fo :action ExpandAllRegions<CR>
+
+" Zen
+map <leader>zd <action>(ToggleDistractionFreeMode)
+map <leader>zm <action>(ToggleZenMode)
+
+" Actions
+map <leader>am <action>(ShowIntentionActions)
+map <leader>as <action>(SearchEverywhere)
+
+" File navigation
+map <leader>ff <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>fc <action>(FindInPath)
+map <leader><leader> <Action>(RecentFiles)
+map <leader>fl <action>(RecentLocations)
+map <leader>fs <action>(NewScratchFile)
+
+" Refactoring
+map <leader>ra <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gr <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+
+" Window Management
+nmap <C-n> <Action>(ActivateToolProjectWindow)
+nmap <C-j> <Action>(ActivateTerminalToolWindow)
+nmap <C-t> <Action>(ActivateUnitTestsToolWindow)
+nmap <C--> <Action>(HideActiveWindow)set ideajoin
