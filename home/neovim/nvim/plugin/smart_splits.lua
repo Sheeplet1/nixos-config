@@ -1,33 +1,33 @@
-vim.pack.add({ "https://github.com/mrjones2014/smart-splits.nvim" })
-
-require("smart-splits").setup()
-
-local map = vim.keymap.set
-
--- Split navigation
-map("n", "<C-h>", function()
-	require("smart-splits").move_cursor_left()
-end, { desc = "Move to left split" })
-map("n", "<C-j>", function()
-	require("smart-splits").move_cursor_down()
-end, { desc = "Move to bottom split" })
-map("n", "<C-k>", function()
-	require("smart-splits").move_cursor_up()
-end, { desc = "Move to top split" })
-map("n", "<C-l>", function()
-	require("smart-splits").move_cursor_right()
-end, { desc = "Move to right split" })
-
--- Window resizing
-map("n", "<A-h>", function()
-	require("smart-splits").resize_left()
-end, { desc = "Resize split left" })
-map("n", "<A-j>", function()
-	require("smart-splits").resize_down()
-end, { desc = "Resize split down" })
-map("n", "<A-k>", function()
-	require("smart-splits").resize_up()
-end, { desc = "Resize split up" })
-map("n", "<A-l>", function()
-	require("smart-splits").resize_right()
-end, { desc = "Resize split right" })
+-- vim.pack.add({ "https://github.com/mrjones2014/smart-splits.nvim" })
+--
+-- require("smart-splits").setup()
+--
+-- local map = vim.keymap.set
+--
+-- -- Split navigation
+-- map("n", "<C-h>", function()
+-- 	require("smart-splits").move_cursor_left()
+-- end, { desc = "Move to left split" })
+-- map("n", "<C-j>", function()
+-- 	require("smart-splits").move_cursor_down()
+-- end, { desc = "Move to bottom split" })
+-- map("n", "<C-k>", function()
+-- 	require("smart-splits").move_cursor_up()
+-- end, { desc = "Move to top split" })
+-- map("n", "<C-l>", function()
+-- 	require("smart-splits").move_cursor_right()
+-- end, { desc = "Move to right split" })
+--
+-- -- Window resizing
+-- map("n", "<A-h>", function()
+-- 	require("smart-splits").resize_left()
+-- end, { desc = "Resize split left" })
+-- map("n", "<A-j>", function()
+-- 	require("smart-splits").resize_down()
+-- end, { desc = "Resize split down" })
+-- map("n", "<A-k>", function()
+-- 	require("smart-splits").resize_up()
+-- end, { desc = "Resize split up" })
+-- map("n", "<A-l>", function()
+-- 	require("smart-splits").resize_right()
+-- end, { desc = "Resize split right" })

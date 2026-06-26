@@ -5,7 +5,6 @@ local copilot = require("copilot")
 
 copilot.setup({
 	suggestion = {
-		accept = false,
 		auto_trigger = true,
 		keymap = {
 			accept = "<C-l>",
