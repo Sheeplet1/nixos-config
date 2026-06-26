@@ -29,6 +29,8 @@
       chromium
       discord
       docker
+      # todoist-electron
+      awww # wallpapers
       eww
       firefox
       gtk3
@@ -41,6 +43,7 @@
       hyprsunset
       inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
       libnotify
+      libxkbcommon
       obsidian
       orca-slicer
       papirus-icon-theme
@@ -50,9 +53,8 @@
       qt6.qtwayland
       spotify
       swappy # image viewer
-      awww # wallpapers
-      # todoist-electron
       ticktick
+      wayland
       wl-clipboard
       wlogout
       wofi

@@ -1,7 +1,5 @@
--- Load blink.cmp completion plugin
+vim.pack.add({ 'https://github.com/saghen/blink.lib' })
 vim.pack.add({ "https://github.com/saghen/blink.cmp" })
-
--- Load friendly snippets for blink.cmp to use
 vim.pack.add({ "https://github.com/rafamadriz/friendly-snippets" })
 
 local blink = require("blink.cmp")

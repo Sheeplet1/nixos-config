@@ -31,33 +31,43 @@ local map = vim.keymap.set
 map("n", "<leader>z", function()
 	snacks.zen()
 end, { desc = "Toggle Zen Mode" })
+
 map("n", "<leader><space>", function()
 	snacks.picker.smart()
 end, { desc = "Smart Find Files" })
+
 map("n", "<leader>:", function()
 	snacks.picker.command_history()
 end, { desc = "Command History" })
+
 map("n", "<leader>n", function()
 	snacks.picker.notifications()
 end, { desc = "Notification History" })
+
 map("n", "<leader>ff", function()
 	snacks.picker.files()
 end, { desc = "Find Files" })
+
 map("n", "<leader>fg", function()
 	snacks.picker.grep()
 end, { desc = "Grep" })
+
 map({ "n", "x" }, "<leader>fw", function()
 	snacks.picker.grep_word()
 end, { desc = "Visual selection or word" })
+
 map("n", "<leader>fb", function()
 	snacks.picker.buffers()
 end, { desc = "Find Buffers" })
+
 map("n", "<leader>fr", function()
 	snacks.picker.recent()
 end, { desc = "Recent Files" })
+
 map("n", "<leader>fd", function()
 	snacks.picker.diagnostics()
 end, { desc = "Diagnostics" })
+
 map("n", "<leader>fk", function()
 	snacks.picker.keymaps()
 end, { desc = "Keymaps" })

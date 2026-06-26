@@ -35,13 +35,13 @@
     set -g theme_color_scheme dracula
 
     # Tmux attach session or start new
-    if command -v tmux >/dev/null 2>&1
-        and status is-interactive
-        and not set -q TMUX
-        and not string match -rq 'screen|tmux' -- "$TERM"
-
-        tmux attach 2>/dev/null; or tmux
-    end
+    # if command -v tmux >/dev/null 2>&1
+    #     and status is-interactive
+    #     and not set -q TMUX
+    #     and not string match -rq 'screen|tmux' -- "$TERM"
+    #
+    #     tmux attach 2>/dev/null; or tmux
+    # end
   '';
 
   functions = {

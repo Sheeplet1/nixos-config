@@ -32,8 +32,8 @@ vim.pack.add({ "https://github.com/echasnovski/mini.statusline" })
 require("mini.statusline").setup()
 
 -- mini.tabline
-vim.pack.add({ "https://github.com/echasnovski/mini.tabline" })
-require("mini.tabline").setup()
+-- vim.pack.add({ "https://github.com/echasnovski/mini.tabline" })
+-- require("mini.tabline").setup()
 
 -- mini.cmdline
 vim.pack.add({ "https://github.com/nvim-mini/mini.cmdline" })
