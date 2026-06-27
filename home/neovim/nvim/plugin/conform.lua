@@ -58,6 +58,8 @@ if vim.g.enable_rust_development ~= false then
 	formatters_by_ft.rust = rust_formatters
 end
 
+vim.g.disable_autoformat = false
+
 conform.setup({
 	formatters = {
 		biome = {
@@ -65,8 +67,24 @@ conform.setup({
 		},
 	},
 	formatters_by_ft = formatters_by_ft,
-	-- format_on_save = {
-	-- 	timeout_ms = 500,
-	-- 	lsp_fallback = true,
-	-- },
+	format_on_save = function()
+		if vim.g.disable_autoformat then
+			return
+		end
+
+		return {
+			timeout_ms = 500,
+			lsp_fallback = true,
+		}
+	end,
+})
+
+vim.api.nvim_create_user_command("FormatToggle", function()
+  vim.g.disable_autoformat = not vim.g.disable_autoformat
+
+  vim.notify(
+    "Format on save " .. (vim.g.disable_autoformat and "disabled" or "enabled")
+  )
+end, {
+  desc = "Toggle autoformat-on-save",
 })

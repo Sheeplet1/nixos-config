@@ -73,6 +73,7 @@ in
         unzip
         uv
         wget
+        yarn
         yazi
         zip
         zsh-powerlevel10k
@@ -150,8 +151,8 @@ in
     home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
     home.file.".config/jj/config.toml".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix/home/jujutsu.toml";
-    home.file.".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/nix/home/ideavimrc";
+    home.file.".ideavimrc".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix/home/ideavimrc";
 
     xdg.configFile."electron-flags.conf".source = ./electron-flags.conf;
 
@@ -159,8 +160,8 @@ in
       home-manager.enable = true;
       git = import ../git.nix { inherit pkgs; };
       gh = {
-          enable = true;
-          gitCredentialHelper.enable = true;
+        enable = true;
+        gitCredentialHelper.enable = true;
       };
       fish = import ../fish.nix { inherit pkgs; };
       fzf = import ../fzf.nix { inherit pkgs; };

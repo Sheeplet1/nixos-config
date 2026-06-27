@@ -67,7 +67,7 @@ for i = 1, 9, 1 do
 end
 
 -- Format on demand
-map("n", "<leader>f", function()
+map("n", "<leader>fm", function()
 	require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "Format buffer" })
 
