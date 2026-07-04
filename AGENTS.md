@@ -19,9 +19,20 @@ How to apply:
 - Anything user-facing (UI, copy, API design) needs taste ≥ 7.
 - Reviews of plans/implementations: fable-5 or opus-4.8, optionally gpt-5.5 as an extra independent perspective.
 - Never use Haiku.
-- Mechanics: gpt-5.5 is only reachable through the Codex CLI — `codex exec` / `codex review` (my `~/.codex/config.toml` defaults to gpt-5.5). Use the `codex-implementation`, `codex-review`, and `codex-computer-use` skills; for work they don't cover (investigation, data analysis), run `codex exec -s read-only` directly with a self-contained prompt.
+- Mechanics: gpt-5.5 is only reachable through the Codex CLI — `codex exec` / `codex review` (my `~/.codex/config.toml` defaults to gpt-5.5). Prefer the plugin commands: `/codex:rescue` for implementation, fixes, and delegation; `/codex:review` for standard code review; `/codex:adversarial-review` for challenge review. Fall back to `codex exec -s read-only` directly only for raw investigation or data analysis that the plugin commands don't cover.
 - Claude models (sonnet-5, opus-4.8, fable-5) run via the Agent/Workflow model parameter.
 
-Using gpt-5.5 inside workflows and subagents (the model parameter only takes Claude models, so use a wrapper):
+Using gpt-5.5 inside workflows and subagents:
 
-- Spawn a thin Claude wrapper agent with `model: 'sonnet', effort: 'low'` whose prompt instructs it to write a self-contained Codex prompt, run `codex exec` via Bash, and return
+- The codex plugin handles this natively. `/codex:rescue` spawns a `codex:codex-rescue` subagent that forwards to the companion script (`codex-companion.mjs`), which calls the Codex CLI. No wrapper agent needed.
+
+## Documenting code
+
+Write comments in prose that explain intent and contracts, not a play-by-play of the code.
+
+- Doc-comment every public declaration — types, functions, fields, constants. If it's part of the API surface, it gets a comment.
+- Explain _why_, not _what_. The code already shows what it does; the comment carries the reasoning, the tradeoff, and the context that would otherwise require archaeology to recover.
+- State invariants and contracts: preconditions, what must hold, memory/resource ownership and lifetimes (who allocates, who frees, who closes), and what the function guarantees on return.
+- Call out the non-obvious: edge cases, surprising behavior, and why a rejected alternative was rejected. One "we do X instead of Y because Z" is worth ten comments that restate the code.
+- Write full sentences — capitalized, punctuated, ending in a period. Comments are documentation, not shorthand.
+- Keep comments adjacent to what they describe and update them with the code. A stale comment is worse than no comment.
