@@ -1,5 +1,10 @@
 # AGENTS.md
 
+## Creating Plans
+
+Plans must be specific enough to hand off to implementation or review agents. Include relevant file
+paths, symbols, and line references so the agent can locate the exact code being discussed.
+
 ## Picking the right models for workflows and subagents
 
 Rankings, higher = better. Cost reflects what I actually pay (OpenAI has really generous limits), not list price. Intelligence is how hard a problem you can hand the model unsupervised. Taste covers UI/UX, code quality, API design, and copy.
