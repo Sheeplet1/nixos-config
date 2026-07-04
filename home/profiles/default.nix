@@ -125,13 +125,15 @@ in
       ]
       ++ lib.optionals cfg.rustDevelopment.enable [
         rustup
+      ]
+      ++ lib.optionals (cfg.rustDevelopment.enable && isDarwin) [
         jetbrains.rust-rover
       ]
       ++ lib.optionals cfg.typescriptDevelopment.enable [
-        biome
+        # biome
         bun
         nodejs
-        pnpm
+        # pnpm
         typescript
         typescript-language-server
       ]

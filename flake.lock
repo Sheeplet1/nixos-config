@@ -460,22 +460,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1744932701,
-        "narHash": "sha256-fusHbZCyv126cyArUwwKrLdCkgVAIaa/fQJYFlCEqiU=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -505,8 +489,7 @@
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "rust-overlay": "rust-overlay",
-        "zen-browser": "zen-browser"
+        "rust-overlay": "rust-overlay"
       }
     },
     "rust-overlay": {
@@ -582,24 +565,6 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1745111891,
-        "narHash": "sha256-CdanWCFuqBhv5rUiWcJQKKPt64kVXiIjeoPnbS0Ifpo=",
-        "owner": "omarcresp",
-        "repo": "zen-browser-flake",
-        "rev": "2e786baae33f9ab1b0f9e67191d1d6c01291b6d5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "omarcresp",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

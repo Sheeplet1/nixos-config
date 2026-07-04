@@ -26,10 +26,8 @@
     environment.systemPackages = with pkgs; [
       adwaita-icon-theme
       ags
-      chromium
       discord
       docker
-      # todoist-electron
       awww # wallpapers
       eww
       firefox
@@ -41,10 +39,8 @@
       hyprpicker
       hyprshot
       hyprsunset
-      inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
       libnotify
       libxkbcommon
-      obsidian
       orca-slicer
       papirus-icon-theme
       playerctl
@@ -53,7 +49,6 @@
       qt6.qtwayland
       spotify
       swappy # image viewer
-      ticktick
       wayland
       wl-clipboard
       wlogout

@@ -1,5 +1,4 @@
 {
-  # TODO: Eventually, need to clean up this flake and duplicated code
   description = "Top-level NixOS Flake";
 
   # Inputs
@@ -11,8 +10,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    zen-browser.url = "github:omarcresp/zen-browser-flake";
 
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
