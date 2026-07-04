@@ -11,6 +11,7 @@ let
   isDarwin = pkgs.stdenv.isDarwin;
   cfg = config.enablePackages;
 
+  agentsLocation = "${config.home.homeDirectory}/nix/AGENTS.md";
   nvimConfigLocation = "${config.home.homeDirectory}/nix/home/neovim/nvim";
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
 in
@@ -148,6 +149,8 @@ in
       ];
 
     home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;
+    home.file.".codex/AGENTS.md".source = config.lib.file.mkOutOfStoreSymlink agentsLocation;
+    home.file.".claude/CLAUDE.md".text = "@~/.codex/AGENTS.md\n";
     home.file.".scripts/".source = config.lib.file.mkOutOfStoreSymlink scriptsLocation;
     home.file.".config/jj/config.toml".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix/home/jujutsu.toml";
