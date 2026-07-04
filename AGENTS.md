@@ -28,11 +28,25 @@ Using gpt-5.5 inside workflows and subagents:
 
 ## Documenting code
 
-Write comments in prose that explain intent and contracts, not a play-by-play of the code.
+Use documentation-dense comments: comments should explain intent, contracts,
+constraints, and edge cases, not narrate the code.
 
-- Doc-comment every public declaration — types, functions, fields, constants. If it's part of the API surface, it gets a comment.
-- Explain _why_, not _what_. The code already shows what it does; the comment carries the reasoning, the tradeoff, and the context that would otherwise require archaeology to recover.
-- State invariants and contracts: preconditions, what must hold, memory/resource ownership and lifetimes (who allocates, who frees, who closes), and what the function guarantees on return.
-- Call out the non-obvious: edge cases, surprising behavior, and why a rejected alternative was rejected. One "we do X instead of Y because Z" is worth ten comments that restate the code.
-- Write full sentences — capitalized, punctuated, ending in a period. Comments are documentation, not shorthand.
-- Keep comments adjacent to what they describe and update them with the code. A stale comment is worse than no comment.
+- Doc-comment every non-boilerplate declaration using the language's conventional
+  documentation comment form. This includes declarations at all visibility levels:
+  types, fields, constants, functions, methods, constructors, helpers, and view or
+  component declarations.
+- Start doc comments with a one-sentence summary. Add paragraphs only when they carry
+  useful reasoning: invariants, preconditions, lifetime or ownership rules, edge cases,
+  rejected alternatives, or what would break if the code changed.
+- Prefer accurate observable constraints over invented rationale. If the original intent
+  is unclear, document what the code guarantees and the cases it handles.
+- For non-trivial function bodies, add inline comments at logical steps explaining why
+  that step exists. Do not comment obvious statements.
+- Write full sentences: capitalized, punctuated, period-terminated, and wrapped for
+  readability around 100 columns.
+- Keep TODOs. Do not delete them during comment or style passes.
+- Keep comments adjacent to what they describe and update them with the code. A stale
+  comment is worse than no comment.
+- Tests should have a suite-level doc comment describing what behavior the suite covers.
+  Use inline test comments only for non-obvious scenarios. Generated or untouched
+  framework boilerplate is exempt.
