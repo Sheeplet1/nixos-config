@@ -8,7 +8,8 @@
     };
     styling = {
       theme-provider = "wayle";
-      rounding = "sm";
+      rounding = "md";
+      scale = "0.5";
     };
 
     bar = {
@@ -54,7 +55,7 @@
       };
 
       hyprland-workspaces = {
-        min-workspace-count = 6;
+        min-workspace-count = 0;
         monitor-specific = false;
         show-special = false;
         display-mode = "label";
