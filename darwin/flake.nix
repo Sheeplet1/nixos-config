@@ -81,7 +81,6 @@
               "swiftformat"
               "swiftlint"
               "xcbeautify"
-              "xcode-build-server"
               "xcodes"
               "xcp"
 
@@ -101,6 +100,7 @@
               "libunibreak"
               "zimg"
               "create-dmg"
+              "xcode-build-server"
             ];
             caskArgs.no_quarantine = true;
             casks = [

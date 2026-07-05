@@ -7,7 +7,7 @@ copilot.setup({
 	suggestion = {
 		auto_trigger = true,
 		keymap = {
-			accept = "false",
+			accept = false,
 			prev = "<M-[>",
 			next = "<M-]>",
 			dismiss = "<C-e>",

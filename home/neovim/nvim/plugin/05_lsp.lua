@@ -137,6 +137,14 @@ if vim.g.enable_typescript_development ~= false then
 	}
 end
 
+if vim.g.enable_swift_development ~= false then
+	servers.sourcekit = {
+		cmd = { "sourcekit-lsp" },
+		filetypes = { "swift", "objective-c", "objective-cpp" },
+		root_dir = vim.fs.root(0, { ".git", ".xcodeproj", ".xcworkspace" }),
+	}
+end
+
 -- Svelte LSP doesn't watch for changes in .ts or .js files.
 -- This autocmd notifies the LSP when those files are updated.
 local custom_on_attach = {
