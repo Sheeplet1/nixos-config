@@ -48,13 +48,13 @@ in
 
   programs = {
     hyprlock = (import ../hyprland/hyprlock.nix { inherit pkgs; });
-    wayle = (import ../wayle.nix { inherit pkgs; });
     wofi = (import ../wofi/wofi.nix { inherit pkgs; });
   };
 
   # Services
   services.hypridle = (import ../hyprland/hypridle.nix { inherit pkgs; });
   services.hyprsunset = (import ../hyprland/hyprsunset.nix { inherit pkgs; });
+  services.wayle = (import ../wayle.nix { inherit pkgs; });
 
   wayland.windowManager.hyprland = (import ../hyprland/hyprland.nix { inherit pkgs; });
 

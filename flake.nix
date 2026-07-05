@@ -24,6 +24,10 @@
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
+
+    apple-fonts = {
+      url = "github:Lyndeno/apple-fonts.nix";
+    };
   };
 
   outputs =

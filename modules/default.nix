@@ -122,10 +122,11 @@
     MOZ_ENABLE_WAYLAND = "1";
   };
 
-  fonts.packages = with pkgs; [
-    atkinson-hyperlegible
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.iosevka
+  fonts.packages = [
+    inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
+    pkgs.atkinson-hyperlegible
+    pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nerd-fonts.iosevka
   ];
 
   programs = {
