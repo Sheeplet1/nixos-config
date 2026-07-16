@@ -111,7 +111,7 @@
               # "displaylink"
               # "flux-app"
               "ghostty"
-              "google-chrome"
+              # "google-chrome"
               # "firefox"
               # "microsoft-edge"
               # "zen"

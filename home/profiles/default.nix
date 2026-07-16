@@ -168,7 +168,7 @@ in
         enable = true;
         gitCredentialHelper.enable = true;
       };
-      fish = import ../fish.nix { inherit pkgs; };
+      fish = import ../fish.nix { inherit inputs pkgs; };
       fzf = import ../fzf.nix { inherit pkgs; };
       ghostty = import ../ghostty.nix { inherit pkgs; };
       neovim = import ../neovim/neovim.nix { inherit inputs pkgs; };

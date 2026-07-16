@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   enable = true;
   shellAliases = {
@@ -31,8 +31,19 @@
   };
 
   shellInit = ''
+    #------------------------------------------------------------------------
+    # THEME
+    #------------------------------------------------------------------------
+
     # bobthefish theme
     set -g theme_color_scheme dracula
+    set -g theme_newline_cursor no
+    set -g theme_nerd_fonts yes 
+    set -g theme_powerline_fonts yes
+
+    #------------------------------------------------------------------------
+    # TMUX
+    #------------------------------------------------------------------------
 
     # Tmux attach session or start new
     # if command -v tmux >/dev/null 2>&1
@@ -44,11 +55,11 @@
     # end
   '';
 
-  functions = {
-    fish_jj_prompt = {
-      body = builtins.readFile ./fish/functions/fish_jj_prompt.fish;
-    };
-  };
+  interactiveShellInit = ''
+    source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_prompt.fish
+    source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_right_prompt.fish
+    source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_title.fish
+  '';
 
   plugins = [
     {
@@ -59,14 +70,14 @@
       name = "fzf-fish";
       src = pkgs.fishPlugins.fzf-fish.src;
     }
-    # {
-    #   name = "bobthefish";
-    #   src = pkgs.fishPlugins.bobthefish.src;
-    # }
     {
-      name = "pure";
-      src = pkgs.fishPlugins.pure.src;
+      name = "bobthefisher";
+      src = pkgs.fishPlugins.bobthefisher.src;
     }
+    # {
+    #   name = "pure";
+    #   src = pkgs.fishPlugins.pure.src;
+    # }
     {
       name = "transient-fish";
       src = pkgs.fishPlugins.transient-fish.src;
