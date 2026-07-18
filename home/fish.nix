@@ -1,4 +1,7 @@
-{ inputs, pkgs, ... }:
+{ config, pkgs, ... }:
+let
+  fish_prompt_location = "${config.home.homeDirectory}/nix/home/fish_prompt.fish";
+in
 {
   enable = true;
   shellAliases = {
@@ -56,7 +59,8 @@
   '';
 
   interactiveShellInit = ''
-    source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_prompt.fish
+    # source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_prompt.fish
+    source ${fish_prompt_location}
     source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_right_prompt.fish
     source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_title.fish
   '';
