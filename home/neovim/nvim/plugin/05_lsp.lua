@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- Define the on_attach function which sets up key mappings for LSPs when they attach to a buffer.
-local function on_attach(_, bufnr)
+local function on_attach(client, bufnr)
 	local function opts(desc)
 		return { buffer = bufnr, desc = "LSP " .. desc }
 	end
@@ -29,6 +29,10 @@ local function on_attach(_, bufnr)
 	map("n", "gr", function()
 		Snacks.picker.lsp_references()
 	end, opts("Show references"))
+
+	if client.server_capabilities.inlayHintProvider then
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+	end
 end
 
 -- Define the on_init function which disables semantic tokens if the client supports it.
