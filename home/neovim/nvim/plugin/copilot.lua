@@ -4,6 +4,9 @@ vim.pack.add({ "https://github.com/zbirenbaum/copilot.lua" })
 local copilot = require("copilot")
 
 copilot.setup({
+	should_attach = function()
+		return false
+	end,
 	suggestion = {
 		auto_trigger = true,
 		keymap = {
