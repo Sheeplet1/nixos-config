@@ -7,6 +7,7 @@ local ts = require("nvim-treesitter")
 
 local parsers = {
 	"bash",
+	"c_sharp",
 	"css",
 	"go",
 	"html",

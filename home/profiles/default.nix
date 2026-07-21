@@ -35,6 +35,7 @@ in
     goDevelopment.enable = lib.mkEnableOption "Enable Go development packages";
     typescriptDevelopment.enable = lib.mkEnableOption "Enable TypeScript development packages";
     zigDevelopment.enable = lib.mkEnableOption "Enable Zig development packages";
+    csharpDevelopment.enable = lib.mkEnableOption "Enable CSharp development packages";
   };
 
   config = {
@@ -148,6 +149,10 @@ in
       ++ lib.optionals cfg.goDevelopment.enable [
         go
         gopls
+      ]
+      ++ lib.optionals cfg.csharpDevelopment.enable [
+        dotnet-sdk_10
+        roslyn-ls
       ];
 
     home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;

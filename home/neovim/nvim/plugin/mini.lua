@@ -27,10 +27,6 @@ require("mini.indentscope").setup({
 	options = { try_as_border = true },
 })
 
--- mini.statusline
-vim.pack.add({ "https://github.com/echasnovski/mini.statusline" })
-require("mini.statusline").setup()
-
 -- mini.tabline
 vim.pack.add({ "https://github.com/echasnovski/mini.tabline" })
 require("mini.tabline").setup()

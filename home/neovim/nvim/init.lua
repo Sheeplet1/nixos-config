@@ -12,3 +12,4 @@ vim.g.enable_typescript_development = true
 vim.g.enable_zig_development = false
 vim.g.enable_cpp_development = false
 vim.g.enable_swift_development = false
+vim.g.enable_csharp_development = true

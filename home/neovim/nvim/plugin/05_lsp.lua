@@ -149,6 +149,10 @@ if vim.g.enable_swift_development ~= false then
 	}
 end
 
+if vim.g.enable_chsarp_development ~= false then
+	servers.roslyn_ls = {}
+end
+
 -- Svelte LSP doesn't watch for changes in .ts or .js files.
 -- This autocmd notifies the LSP when those files are updated.
 local custom_on_attach = {
