@@ -17,7 +17,6 @@ Rankings, higher = better. Cost reflects what I actually pay (OpenAI has really 
 | gpt-5.6-sol | 9    | 9            | 5     |
 | sonnet-5    | 5    | 5            | 7     |
 | opus-4.8    | 4    | 7            | 8     |
-| fable-5     | 2    | 9            | 9     |
 
 How to apply:
 
@@ -25,10 +24,10 @@ How to apply:
 - Cost is a tie-breaker only; when axes conflict for anything that ships, intelligence > taste > cost.
 - Bulk/mechanical work (clear-spec implementation, data analysis, migrations): gpt-5.6-sol — it's effectively free.
 - Anything user-facing (UI, copy, API design) needs taste ≥ 7.
-- Reviews of plans/implementations: fable-5 or opus-4.8, and gpt-5.6-sol as an extra independent perspective.
+- Reviews of plans/implementations: opus-4.8, and gpt-5.6-sol as an extra independent perspective.
 - Never use Haiku.
 - Mechanics: gpt-5.6-sol is only reachable through the Codex CLI — `codex exec` / `codex review` (my `~/.codex/config.toml` defaults to gpt-5.6-sol). Prefer the plugin commands: `/codex:rescue` for implementation, fixes, and delegation; `/codex:review` for standard code review; `/codex:adversarial-review` for challenge review. Fall back to `codex exec -s read-only` directly only for raw investigation or data analysis that the plugin commands don't cover.
-- Claude models (sonnet-5, opus-4.8, fable-5) run via the Agent/Workflow model parameter.
+- Claude models (sonnet-5, opus-4.8) run via the Agent/Workflow model parameter.
 
 Using gpt-5.6-sol inside workflows and subagents:
 
