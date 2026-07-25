@@ -6,6 +6,10 @@
   ...
 }:
 {
+  imports = [
+    ./apps/excalidraw.nix
+  ];
+
   options = {
     desktop.enable = lib.mkEnableOption "enables desktop settings";
   };
@@ -26,6 +30,7 @@
     environment.systemPackages = with pkgs; [
       adwaita-icon-theme
       ags
+      # google-chrome
       discord
       docker
       awww # wallpapers
@@ -47,6 +52,7 @@
       pulseaudio
       qt5.qtwayland
       qt6.qtwayland
+      rclone
       spotify
       swappy # image viewer
       wayland
