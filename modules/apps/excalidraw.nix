@@ -10,8 +10,7 @@ let
     comment = "Create hand-drawn diagrams";
 
     exec = ''
-      ${pkgs.chromium}/bin/chromium \
-        --app=http://127.0.0.1:${toString port}
+      ${pkgs.chromium}/bin/chromium --app=http://127.0.0.1:${toString port}
     '';
 
     icon = "applications-graphics";
