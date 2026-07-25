@@ -8,13 +8,12 @@
     exec-once = [
       "swww-daemon --format xrgb"
       # "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
-      # "zen"
       "firefox"
       "ghostty"
-      "discord"
+      # "discord"
       "spotify"
-      "1password"
-      "obsidian"
+      # "1password"
+      # "obsidian"
     ]
     ++ (if pkgs.stdenv.hostPlatform.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
