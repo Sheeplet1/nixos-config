@@ -36,6 +36,7 @@ in
     typescriptDevelopment.enable = lib.mkEnableOption "Enable TypeScript development packages";
     zigDevelopment.enable = lib.mkEnableOption "Enable Zig development packages";
     csharpDevelopment.enable = lib.mkEnableOption "Enable CSharp development packages";
+    javaDevelopment.enable = lib.mkEnableOption "Enable Java development packages";
   };
 
   config = {
@@ -153,6 +154,11 @@ in
       ++ lib.optionals cfg.csharpDevelopment.enable [
         dotnet-sdk_10
         roslyn-ls
+      ]
+      ++ lib.optionals cfg.javaDevelopment.enable [
+        jdk25
+        jetbrains.idea
+        maven
       ];
 
     home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink nvimConfigLocation;

@@ -15,8 +15,7 @@ in
 
   enablePackages.shellDevelopment.enable = true;
   enablePackages.rustDevelopment.enable = true;
-  enablePackages.typescriptDevelopment.enable = true;
-  enablePackages.csharpDevelopment.enable = true;
+  enablePackages.javaDevelopment.enable = true;
 
   home.sessionVariables = {
     XDG_CONFIG_HOME = "$HOME/.config";
