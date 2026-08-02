@@ -25,6 +25,11 @@
     #   url = "github:oxalica/rust-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -33,6 +38,7 @@
       nixpkgs,
       nix-homebrew,
       home-manager,
+      mac-app-util,
       ...
     }@inputs:
     let
@@ -70,12 +76,11 @@
             brews = [
               "coreutils"
               "docker"
-              # "jq"
               "mas"
-              # "node"
+              "node"
               "pipx"
               "pngpaste"
-              # "rg"
+              "hunk"
 
               # Swift Development Tools
               "swiftformat"
@@ -85,22 +90,22 @@
               "xcp"
 
               # TECH DEBT: jellyfin-desktop build dependencies
-              "cmake"
-              "ninja"
-              "meson"
-              "pkgconf"
-              "ffmpeg"
-              "libplacebo"
-              "libass"
-              "luajit"
-              "vulkan-loader"
-              "vulkan-headers"
-              "molten-vk"
-              "little-cms2"
-              "libunibreak"
-              "zimg"
-              "create-dmg"
-              "xcode-build-server"
+              # "cmake"
+              # "ninja"
+              # "meson"
+              # "pkgconf"
+              # "ffmpeg"
+              # "libplacebo"
+              # "libass"
+              # "luajit"
+              # "vulkan-loader"
+              # "vulkan-headers"
+              # "molten-vk"
+              # "little-cms2"
+              # "libunibreak"
+              # "zimg"
+              # "create-dmg"
+              # "xcode-build-server"
             ];
             caskArgs.no_quarantine = true;
             casks = [
@@ -119,7 +124,8 @@
               "iina"
               "microsoft-office"
               "1password"
-              "obsidian"
+              # "obsidian"
+              "oracle-jdk@25"
               "orcaslicer"
               "rectangle"
               # "sublime-text"
@@ -187,12 +193,17 @@
             };
           }
 
+          mac-app-util.darwinModules.default
+
           #  Home-manager module
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.anthonydo = import ./home.nix;
+            home-manager.sharedModules = [
+              mac-app-util.homeManagerModules.default
+            ];
           }
         ];
       };

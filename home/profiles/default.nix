@@ -68,6 +68,7 @@ in
         just
         lazygit
         meslo-lgs-nf
+        nodejs
         python3
         ripgrep
         stow
@@ -156,7 +157,6 @@ in
         roslyn-ls
       ]
       ++ lib.optionals cfg.javaDevelopment.enable [
-        jdk25
         jetbrains.idea
         maven
       ];

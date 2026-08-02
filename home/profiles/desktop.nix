@@ -48,6 +48,10 @@ in
 
   programs = {
     hyprlock = (import ../hyprland/hyprlock.nix { inherit pkgs; });
+    java = {
+      enable = true;
+      package = pkgs.jdk25;
+    };
     wofi = (import ../wofi/wofi.nix { inherit pkgs; });
   };
 
