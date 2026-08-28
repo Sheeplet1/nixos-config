@@ -37,12 +37,12 @@
       dim_strength = 0.1;
       dim_special = 0.8;
 
-      shadow = {
-        enabled = true;
-        color = "rgb(211, 134, 155)";
-        range = 6;
-        render_power = 1;
-      };
+      # shadow = {
+      #   enabled = true;
+      #   color = "rgb(211, 134, 155)";
+      #   range = 6;
+      #   render_power = 1;
+      # };
 
       blur = {
         enabled = true;
