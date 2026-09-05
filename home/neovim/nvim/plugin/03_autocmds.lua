@@ -2,12 +2,14 @@ local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
 -- Highlight when yanking text
-autocmd("TextYankPost", {
-	desc = "Highlight when yanking text",
-	group = augroup("UserHighlightYank", { clear = true }),
+autocmd({ "TextYankPost", "TextPutPost" }, {
 	callback = function()
-		vim.highlight.on_yank()
+		vim.hl.hl_op({
+			higroup = "Visual",
+			timeout = 300,
+		})
 	end,
+	desc = "Highlight yanked and pasted text",
 })
 
 -- Set the commentstring for C++ files to use "//"

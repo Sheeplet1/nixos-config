@@ -130,7 +130,7 @@ in
         rustup
       ]
       ++ lib.optionals (cfg.rustDevelopment.enable && isDarwin) [
-        jetbrains.rust-rover
+        # jetbrains.rust-rover
       ]
       ++ lib.optionals cfg.typescriptDevelopment.enable [
         # biome
