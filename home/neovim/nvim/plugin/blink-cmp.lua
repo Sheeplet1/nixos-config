@@ -1,4 +1,4 @@
-vim.pack.add({ 'https://github.com/saghen/blink.lib' })
+vim.pack.add({ "https://github.com/saghen/blink.lib" })
 vim.pack.add({ "https://github.com/saghen/blink.cmp" })
 vim.pack.add({ "https://github.com/rafamadriz/friendly-snippets" })
 
@@ -88,7 +88,7 @@ blink.setup({
 	},
 	fuzzy = { implementation = "lua" },
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer", "omni" },
+		default = { "lsp", "path", "snippets", "buffer" },
 		providers = {
 			lsp = {
 				min_keyword_length = 2,
