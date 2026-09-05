@@ -5,7 +5,7 @@
     styling = {
       theme-provider = "wayle";
       rounding = "md";
-      scale = "0.5";
+      scale = "0.25";
     };
 
     bar = {
@@ -15,6 +15,7 @@
       padding = 0.35;
       padding-ends = 0.5;
       module-gap = 0.5;
+      scale = 0.80;
       button-variant = "block-prefix";
       button-rounding = "sm";
       button-label-weight = "semibold";

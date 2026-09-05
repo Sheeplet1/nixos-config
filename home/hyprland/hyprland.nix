@@ -7,19 +7,15 @@
 
     exec-once = [
       "swww-daemon --format xrgb"
-      # "~/.scripts/wallpaper_auto_change.sh ~/Pictures/wallpapers"
       "firefox"
       "ghostty"
-      # "discord"
       "spotify"
-      # "1password"
-      # "obsidian"
     ]
     ++ (if pkgs.stdenv.hostPlatform.system == "x86_64-linux" then [ "hyprlock" ] else [ ]);
 
     general = {
       gaps_in = 8;
-      gaps_out = 16;
+      gaps_out = 8;
       border_size = 2;
       resize_on_border = true;
       layout = "master";
@@ -35,13 +31,6 @@
       dim_inactive = true;
       dim_strength = 0.1;
       dim_special = 0.8;
-
-      # shadow = {
-      #   enabled = true;
-      #   color = "rgb(211, 134, 155)";
-      #   range = 6;
-      #   render_power = 1;
-      # };
 
       blur = {
         enabled = true;
