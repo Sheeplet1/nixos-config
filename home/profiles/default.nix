@@ -8,7 +8,7 @@
   ...
 }:
 let
-  isDarwin = pkgs.stdenv.isDarwin;
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   cfg = config.enablePackages;
 
   agentsLocation = "${config.home.homeDirectory}/nix/AGENTS.md";

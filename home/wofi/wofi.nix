@@ -2,99 +2,44 @@
 {
   enable = true;
   style = ''
-    /* Everforest */
-    @define-color accent #A7C080;
-    @define-color txt #D3C6AA;
-    @define-color bg #2B3339;
-    @define-color bg2 #333C43;
-
-    * {
-      font-family: "CaskaydiaCove Nerd Font mono";
-      font-size: 14px;
-    }
-
-    /* Window */
     window {
-      margin: 0px;
-      padding: 10px;
-      border: 3px solid @accent;
-      border-radius: 7px;
-      background-color: @bg;
-      animation: slideIn 0.5s ease-in-out both;
+    margin: 0px;
+    border: 1px solid #928374;
+    background-color: #282828;
     }
 
-    /* Slide In */
-    @keyframes slideIn {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    /* Inner Box */
-    #inner-box {
-      margin: 5px;
-      padding: 10px;
-      border: none;
-      background-color: @bg;
-      animation: fadeIn 0.5s ease-in-out both;
-    }
-
-    /* Fade In */
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    /* Outer Box */
-    #outer-box {
-      margin: 5px;
-      padding: 10px;
-      border: none;
-      background-color: @bg;
-    }
-
-    /* Scroll */
-    #scroll {
-      margin: 0px;
-      padding: 10px;
-      border: none;
-    }
-
-    /* Input */
     #input {
-      margin: 5px;
-      padding: 10px;
-      border: none;
-      color: @accent;
-      background-color: @bg2;
-      animation: fadeIn 0.5s ease-in-out both;
+    margin: 5px;
+    border: none;
+    color: #ebdbb2;
+    background-color: #1d2021;
     }
 
-    /* Text */
+    #inner-box {
+    margin: 5px;
+    border: none;
+    background-color: #282828;
+    }
+
+    #outer-box {
+    margin: 5px;
+    border: none;
+    background-color: #282828;
+    }
+
+    #scroll {
+    margin: 0px;
+    border: none;
+    }
+
     #text {
-      margin: 5px;
-      padding: 10px;
-      border: none;
-      color: @txt;
-      animation: fadeIn 0.5s ease-in-out both;
+    margin: 5px;
+    border: none;
+    color: #ebdbb2;
     }
 
-    /* Selected Entry */
     #entry:selected {
-      background-color: @accent;
-    }
-
-    #entry:selected #text {
-      color: @bg;
+    background-color: #1d2021;
     }
   '';
 }
