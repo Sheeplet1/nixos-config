@@ -25,8 +25,9 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
-    apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -34,39 +35,19 @@
     {
       nixpkgs,
       home-manager,
+      stylix,
       ...
     }@inputs:
     let
     in
     {
-      nixosConfigurations.aarch64 = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./machines/vm-aarch64.nix
-
-          # Import all overlays
-          (import ./overlays)
-
-          home-manager.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.anthonyd = import ./home/profiles/default.nix;
-          }
-        ];
-      };
-
       nixosConfigurations.linux = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
         };
         modules = [
+          stylix.nixosModules.stylix
           ./machines/desktop.nix
 
           # Import all overlays

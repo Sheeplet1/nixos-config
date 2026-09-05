@@ -3,7 +3,7 @@
   enable = true;
   settings = {
     general = {
-      font-sans = "SF Pro Display Nerd Font";
+      font-sans = "JetBrains Mono Nerd Font";
 
     };
     styling = {

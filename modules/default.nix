@@ -123,7 +123,6 @@
   };
 
   fonts.packages = [
-    inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
     pkgs.atkinson-hyperlegible
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.nerd-fonts.iosevka
