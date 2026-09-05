@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{ config, ... }:
+let
+  colors = config.lib.stylix.colors;
+  font = config.stylix.fonts.monospace.name;
+in
 {
   enable = true;
   settings = {
@@ -26,13 +30,14 @@
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.35; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "rgba(0, 0, 0, 0)";
-        inner_color = "rgba(0, 0, 0, 0.2)";
-        font_color = "$foreground";
+        outer_color = "rgba(${colors.base03}00)";
+        inner_color = "rgba(${colors.base00}33)";
+        font_color = "rgb(${colors.base05})";
+        fail_color = "rgb(${colors.base08})";
         fade_on_empty = false;
         rounding = -1;
-        check_color = "rgb(204, 136, 34)";
-        placeholder_text = "<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
+        check_color = "rgb(${colors.base0A})";
+        placeholder_text = "<i><span foreground=\"##${colors.base05}\">Input Password...</span></i>";
         hide_input = false;
         position = "0, -60";
         halign = "center";
@@ -45,9 +50,9 @@
         # Date
         monitor = "";
         text = "cmd[update:1000] echo \"$(date +\"%A, %B %d\")\"";
-        color = "rgba(242, 243, 244, 0.75)";
+        color = "rgba(${colors.base05}bf)";
         font_size = 22;
-        font_family = "JetBrains Mono";
+        font_family = font;
         position = "0, 300";
         halign = "center";
         valign = "center";
@@ -56,9 +61,9 @@
         # Time
         monitor = "";
         text = "cmd[update:1000] echo \"$(date +\"%-I:%M\")\"";
-        color = "rgba(242, 243, 244, 0.75)";
+        color = "rgba(${colors.base05}bf)";
         font_size = 95;
-        font_family = "JetBrains Mono";
+        font_family = font;
         position = "0, 200";
         halign = "center";
         valign = "center";
@@ -67,9 +72,9 @@
         # "Hi there, {$USER}"
         monitor = "";
         text = "cmd[update:1000] echo Hi there, $USER";
-        color = "rgba(242, 243, 244, 0.75)";
+        color = "rgba(${colors.base05}bf)";
         font_size = 20;
-        font_family = "JetBrains Mono";
+        font_family = font;
         position = "0, 0";
         halign = "center";
         valign = "center";

@@ -1190,13 +1190,21 @@ function __bobthefish_prompt_git -S -a git_root_dir -a real_pwd -d 'Display the 
         end
 
         set -l jj_color bd93f9
+        set -q color_jj_clean
+        and set jj_color $color_jj_clean
         if [ "$jj_dirty" ]
             set jj_color ff5555
+            set -q color_jj_dirty
+            and set jj_color $color_jj_dirty
         end
+
+        set -l jj_background 282a36
+        set -q color_jj_background
+        and set jj_background $color_jj_background
 
         __bobthefish_path_segment $git_root_dir project
 
-        __bobthefish_start_segment $jj_color 282a36
+        __bobthefish_start_segment $jj_color $jj_background
         echo -ns jj ' '
         set_color normal
     else

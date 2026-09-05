@@ -10,6 +10,7 @@ let
 in
 {
   imports = [
+    ../stylix.nix
     ./default.nix
   ];
 
@@ -33,20 +34,11 @@ in
   # Defining symlinks
   home.file."Pictures/wallpapers/".source = config.lib.file.mkOutOfStoreSymlink wallpapersLocation;
 
-  # GTK Theming
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Everforest-Dark-BL";
-      package = pkgs.everforest-gtk-theme;
-    };
-    gtk4 = {
-      theme = config.gtk.theme;
-    };
-  };
+  # The native target cannot merge its singleton attributes with this layout's lists.
+  stylix.targets.hyprlock.enable = false;
 
   programs = {
-    hyprlock = (import ../hyprland/hyprlock.nix { inherit pkgs; });
+    hyprlock = (import ../hyprland/hyprlock.nix { inherit config; });
     java = {
       enable = true;
       package = pkgs.jdk25;

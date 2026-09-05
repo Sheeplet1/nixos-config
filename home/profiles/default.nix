@@ -4,12 +4,14 @@
   inputs,
   lib,
   config,
+  options,
   pkgs,
   ...
 }:
 let
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   cfg = config.enablePackages;
+  stylixEnabled = options ? stylix && config.stylix.enable;
 
   agentsLocation = "${config.home.homeDirectory}/nix/AGENTS.md";
   nvimConfigLocation = "${config.home.homeDirectory}/nix/home/neovim/nvim";
@@ -47,10 +49,6 @@ in
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
       EDITOR = "nvim";
       NIX_NEOVIM = "1"; # Disabling Mason on NixOS
-
-      # API Keys
-      # OPENAI_API_KEY = "op://Personal/openapi-personal/credential";
-      # GEMINI_API_KEY = "op://Personal/gemini-personal/credential";
     };
 
     home.packages =
@@ -65,8 +63,6 @@ in
         fd
         jq
         jujutsu
-        just
-        lazygit
         meslo-lgs-nf
         nodejs
         python3
@@ -78,15 +74,12 @@ in
         uv
         wget
         yarn
-        yazi
         zip
-        zsh-powerlevel10k
+        # zsh-powerlevel10k
       ]
       ++ (
         if isDarwin then
-          [
-            cocoapods
-          ]
+          [ cocoapods ]
         else
           [
             # Apple silicon is not supported. We use Instruments instead.
@@ -181,13 +174,17 @@ in
       };
       fish = import ../fish.nix { inherit config pkgs; };
       fzf = import ../fzf.nix { inherit pkgs; };
-      ghostty = import ../ghostty.nix { inherit pkgs; };
+      ghostty = import ../ghostty.nix { inherit lib pkgs stylixEnabled; };
       neovim = import ../neovim/neovim.nix { inherit inputs pkgs; };
-      # starship = import ../starship.nix { inherit pkgs; };
-      tmux = import ../tmux.nix { inherit inputs pkgs; };
+      tmux = import ../tmux.nix {
+        inherit
+          inputs
+          lib
+          pkgs
+          stylixEnabled
+          ;
+      };
       zoxide = import ../zoxide.nix { inherit pkgs; };
-      # zsh = import ../zsh.nix { inherit pkgs config; };
-      # vim = import ../vim.nix { inherit pkgs; };
       direnv = {
         enable = true;
         enableZshIntegration = true;

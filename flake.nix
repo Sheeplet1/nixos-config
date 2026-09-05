@@ -47,7 +47,6 @@
           inherit inputs;
         };
         modules = [
-          stylix.nixosModules.stylix
           ./machines/desktop.nix
 
           # Import all overlays
@@ -61,6 +60,7 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.anthonyd = import ./home/profiles/desktop.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.sharedModules = [ stylix.homeModules.stylix ];
           }
 
           {

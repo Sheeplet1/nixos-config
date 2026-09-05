@@ -2,10 +2,6 @@
 {
   enable = true;
   settings = {
-    general = {
-      font-sans = "JetBrains Mono Nerd Font";
-
-    };
     styling = {
       theme-provider = "wayle";
       rounding = "md";
@@ -14,7 +10,6 @@
 
     bar = {
       location = "top";
-      background-opacity = 100;
       rounding = "no";
       border-location = "none";
       padding = 0.35;

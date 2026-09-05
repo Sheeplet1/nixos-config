@@ -23,7 +23,6 @@
       border_size = 2;
       resize_on_border = true;
       layout = "master";
-      "col.active_border" = "rgb(d3869b) rgb(d3869b)";
     };
 
     decoration = {

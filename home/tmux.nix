@@ -1,6 +1,9 @@
-{ pkgs, ... }:
-let
-in
+{
+  lib,
+  pkgs,
+  stylixEnabled ? false,
+  ...
+}:
 {
   enable = true;
   baseIndex = 1;
@@ -12,23 +15,25 @@ in
   prefix = "C-a";
   shell = "${pkgs.fish}/bin/fish";
 
-  plugins = with pkgs.tmuxPlugins; [
-    vim-tmux-navigator
-    yank
-    resurrect
-    copycat
-    continuum
-    # {
-    #   plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
-    #   extraConfig = ''
-    #     set -g @minimal-tmux-justify "left"
-    #     set -g @minimal-tmux-indicator false
-    #   '';
-    # }
-    onedark-theme
-    # tokyo-night-tmux
-    # gruvbox
-  ];
+  plugins =
+    with pkgs.tmuxPlugins;
+    [
+      vim-tmux-navigator
+      yank
+      resurrect
+      copycat
+      continuum
+      # {
+      #   plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
+      #   extraConfig = ''
+      #     set -g @minimal-tmux-justify "left"
+      #     set -g @minimal-tmux-indicator false
+      #   '';
+      # }
+      # tokyo-night-tmux
+      # gruvbox
+    ]
+    ++ lib.optionals (!stylixEnabled) [ onedark-theme ];
 
   extraConfig = ''
     set -g mouse on
@@ -36,7 +41,7 @@ in
 
     set-option -sa terminal-overrides ",xterm-256color:RGB"
 
-    set -g status-style 'bg=#333333 fg=#5eacd3'
+    ${lib.optionalString (!stylixEnabled) "set -g status-style 'bg=#333333 fg=#5eacd3'"}
 
     # Start windows and panes at 1, not 0
     set -g base-index 1
