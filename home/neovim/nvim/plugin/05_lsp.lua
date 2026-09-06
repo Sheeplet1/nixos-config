@@ -30,9 +30,10 @@ local function on_attach(client, bufnr)
 		Snacks.picker.lsp_references()
 	end, opts("Show references"))
 
-	if client.server_capabilities.inlayHintProvider then
-		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-	end
+	-- if client.server_capabilities.inlayHintProvider then
+	-- 	vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+	-- end
+	vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
 end
 
 -- Define the on_init function which disables semantic tokens if the client supports it.
