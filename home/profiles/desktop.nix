@@ -6,6 +6,10 @@
   ...
 }:
 let
+  atkinsonHyperlegible = {
+    package = pkgs.atkinson-hyperlegible;
+    name = "Atkinson Hyperlegible";
+  };
   wallpapersLocation = "${config.home.homeDirectory}/nix/home/hyprland/wallpapers";
 in
 {
@@ -34,10 +38,32 @@ in
   # Defining symlinks
   home.file."Pictures/wallpapers/".source = config.lib.file.mkOutOfStoreSymlink wallpapersLocation;
 
-  # The native target cannot merge its singleton attributes with this layout's lists.
-  stylix.targets.hyprlock.enable = false;
+  stylix.targets = {
+    firefox = {
+      profileNames = [ "default" ];
+      fonts.override = {
+        sansSerif = atkinsonHyperlegible;
+        serif = atkinsonHyperlegible;
+      };
+    };
+
+    # The native target cannot merge its singleton attributes with this layout's lists.
+    hyprlock.enable = false;
+  };
 
   programs = {
+    firefox = {
+      enable = true;
+
+      # Firefox is installed system-wide, so Home Manager only manages its profile.
+      package = null;
+
+      # Firefox already follows XDG_CONFIG_HOME, while Home Manager 24.11 defaults to ~/.mozilla.
+      configPath = ".config/mozilla/firefox";
+
+      # Target the existing profile instead of creating a blank one.
+      profiles.default.path = "hwdpg3rl.default";
+    };
     hyprlock = (import ../hyprland/hyprlock.nix { inherit config; });
     java = {
       enable = true;
