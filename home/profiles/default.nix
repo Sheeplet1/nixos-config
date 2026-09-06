@@ -13,9 +13,13 @@ let
   cfg = config.enablePackages;
   stylixEnabled = options ? stylix && config.stylix.enable;
 
+  # Paths for symlinking
   agentsLocation = "${config.home.homeDirectory}/nix/AGENTS.md";
   nvimConfigLocation = "${config.home.homeDirectory}/nix/home/neovim/nvim";
   scriptsLocation = "${config.home.homeDirectory}/nix/home/scripts";
+
+  # We use 1Password to manage our SSH keys
+  onePassPath = "~/.1password/agent.sock";
 in
 {
   options.enablePackages = {
@@ -176,6 +180,13 @@ in
       fzf = import ../fzf.nix { inherit pkgs; };
       ghostty = import ../ghostty.nix { inherit lib pkgs stylixEnabled; };
       neovim = import ../neovim/neovim.nix { inherit inputs pkgs; };
+      ssh = {
+        enable = true;
+        extraConfig = ''
+          Host *
+            IdentityAgent ${onePassPath}
+        '';
+      };
       tmux = import ../tmux.nix {
         inherit
           inputs

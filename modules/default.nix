@@ -148,7 +148,6 @@
       xkb.layout = "au";
       # BUG: https://github.com/nixos/nixpkgs/issues/439073 - evdi build failures.
       videoDrivers = [
-        "displaylink"
         "modesetting"
       ];
     };
