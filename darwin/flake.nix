@@ -21,13 +21,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # rust-overlay = {
-    #   url = "github:oxalica/rust-overlay";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     mac-app-util = {
       url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+    };
+
+    stylix = {
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -38,6 +47,9 @@
       nixpkgs,
       nix-homebrew,
       home-manager,
+      rust-overlay,
+      stylix,
+      neovim-nightly-overlay,
       mac-app-util,
       ...
     }@inputs:
@@ -203,6 +215,7 @@
             home-manager.users.anthonydo = import ./home.nix;
             home-manager.sharedModules = [
               mac-app-util.homeManagerModules.default
+              stylix.homeModules.stylix
             ];
           }
         ];
