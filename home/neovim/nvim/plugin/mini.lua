@@ -17,8 +17,8 @@ require("mini.move").setup({
 })
 
 -- mini.pairs
-vim.pack.add({ "https://github.com/echasnovski/mini.pairs" })
-require("mini.pairs").setup({})
+-- vim.pack.add({ "https://github.com/echasnovski/mini.pairs" })
+-- require("mini.pairs").setup({})
 
 -- mini.indentscope
 vim.pack.add({ "https://github.com/echasnovski/mini.indentscope" })

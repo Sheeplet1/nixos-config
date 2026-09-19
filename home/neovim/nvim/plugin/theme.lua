@@ -8,6 +8,17 @@ if vim.env.STYLIX_ENABLED ~= "1" then
 	vim.cmd.colorscheme("gruvbox")
 end
 
--- Make comments more prominent because they carry important context.
-local booleans = vim.api.nvim_get_hl(0, { name = "Boolean" })
-vim.api.nvim_set_hl(0, "Comment", booleans)
+-- Less visible window separator
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = 1250067 })
+
+-- Make comments more prominent -- they are important.
+local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
+vim.api.nvim_set_hl(0, "Comment", bools)
+
+-- Make it clearly visible which argument we're at.
+local marked = vim.api.nvim_get_hl(0, { name = "PMenu" })
+vim.api.nvim_set_hl(
+	0,
+	"LspSignatureActiveParameter",
+	{ fg = marked.fg, bg = marked.bg, ctermfg = marked.ctermfg, ctermbg = marked.ctermbg, bold = true }
+)
