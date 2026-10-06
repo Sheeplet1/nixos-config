@@ -33,7 +33,7 @@
       # tokyo-night-tmux
       # gruvbox
     ]
-    ++ lib.optionals (!stylixEnabled) [ onedark-theme ];
+    ++ lib.optionals (!stylixEnabled) [ gruvbox ];
 
   extraConfig = ''
     set -g mouse on
@@ -103,6 +103,6 @@
     bind-key -n M-L next-window
 
     # Move statusline to the top 
-    set -g status-position top
+    # set -g status-position top
   '';
 }

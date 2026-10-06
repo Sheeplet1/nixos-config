@@ -33,13 +33,20 @@ in
     k = "kubectl";
   };
 
-  shellInit = ''
+  shellInit = "";
+
+  interactiveShellInit = ''
+    # source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_prompt.fish
+    source ${fish_prompt_location}
+    source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_right_prompt.fish
+    source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_title.fish
+
     #------------------------------------------------------------------------
     # THEME
     #------------------------------------------------------------------------
 
     # bobthefish theme
-    set -g theme_color_scheme dracula
+    set -g theme_color_scheme gruvbox 
     set -g theme_newline_cursor no
     set -g theme_nerd_fonts yes 
     set -g theme_powerline_fonts yes
@@ -50,20 +57,13 @@ in
     #------------------------------------------------------------------------
 
     # Tmux attach session or start new
-    # if command -v tmux >/dev/null 2>&1
-    #     and status is-interactive
-    #     and not set -q TMUX
-    #     and not string match -rq 'screen|tmux' -- "$TERM"
-    #
-    #     tmux attach 2>/dev/null; or tmux
-    # end
-  '';
+    if command -v tmux >/dev/null 2>&1
+        and status is-interactive
+        and not set -q TMUX
+        and not string match -rq 'screen|tmux' -- "$TERM"
 
-  interactiveShellInit = ''
-    # source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_prompt.fish
-    source ${fish_prompt_location}
-    source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_right_prompt.fish
-    source ${pkgs.fishPlugins.bobthefish.src}/functions/fish_title.fish
+        tmux attach 2>/dev/null; or tmux
+    end
   '';
 
   plugins = [
