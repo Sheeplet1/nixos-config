@@ -63,12 +63,15 @@
 
           # BUG: GDB Build error on Darwin
           # https://github.com/nixos/nixpkgs/issues/483562
-          nixpkgs.overlays = [
-            (import ../overlays/gdb-disable-werror.nix)
-          ];
+          # nixpkgs.overlays = [
+          #   (import ../overlays/gdb-disable-werror.nix)
+          # ];
 
           environment.systemPackages = with pkgs; [
             gdb
+          ];
+          environment.shells = with pkgs; [
+            fish
           ];
 
           fonts.packages = with pkgs; [
@@ -77,8 +80,11 @@
           ];
 
           programs.fish.enable = true;
+          # nix-darwin only updates the login shell of existing managed users.
+          users.knownUsers = [ "anthonydo" ];
           users.users.anthonydo = {
             name = "anthonydo";
+            uid = 501;
             home = "/Users/anthonydo";
             shell = pkgs.fish;
           };
@@ -119,34 +125,27 @@
               # "create-dmg"
               # "xcode-build-server"
             ];
-            caskArgs.no_quarantine = true;
             casks = [
               # "aerospace"
               # "betterdisplay"
               "claude-code"
+              "chatgpt"
               "discord"
-              # "displaylink"
-              # "flux-app"
               "ghostty"
               # "google-chrome"
-              # "firefox"
+              "firefox"
               # "microsoft-edge"
               # "zen"
               # "brave-browser"
               "iina"
               "microsoft-office"
               "1password"
-              # "obsidian"
               "oracle-jdk@25"
               "orcaslicer"
               "rectangle"
-              # "sublime-text"
-              # "ticktick"
               "the-unarchiver"
               "scroll-reverser"
               "spotify"
-              # "whatsapp"
-              # "zed"
             ];
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;

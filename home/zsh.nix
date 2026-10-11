@@ -82,6 +82,10 @@
     # source $HOME/.scripts/bw.sh
     # export GEMINI_API_KEY=$(bw get password gemini-api-key)
     # export OPENAI_API_KEY=$(bw get password openai-api-key)
+
+    if [[ -o interactive ]]; then
+      exec fish
+    fi
   '';
 
   plugins = [
