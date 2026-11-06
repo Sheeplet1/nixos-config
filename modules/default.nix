@@ -134,6 +134,7 @@
     lazygit.enable = true;
     # zsh.enable = true;
     fish.enable = true;
+    solaar.enable = true;
   };
 
   services = {
@@ -147,10 +148,6 @@
     xserver = {
       enable = true;
       xkb.layout = "au";
-      # BUG: https://github.com/nixos/nixpkgs/issues/439073 - evdi build failures.
-      videoDrivers = [
-        "modesetting"
-      ];
     };
   };
 
@@ -166,7 +163,6 @@
     graphics.enable = true;
     logitech.wireless = {
       enable = true;
-      enableGraphical = true;
     };
   };
 

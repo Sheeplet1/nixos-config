@@ -31,7 +31,6 @@ in
   };
 
   home.packages = with pkgs; [
-    opencode
     dconf # required for gtk.enable
   ];
 
@@ -50,6 +49,8 @@ in
     # The native target cannot merge its singleton attributes with this layout's lists.
     hyprlock.enable = false;
   };
+
+  stylix.overlays.enable = false;
 
   programs = {
     firefox = {

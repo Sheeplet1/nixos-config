@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
@@ -29,8 +28,6 @@
 
     environment.systemPackages = with pkgs; [
       adwaita-icon-theme
-      ags
-      # google-chrome
       discord
       docker
       awww # wallpapers
@@ -39,7 +36,6 @@
       gtk3
       hyprcursor
       hypridle
-      hyprland-qtutils
       hyprlock
       hyprpicker
       hyprshot
