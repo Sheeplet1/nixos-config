@@ -20,6 +20,7 @@ in
 
   enablePackages.shellDevelopment.enable = true;
   enablePackages.rustDevelopment.enable = true;
+  enablePackages.goDevelopment.enable = true;
 
   home.sessionVariables = {
     XDG_CONFIG_HOME = "$HOME/.config";
