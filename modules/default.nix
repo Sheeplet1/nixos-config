@@ -151,14 +151,6 @@
     };
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   hardware = {
     graphics.enable = true;
     logitech.wireless = {
@@ -170,11 +162,6 @@
     autostart.enable = true;
     portal = {
       enable = true;
-      # xdg-desktop-portal 1.17 reworked how portal implementations are loaded, you
-      # should either set `xdg.portal.config` or `xdg.portal.configPackages`
-      # to specify which portal backend to use for the requested interface.
-      # If you simply want to keep the behaviour in < 1.17, which uses the first
-      # portal implementation found in lexicographical order, use the following:
       config.common.default = "*";
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk

@@ -11,14 +11,13 @@
   config = lib.mkIf config.atHome.enable {
     networking = {
       networkmanager.dns = "none";
-      # Point DNS to Pihole
       nameservers = [
-        "192.168.50.50"
-        "192.168.50.1"
+        "192.168.50.50" # PiHole
+        "192.168.50.1" # Gateway
       ];
       networkmanager.insertNameservers = [
-        "192.168.50.50"
-        "192.168.50.1"
+        "192.168.50.50" # PiHole
+        "192.168.50.1" # Gateway
       ];
     };
   };

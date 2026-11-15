@@ -1,8 +1,6 @@
 {
   description = "Top-level NixOS Flake";
 
-  # Inputs
-  # https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-flake.html#flake-inputs
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -29,6 +27,10 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rex = {
+      url = "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz";
+    };
   };
 
   outputs =
@@ -36,6 +38,7 @@
       nixpkgs,
       home-manager,
       stylix,
+      rex,
       ...
     }@inputs:
     let
@@ -63,10 +66,27 @@
             home-manager.sharedModules = [ stylix.homeModules.stylix ];
           }
 
+          # Rex home-manager setup
           {
-            nixpkgs.config.permittedInsecurePackages = [
-              "qtwebengine-5.15.19"
-            ];
+            # Persist rex server even when the user logs out
+            users.users.anthonyd.linger = true;
+
+            home-manager.users.anthonyd = {
+              imports = [ rex.homeManagerModules.default ];
+              programs = {
+                rex.enable = true;
+                ssh.enable = true;
+              };
+              services = {
+                rex = {
+                  enable = true;
+                  tailscale = {
+                    enable = true;
+                    hostname = "anthonyd-dev";
+                  };
+                };
+              };
+            };
           }
         ];
       };
